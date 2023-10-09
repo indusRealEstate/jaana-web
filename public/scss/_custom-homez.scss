@@ -270,7 +270,7 @@ header.nav-homepage-style.sticky.at-home3 .sidemenu-btn .img-1 {
 // light header
 .nav-homepage-style.light-header {
     position: static;
-    background-color: #fff;
+    background-color: var(--bg-color);
     -webkit-box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07);
     box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07);
     &.sticky {
@@ -282,7 +282,7 @@ header.nav-homepage-style.sticky.at-home3 .sidemenu-btn .img-1 {
 }
 
 header.nav-homepage-style.light-header .ace-responsive-menu a {
-    color: var(--headings-color);
+    color: var(--tan-color);
 }
 
 // mobile off canvas sidebar

@@ -7,28 +7,28 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-const DefaultHeader = () => {
+const Header = () => {
   const [navbar, setNavbar] = useState(false);
 
-  // const changeBackground = () => {
-  //   if (window.scrollY >= 10) {
-  //     setNavbar(true);
-  //   } else {
-  //     setNavbar(false);
-  //   }
-  // };
+  const changeBackground = () => {
+    if (window.scrollY >= 10) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", changeBackground);
-  //   return () => {
-  //     window.removeEventListener("scroll", changeBackground);
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", changeBackground);
+    return () => {
+      window.removeEventListener("scroll", changeBackground);
+    };
+  }, []);
 
   return (
     <>
       <header
-        className={`header-nav nav-homepage-style light-header menu-home4 main-menu ${
+        className={`header-nav nav-homepage-style at-home5 main-menu  ${
           navbar ? "sticky slideInDown animated" : ""
         }`}
       >
@@ -40,11 +40,9 @@ const DefaultHeader = () => {
                   <div className="logos mr40">
                     <Link className="header-logo logo1" href="/">
                       <Image
-                        width={130}
-                        height={50}
-                        objectFit="cover"
-                        objectPosition="center"
-                        src="/images/logo/light-logo.svg"
+                        width={138}
+                        height={44}
+                        src="/images/header-logo.svg"
                         alt="Header Logo"
                       />
                     </Link>
@@ -52,9 +50,7 @@ const DefaultHeader = () => {
                       <Image
                         width={138}
                         height={44}
-                        objectFit="cover"
-                        objectPosition="center"
-                        src="/images/logo/light-logo.svg"
+                        src="/images/header-logo2.svg"
                         alt="Header Logo"
                       />
                     </Link>
@@ -69,23 +65,23 @@ const DefaultHeader = () => {
 
               <div className="col-auto">
                 <div className="d-flex align-items-center">
-                  {/* <a
+                  <a
                     href="#"
-                    className="login-info d-flex align-items-cente"
+                    className="login-info d-flex align-items-center"
                     data-bs-toggle="modal"
                     data-bs-target="#loginSignupModal"
                     role="button"
                   >
                     <i className="far fa-user-circle fz16 me-2" />{" "}
                     <span className="d-none d-xl-block">Login / Register</span>
-                  </a> */}
-                  {/* <Link
-                    className="ud-btn btn-white add-property bdrs60 mx-2 mx-xl-4"
+                  </a>
+                  <Link
+                    className="ud-btn add-property menu-btn bdrs12 mx-2 mx-xl-4"
                     href="/dashboard-add-property"
                   >
                     Add Property
                     <i className="fal fa-arrow-right-long" />
-                  </Link> */}
+                  </Link>
                   <a
                     className="sidemenu-btn filter-btn-right"
                     href="#"
@@ -93,20 +89,21 @@ const DefaultHeader = () => {
                     data-bs-target="#SidebarPanel"
                     aria-controls="SidebarPanelLabel"
                   >
-                    {/* <Image
+                    <Image
                       width={25}
                       height={9}
                       className="img-1"
-                      src="/images/dark-nav-icon.svg"
+                      src="/images/icon/nav-icon-white.svg"
                       alt="humberger menu"
                     />
+
                     <Image
                       width={25}
                       height={9}
                       className="img-2"
-                      src="/images/dark-nav-icon.svg"
+                      src="/images/icon/nav-icon-dark.svg"
                       alt="humberger menu"
-                    /> */}
+                    />
                   </a>
                 </div>
               </div>
@@ -148,4 +145,4 @@ const DefaultHeader = () => {
   );
 };
 
-export default DefaultHeader;
+export default Header;

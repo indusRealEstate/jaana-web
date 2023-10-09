@@ -74,6 +74,12 @@ Tag: advanced search, agency, agent, classified, directory, house, listing, prop
     --container-width: 1290px;
     --divder-space: 200px;
     --headings-color: #181a20;
+
+    // theme colors
+    --bg-color : #122620;
+    --light-cream-color : #F4EBD0;
+    --tan-color : #B68D40;
+    --gold-color : #D6AD60;
 }
 
 /* Mixins */
@@ -3771,7 +3777,10 @@ li {
 
 /*Home 6 Banner*/
 .home-banner-style6 {
-    background-image: url(../images/home/home-6.jpg);
+    background-image: url(../images/home/home-banner-2.svg); 
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
     background-position: center center;
     background-repeat: no-repeat;
     position: relative;
@@ -3803,6 +3812,7 @@ li {
     font-size: 46px;
     font-family: var(--title-font-family);
     font-weight: 600;
+    color: var(--gold-color) !important;
 }
 @media (max-width: 991.98px) {
     .inner-banner-style6 .hero-title {
@@ -10046,7 +10056,7 @@ input:focus-visible {
 }
 
 .bgc-white {
-    background-color: #ffffff;
+    background-color: var(--bg-color);
 }
 
 .bgc-transparent {

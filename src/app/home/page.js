@@ -3,7 +3,7 @@ import CallToActions from "@/components/home/CallToActions";
 import DefaultHeader from "@/components/common/DefaultHeader";
 import Partner from "@/components/common/Partner";
 import PropertiesByCities from "@/components/home/PropertiesByCities";
-import Hero from "@/components/home/hero";
+import Hero from "@/components/home/home-v6/hero";
 import Blog from "@/components/common/Blog";
 import Features from "@/components/home/Features";
 import Link from "next/link";
@@ -32,14 +32,11 @@ const HomePage = () => {
       {/* End Mobile Nav  */}
 
       {/* Home Banner Style V1 */}
-      <section className="home-banner-style4 p0 bgc-white">
-        <div className="home-style4 maxw1600 bdrs24 position-relative mx-auto mx20-lg" style={{
-          backgroundImage : `url(${url})`
-        }}>
-          
+      <section className="home-banner-style6 p0">
+        <div className="home-style1">
           <div className="container">
             <div className="row">
-              <div className="col-xl-9">
+              <div className="col-xl-10">
                 <Hero />
               </div>
             </div>
