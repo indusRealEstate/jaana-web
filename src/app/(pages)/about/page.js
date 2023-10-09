@@ -49,26 +49,20 @@ const About = () => {
           <div className="row" data-aos="fade-up" data-aos-delay="300">
             <div className="col-lg-6">
               <h2>
-                We&apos;re on a Mission to Change{" "}
-                <br className="d-none d-lg-block" /> View of Real Estate Field.
+                Your trusted source for{" "}
+                <br className="d-none d-lg-block" /> finding the perfect property.
               </h2>
             </div>
             <div className="col-lg-6">
               <p className="text mb25">
-                It doesn’t matter how organized you are — a surplus of toys will
-                always ensure your house is a mess waiting to happen.
-                Fortunately, getting kids on board with the idea of ditching
-                their stuff is a lot easier than it sounds.
+              Welcome to Top Realtors Dubai, your premier destination for all things related to real estate and property listings. We are passionate about helping you find your dream home, investment property, or rental space while providing valuable resources and guidance along the way.
               </p>
               <p className="text mb55">
-                Maecenas quis viverra metus, et efficitur ligula. Nam congue
-                augue et ex congue, sed luctus lectus congue. Integer convallis
-                condimentum sem. Duis elementum tortor eget condimentum tempor.
-                Praesent sollicitudin lectus ut pharetra pulvinar.
+              At Top Realtors Dubai, our mission is to simplify the property search process, making it easy and enjoyable for you. We aim to empower you with the tools and information needed to make informed decisions in the real estate market. Whether you're a first-time buyer, a seasoned investor, or a homeowner looking to sell, we're here to support you every step of the way.
               </p>
-              <div className="row">
+              {/* <div className="row">
                 <Mission />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -116,7 +110,7 @@ const About = () => {
       {/* End Funfact */}
 
       {/* Exclusive Agents */}
-      <section className="pb90" style={{paddingTop:"0rem !important"}}>
+      {/* <section className="pb90" style={{paddingTop:"0rem !important"}}>
         <div className="container">
           <div className="row  justify-content-center mt-1">
             <div className="col-auto">
@@ -126,14 +120,12 @@ const About = () => {
                 data-aos-delay="100"
               >
                 <h2 className="title">Our Exclusive Agents</h2>
-                {/* <p className="paragraph">
-                  Aliquam lacinia diam quis lacus euismod
-                </p> */}
+               
               </div>
             </div>
-            {/* End header */}
+            
           </div>
-          {/* End .row */}
+         
 
           <div className="row">
             <div className="col-lg-12" data-aos="fade-up" data-aos-delay="300">
@@ -143,7 +135,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Exclusive Agents */}
 
       {/* Abut intro */}
@@ -159,7 +151,7 @@ const About = () => {
                 <div className="mb30">
                   <h2 className="title text-capitalize">
                     Let’s find the right <br className="d-none d-md-block" />{" "}
-                    Buyers and sellers for you
+                    property for you
                   </h2>
                 </div>
                 <div className="why-chose-list style2">
@@ -182,7 +174,7 @@ const About = () => {
           <div className="row">
             <div className="col-lg-12" data-aos="fade-up">
               <div className="main-title text-center">
-                <h6>Trusted by the world’s best</h6>
+                <h6>Trusted by the dubai’s best</h6>
               </div>
             </div>
             <div className="col-lg-12 text-center">

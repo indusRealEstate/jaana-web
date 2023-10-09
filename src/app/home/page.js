@@ -109,7 +109,7 @@ const HomePage = () => {
                 <div className="mb30">
                   <h2 className="title text-capitalize">
                     Let’s find the right <br className="d-none d-md-block" />{" "}
-                    buyers and sellers for you
+                    property for you
                   </h2>
                 </div>
                 <div className="why-chose-list style2">

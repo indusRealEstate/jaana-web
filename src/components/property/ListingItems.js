@@ -5,6 +5,10 @@ import React from "react";
 
 const ListingItems = ({data,listings}) => {
   //console.log(listings);
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "AED",
+  });
   return (
     <>
      {data.length != 0 ? (
@@ -38,7 +42,7 @@ const ListingItems = ({data,listings}) => {
               </div>
 
               <div className="list-price">
-                {listing.price} / <span>mo</span>
+              {formatter.format(listing.price).replace('.00', '')} / <span>Year</span>
               </div>
             </div>
             <div className="list-content">

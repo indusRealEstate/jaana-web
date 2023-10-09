@@ -24,29 +24,34 @@ export const metadata = {
 const AgentDetails = ({ params }) => {
   const searchParams = useSearchParams();
   const agent_id = searchParams.get("agent_id");
+  const [totalprop, setTotalprop] = useState([]);
   //console.log(agent_id);
 
   const [agentInfo, setagentInfo] = useState([]);
   const [agentProp, setagentProp] = useState([]);
-  // useEffect(() => {
-  //   getAgentDetails(agent_id).then((response) => {
-  //     setagentInfo(response);
-  //      //console.log(response);
-  //      getAgentsAllProperties(agent_id).then((item)=>{
-  //       setagentProp(item);
-  //        //console.log(item);
-  //     })
-  //   });
-  // }, [agentInfo,agentProp]);
 
   getAgentDetails(agent_id).then((response) => {
     setagentInfo(response);
     //console.log(response);
     getAgentsAllProperties(agent_id).then((item) => {
       setagentProp(item);
-      // console.log(item);
+       
     });
   });
+  
+  const firstPara = new String(agentInfo.agent_description)
+    .split(" ")
+    .filter((words, index) => index < 50)
+    .toString()
+    .replace(/,/g, " ");
+
+  const lastPara = new String(agentInfo.agent_description)
+    .split(" ")
+    .filter((words, index) => index > 50)
+    .toString()
+    .replace(/,/g, " ");
+
+    
   return (
     <>
       {/* Main Header Nav */}
@@ -99,8 +104,8 @@ const AgentDetails = ({ params }) => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="agent-single-details mt30 pb30 bdrb1">
-                    <h6 className="fz17 mb30">About Agents</h6>
-                    <p className="text">{agentInfo.agent_description}</p>
+                    <h6 className="fz17 mb30">About Agent</h6>
+                    <p className="text">{firstPara}</p>
                     <div className="agent-single-accordion">
                       <div
                         className="accordion accordion-flush"
@@ -116,7 +121,7 @@ const AgentDetails = ({ params }) => {
                           >
                             <div className="accordion-body p-0">
                               <p className="text">
-                               
+                              {lastPara}
                               </p>
                             </div>
                           </div>
@@ -143,7 +148,7 @@ const AgentDetails = ({ params }) => {
               </div>
               {/* End .row */}
               {agentProp != undefined ? (
-                <ListingItemsContainer agentProp={agentProp} />
+                <ListingItemsContainer agentProp={agentProp} totalListing ={agentProp.length} />
               ) : (
                 ""
               )}

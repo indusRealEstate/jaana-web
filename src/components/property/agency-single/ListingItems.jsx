@@ -6,8 +6,8 @@ import React, { useEffect, useState } from 'react'
 import ListingItems from '../ListingItems'
 import listings from '@/data/listings'
 import Link from 'next/link'
-export default function ListingItemsContainer({agentProp}) {
-//console.log(agentProp);
+export default function ListingItemsContainer({agentProp, totalListing}) {
+//console.log(totalListing);
     const [currentCategory, setCurrentCategory] = useState('All')
     const [pageData, setPageData] = useState([]);
 
@@ -35,7 +35,7 @@ export default function ListingItemsContainer({agentProp}) {
   return (
 <div className="row align-items-center mt20">
                 <div className="col-sm-4">
-                  <h6 className="fz17">Listing 27</h6>
+                  <h6 className="fz17">Listing {totalListing}</h6>
                 </div>
                 {/* End .col-4 */}
 
@@ -100,8 +100,8 @@ export default function ListingItemsContainer({agentProp}) {
                   {/* End tab-content */}
 
                   <div className="d-grid pb30 bdrb1">
-                    <Link href="/single-v1/4" className="ud-btn btn-white2">
-                      Show all 134 property
+                    <Link href="/all-properties" className="ud-btn btn-white2">
+                      Show all property
                       <i className="fal fa-arrow-right-long" />
                     </Link>
                   </div>

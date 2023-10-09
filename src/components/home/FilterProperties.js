@@ -14,8 +14,6 @@ const FilterProperties = () => {
 	const [filteredListings, setFilteredListings] = useState([])
 	const [selectedTag, setSelectedTag] = useState("all")
 
-	// console.log(filteredListings)
-
 	const handleTagClick = (tag) => {
 		setSelectedTag(tag)
 	}

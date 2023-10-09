@@ -108,9 +108,6 @@ const MainMenu = () => {
           className="list-item"
           href={{
             pathname: "/properties-rent",
-            query: {
-              type: "rent",
-            },
           }}
         >
           <span className={topMenu == "Rent" ? "title menuActive" : "title"}>
@@ -123,9 +120,6 @@ const MainMenu = () => {
           className="list-item"
           href={{
             pathname: "/properties-sale",
-            query: {
-              type: "sale",
-            },
           }}
         >
           <span className={topMenu == "Sale" ? "title menuActive" : "title"}>
