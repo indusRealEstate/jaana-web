@@ -47,13 +47,14 @@ const FilterProperties = () => {
 			})
 	}, [loaded, allProperties, selectedTag, filteredListings])
 
+	// console.log(allProperties)
+
 	return (
 		<>
 			<div className='row wow fadeInUp mt-5' data-wow-delay='100ms'>
 				<div className='col-lg-6'>
 					<div className='main-title2'>
 						<h2 className='title'>Discover Popular Properties</h2>
-						
 					</div>
 				</div>
 				<div className='col-lg-6'>
@@ -114,7 +115,7 @@ const FilterProperties = () => {
 				<div className='col-lg-12' data-aos='fade-up' data-aos-delay='300'>
 					<div className='tab-content'>
 						<div className='row'>
-							{allProperties === undefined ? (
+							{allProperties.length <= 0 ? (
 								<Box
 									sx={{
 										display: "flex",
@@ -123,7 +124,7 @@ const FilterProperties = () => {
 										justifyContent: "center",
 										alignItems: "center",
 									}}>
-									<CircularProgress size={30} color='secondary' />
+									<CircularProgress size={40} color='secondary' />
 								</Box>
 							) : filteredListings.length <= 0 ? (
 								<Box
@@ -201,7 +202,7 @@ const FilterProperties = () => {
 													)}
 												</div>
 
-												<div className='list-meta'>
+												{/* <div className='list-meta'>
 													<div className='icons'>
 														<a href='#'>
 															<span className='flaticon-like' />
@@ -213,7 +214,7 @@ const FilterProperties = () => {
 															<span className='flaticon-fullscreen' />
 														</a>
 													</div>
-												</div>
+												</div> */}
 											</div>
 											<Link
 												href={{
