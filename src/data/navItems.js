@@ -3,26 +3,26 @@ export const homeItems = [
 ];
 
 export const RentItems = [
-  { href: "/", label: "Rent" },
+  { href: "/rent", label: "Rent" },
 ];
 
-export const Agents = [
-  { href: "/", label: "Agents" },
+export const Agent = [
+  { href: "/agent-details", label: "About Agent" },
 ];
 
 export const SaleItems = [
-  { href: "/", label: "Sale" },
+  { href: "/properties-sale", label: "Sale" },
 ];
 export const AllProperties = [
-  { href: "/", label: "All Properties" },
+  { href: "/all-properties", label: "All Properties" },
 ];
 
 export const AboutUs = [
-  { href: "/", label: "AboutUs" },
+  { href: "/about", label: "AboutUs" },
 ];
 
 export const ContactUs = [
-  { href: "/", label: "ContactUs" },
+  { href: "/contact", label: "ContactUs" },
 ];
 // export const listingItems = [
 //   {
