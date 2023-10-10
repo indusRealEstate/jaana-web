@@ -262,6 +262,18 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 		// allProperties,
 	])
 
+	const setScreenWidth = (width) => {
+		setWindowWidth(width)
+	}
+
+	const [windowWidth, setWindowWidth] = useState("")
+
+	useEffect(() => {
+		setScreenWidth(window.innerWidth)
+	}, [window.innerWidth])
+
+	console.log(windowWidth)
+
 	useEffect(() => {
 		setPageNumber(1)
 		if (currentSortingOption == "Newest") {
@@ -284,7 +296,13 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 		<section className='pt0 pb90 bgc-f7'>
 			<div className='container'>
 				<div className='row gx-xl-5'>
-					<div className='col-lg-4 d-none d-lg-block'>
+					{/* className='col-lg-5 d-none d-lg-block' */}
+					<div
+						className={
+							windowWidth <= 1024
+								? "col-lg-4  d-none d-lg-block"
+								: "col-lg-5 col-md-4 d-none d-lg-block"
+						}>
 						<ListingSidebar
 							filterFunctions={filterFunctions}
 							dataReset={valueReset}
@@ -313,8 +331,14 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 						</div>
 					</div>
 					{/* End mobile filter sidebar */}
+					{/* col-lg-7 col-12 */}
 
-					<div className='col-lg-8'>
+					<div
+						className={
+							windowWidth <= 1024
+								? "col-lg-8 col-12"
+								: "col-lg-7 col-md-8 col-12"
+						}>
 						<div className='row align-items-center mb20'>
 							<TopFilterBar
 								pageContentTrac={pageContentTrac}
