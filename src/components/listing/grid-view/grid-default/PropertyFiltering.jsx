@@ -311,7 +311,7 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 					{/* start mobile filter sidebar */}
 					<div
 						className='offcanvas offcanvas-start p-0'
-						tabindex='-1'
+						tabIndex='-1'
 						id='listingSidebarFilter'
 						aria-labelledby='listingSidebarFilterLabel'>
 						<div className='offcanvas-header'>

@@ -53,7 +53,6 @@ const FilterProperties = () => {
 				<div className='col-lg-6'>
 					<div className='main-title2'>
 						<h2 className='title'>Discover Popular Properties</h2>
-						
 					</div>
 				</div>
 				<div className='col-lg-6'>
@@ -138,6 +137,7 @@ const FilterProperties = () => {
 										src={`/images/svg/images/No data-pana.svg`}
 										width={300}
 										height={300}
+										alt='No data Image'
 									/>
 								</Box>
 							) : (

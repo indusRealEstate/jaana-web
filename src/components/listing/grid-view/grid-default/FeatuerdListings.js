@@ -43,6 +43,7 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
 						src={`/images/svg/images/No data-pana.svg`}
 						width={300}
 						height={300}
+						alt='Image no data'
 					/>
 				</Box>
 			) : (
