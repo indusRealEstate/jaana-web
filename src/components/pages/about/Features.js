@@ -8,7 +8,7 @@ const Features = () => {
         "Full conveyance for buyers and sellers involves the legal transfer of property ownership.",
     },
     {
-      icon: "flaticon-keywording",
+      icon: "flaticon-review",
       title: "mortgage advisory service available",
       description:
         "Mortgage advisory services are readily available to assist borrowers in making informed decisions about home financing.",

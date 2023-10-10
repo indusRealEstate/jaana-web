@@ -17,7 +17,7 @@ export default function FilteringAgent() {
   useEffect(() => {
     getAllAgents()
       .then((response) => {
-         console.log(response);
+         //console.log(response);
         setAllAgents(response);
       })
       .catch((error) => {

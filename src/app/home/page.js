@@ -1,17 +1,17 @@
-import MobileMenu from "@/components/common/mobile-menu";
-import CallToActions from "@/components/home/CallToActions";
-import DefaultHeader from "@/components/common/DefaultHeader";
-import Partner from "@/components/common/Partner";
-import PropertiesByCities from "@/components/home/PropertiesByCities";
-import Hero from "@/components/home/home-v6/hero";
-import Blog from "@/components/common/Blog";
-import Features from "@/components/home/Features";
-import Link from "next/link";
-import Funfact from "@/components/home/Funfact";
-import ApartmentTypes from "@/components/home/ApartmentTypes";
-import About from "@/components/home/about";
-import Testimonial from "@/components/home/Testimonial";
-import FilterProperties from "@/components/home/FilterProperties";
+import MobileMenu from "@/components/common/mobile-menu"
+import CallToActions from "@/components/home/CallToActions"
+import DefaultHeader from "@/components/common/DefaultHeader"
+import Partner from "@/components/common/Partner"
+import PropertiesByCities from "@/components/home/PropertiesByCities"
+import Hero from "@/components/home/home-v6/hero"
+import Blog from "@/components/common/Blog"
+import Features from "@/components/home/Features"
+import Link from "next/link"
+import Funfact from "@/components/home/Funfact"
+import ApartmentTypes from "@/components/home/ApartmentTypes"
+import About from "@/components/home/about"
+import Testimonial from "@/components/home/Testimonial"
+import FilterProperties from "@/components/home/FilterProperties"
 //import Footer from "@/components/home/footer";
 import Footer from "@/components/common/default-footer"
 import Skeleton from "@mui/material/Skeleton"
@@ -32,20 +32,20 @@ const HomePage = () => {
 			<MobileMenu />
 			{/* End Mobile Nav  */}
 
-      {/* Home Banner Style V1 */}
-      <section className="home-banner-style6 p0">
-        <div className="home-style1">
-          <div className="container">
-            <div className="row">
-              <div className="col-xl-10">
-                <Hero />
-              </div>
-            </div>
-          </div>
-          {/* End .container */}
-        </div>
-      </section>
-      {/* End Home Banner Style V4 */}
+			{/* Home Banner Style V1 */}
+			<section className='home-banner-style6 p0'>
+				<div className='home-style1'>
+					<div className='container'>
+						<div className='row'>
+							<div className='col-xl-10'>
+								<Hero />
+							</div>
+						</div>
+					</div>
+					{/* End .container */}
+				</div>
+			</section>
+			{/* End Home Banner Style V4 */}
 
 			{/* Explore property-city */}
 			{/* <section className="pb40-md pb90">

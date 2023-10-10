@@ -5,8 +5,81 @@ import Link from "next/link"
 import { Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.min.css"
+import { useEffect, useState } from "react"
+import Box from "@mui/material/Box"
+import CircularProgress from "@mui/material/CircularProgress"
+import { getAllProperties } from "@/api/properties"
+import { LazyLoadImage } from "react-lazy-load-image-component"
+import { Skeleton } from "@mui/material"
 
 const ApartmentTypes = () => {
+	const [townhouse, setTownhouse] = useState([])
+	const [apartment, setApartment] = useState([])
+	const [office, setOffice] = useState([])
+	const [villa, setVilla] = useState([])
+	const [penthouse, setPenthouse] = useState([])
+	const [allProperties, setAllProperties] = useState([])
+
+	useEffect(() => {
+		getAllProperties()
+			.then((props) => {
+				setAllProperties(props)
+				setVilla(
+					props.filter((prop) => prop.property_type.toLowerCase() == "villa")
+						.length,
+				)
+				setTownhouse(
+					props.filter(
+						(prop) => prop.property_type.toLowerCase() == "townhouse",
+					).length,
+				)
+				setApartment(
+					props.filter(
+						(prop) => prop.property_type.toLowerCase() == "apartment",
+					).length,
+				)
+				setPenthouse(
+					props.filter(
+						(prop) => prop.property_type.toLowerCase() == "penthouse",
+					).length,
+				)
+				setOffice(
+					props.filter((prop) => prop.property_type.toLowerCase() == "office")
+						.length,
+				)
+			})
+			.catch((error) => {
+				console.log(error)
+			})
+	}, [townhouse, apartment, office, villa, penthouse, allProperties])
+
+	const property_types = [
+		{
+			title: "TownHouse",
+			imageSrc: "/images/listings/townhouse.jpg",
+			properties: townhouse,
+		},
+		{
+			title: "Apartments",
+			imageSrc: "/images/listings/apartment.jpg",
+			properties: apartment,
+		},
+		{
+			title: "Office",
+			imageSrc: "/images/listings/office.jpg",
+			properties: office,
+		},
+		{
+			title: "Villa",
+			imageSrc: "/images/listings/villa.jpg",
+			properties: villa,
+		},
+		{
+			title: "PentHouse",
+			imageSrc: "/images/listings/penthouse.webp",
+			properties: penthouse,
+		},
+	]
 	return (
 		<>
 			<Swiper
@@ -35,7 +108,7 @@ const ApartmentTypes = () => {
 						slidesPerView: 5,
 					},
 				}}>
-				{apartmentTypes.slice(0, 5).map((apartment, index) => (
+				{property_types.map((apartment, index) => (
 					<SwiperSlide key={index}>
 						<div className='item'>
 							<Link href='#'>
@@ -44,7 +117,7 @@ const ApartmentTypes = () => {
 										<Image
 											width={217}
 											height={223}
-											className='cover'
+											className='w-100 h-100 cover'
 											style={{
 												height: "9rem !important",
 												objectFit: "cover",
