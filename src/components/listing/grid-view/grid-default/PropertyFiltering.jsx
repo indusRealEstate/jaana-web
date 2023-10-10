@@ -272,8 +272,6 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 		setScreenWidth(window.innerWidth)
 	}, [window.innerWidth])
 
-	console.log(windowWidth)
-
 	useEffect(() => {
 		setPageNumber(1)
 		if (currentSortingOption == "Newest") {
