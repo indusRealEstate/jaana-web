@@ -30,10 +30,8 @@ const ContactWithAgent = ({contactAgent}) => {
           {/* <a href="" className="text-decoration-underline fw600"> */}
           <Link className="text-decoration-underline fw600"
                           href={{
-                            pathname: "/agent-details",
-                            query: {
-                              agent_id: contactAgent.agent_id,
-                            },
+                            pathname: "/all-properties",
+
                           }}
                         >
 

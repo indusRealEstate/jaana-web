@@ -1,25 +1,25 @@
 const Features = () => {
-	// Define an array of feature objects
-	const features = [
-		{
-			icon: "flaticon-security",
-			title: "Full conveyance for buyers and sellers",
-			description:
-				"Full conveyance for buyers and sellers involves the legal transfer of property ownership.",
-		},
-		{
-			icon: "flaticon-review",
-			title: "mortgage advisory service available",
-			description:
-				"Mortgage advisory services are readily available to assist borrowers in making informed decisions about home financing.",
-		},
-		{
-			icon: "flaticon-secure-payment",
-			title: "Better Values",
-			description:
-				"We are zealously focused on honesty as our primary value and have built our reputation on integrity.",
-		},
-	]
+  // Define an array of feature objects
+  const features = [
+    {
+      icon: "flaticon-security",
+      title: "Full conveyance for buyers and sellers",
+      description:
+      "Full conveyance for buyers and sellers involves the legal transfer of property ownership.",
+    },
+    {
+      icon: "flaticon-review",
+      title: "mortgage advisory service available",
+      description:
+        "Mortgage advisory services are readily available to assist borrowers in making informed decisions about home financing.",
+    },
+    {
+      icon: "flaticon-secure-payment",
+      title: "Better Values",
+      description:
+        "We are zealously focused on honesty as our primary value and have built our reputation on integrity."
+    }
+  ];
 
 	return (
 		<>

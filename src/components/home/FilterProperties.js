@@ -30,6 +30,7 @@ const FilterProperties = () => {
 	useEffect(() => {
 		getAllProperties()
 			.then((props) => {
+				// console.log(props);
 				setAllProperties(props)
 				setFilteredListings(
 					selectedTag == "all"
@@ -46,6 +47,8 @@ const FilterProperties = () => {
 			.catch((error) => {
 				console.log(error)
 			})
+
+			
 	}, [loaded, allProperties, selectedTag, filteredListings])
 
 	// console.log(allProperties)
@@ -140,6 +143,7 @@ const FilterProperties = () => {
 										src={`/images/svg/images/No data-pana.svg`}
 										width={300}
 										height={300}
+										alt='No data Image'
 									/>
 								</Box>
 							) : (

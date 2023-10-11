@@ -3,11 +3,11 @@ export const homeItems = [
 ];
 
 export const RentItems = [
-  { href: "/properties-rent", label: "Rent" },
+  { href: "/rent", label: "Rent" },
 ];
 
-export const Agents = [
-  { href: "/agents", label: "Agents" },
+export const Agent = [
+  { href: "/agent-details", label: "About Agent" },
 ];
 
 export const SaleItems = [

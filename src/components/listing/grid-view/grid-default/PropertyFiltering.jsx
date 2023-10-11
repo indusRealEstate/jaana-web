@@ -263,70 +263,90 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
     // allProperties,
   ]);
 
-  useEffect(() => {
-    setPageNumber(1);
-    if (currentSortingOption == "Newest") {
-      const sorted = [...filteredData].sort(
-        (a, b) => a.yearBuilding - b.yearBuilding
-      );
-      setSortedFilteredData(sorted);
-    } else if (currentSortingOption.trim() == "Price Low") {
-      const sorted = [...filteredData].sort((a, b) => a.price - b.price);
-      setSortedFilteredData(sorted);
-    } else if (currentSortingOption.trim() == "Price High") {
-      const sorted = [...filteredData].sort((a, b) => b.price - a.price);
-      setSortedFilteredData(sorted);
-    } else {
-      setSortedFilteredData(filteredData);
-    }
-  }, [filteredData, currentSortingOption]);
+	const setScreenWidth = (width) => {
+		setWindowWidth(width)
+	}
 
-  return (
-    <section className="pt0 pb90 bgc-f7">
-      <div className="container">
-        <div className="row gx-xl-5">
-          <div className="col-lg-5 d-none d-lg-block">
-            <ListingSidebar
-              filterFunctions={filterFunctions}
-              dataReset={valueReset}
-            />
-          </div>
-          {/* End .col-lg-4 */}
+	const [windowWidth, setWindowWidth] = useState("")
 
-          {/* start mobile filter sidebar */}
-          <div
-            className="offcanvas offcanvas-start p-0"
-            tabindex="-1"
-            id="listingSidebarFilter"
-            aria-labelledby="listingSidebarFilterLabel"
-          >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="listingSidebarFilterLabel">
-                Listing Filter
-              </h5>
-              <button
-                type="button"
-                className="btn-close text-reset"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="offcanvas-body p-0">
-              <ListingSidebar filterFunctions={filterFunctions} />
-            </div>
-          </div>
-          {/* End mobile filter sidebar */}
+	useEffect(() => {
+		setScreenWidth(window.innerWidth)
+	}, [window.innerWidth])
 
-          <div className="col-lg-7 col-12">
-            <div className="row align-items-center mb20">
-              <TopFilterBar
-                pageContentTrac={pageContentTrac}
-                colstyle={colstyle}
-                setColstyle={setColstyle}
-                setCurrentSortingOption={setCurrentSortingOption}
-              />
-            </div>
-            {/* End TopFilterBar */}
+	useEffect(() => {
+		setPageNumber(1)
+		if (currentSortingOption == "Newest") {
+			const sorted = [...filteredData].sort(
+				(a, b) => a.yearBuilding - b.yearBuilding,
+			)
+			setSortedFilteredData(sorted)
+		} else if (currentSortingOption.trim() == "Price Low") {
+			const sorted = [...filteredData].sort((a, b) => a.price - b.price)
+			setSortedFilteredData(sorted)
+		} else if (currentSortingOption.trim() == "Price High") {
+			const sorted = [...filteredData].sort((a, b) => b.price - a.price)
+			setSortedFilteredData(sorted)
+		} else {
+			setSortedFilteredData(filteredData)
+		}
+	}, [filteredData, currentSortingOption])
+
+	return (
+		<section className='pt0 pb90 bgc-f7'>
+			<div className='container'>
+				<div className='row gx-xl-5'>
+					{/* className='col-lg-5 d-none d-lg-block' */}
+					<div
+						className={
+							windowWidth <= 1024
+								? "col-lg-4  d-none d-lg-block"
+								: "col-lg-5 col-md-4 d-none d-lg-block"
+						}>
+						<ListingSidebar
+							filterFunctions={filterFunctions}
+							dataReset={valueReset}
+						/>
+					</div>
+					{/* End .col-lg-4 */}
+
+					{/* start mobile filter sidebar */}
+					<div
+						className='offcanvas offcanvas-start p-0'
+						tabIndex='-1'
+						id='listingSidebarFilter'
+						aria-labelledby='listingSidebarFilterLabel'>
+						<div className='offcanvas-header'>
+							<h5 className='offcanvas-title' id='listingSidebarFilterLabel'>
+								Listing Filter
+							</h5>
+							<button
+								type='button'
+								className='btn-close text-reset'
+								data-bs-dismiss='offcanvas'
+								aria-label='Close'></button>
+						</div>
+						<div className='offcanvas-body p-0'>
+							<ListingSidebar filterFunctions={filterFunctions} />
+						</div>
+					</div>
+					{/* End mobile filter sidebar */}
+					{/* col-lg-7 col-12 */}
+
+					<div
+						className={
+							windowWidth <= 1024
+								? "col-lg-8 col-12"
+								: "col-lg-7 col-md-8 col-12"
+						}>
+						<div className='row align-items-center mb20'>
+							<TopFilterBar
+								pageContentTrac={pageContentTrac}
+								colstyle={colstyle}
+								setColstyle={setColstyle}
+								setCurrentSortingOption={setCurrentSortingOption}
+							/>
+						</div>
+						{/* End TopFilterBar */}
 
             <div className="row mt15">
               <FeaturedListings colstyle={colstyle} data={pageItems} />
