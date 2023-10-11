@@ -1,3 +1,4 @@
+"use client"
 import CallToActions from "@/components/common/CallToActions";
 import DefaultHeader from "@/components/common/DefaultHeader";
 import Footer from "@/components/common/default-footer";
@@ -42,7 +43,7 @@ const Contact = () => {
                 <h4 className="form-title mb25">
                   Have questions? Get in touch!
                 </h4>
-                <Form />
+                <Form /> 
               </div>
             </div>
             {/* End .col */}

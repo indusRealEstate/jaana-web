@@ -59,3 +59,8 @@ export  async function submitContactForm(data) {
     const response = await axios.post("https://toprealtorsdubai.com/api/listings/send_email_details.php",data);
     return response;
 }
+export  async function submitForm(data) {
+
+    const response = await axios.post("https://toprealtorsdubai.com/api/listings/contactform.php",data);
+    return response;
+}

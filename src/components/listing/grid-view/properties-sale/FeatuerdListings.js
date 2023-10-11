@@ -13,7 +13,7 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
   return (
     <>
     
-      {listings.map((listing) => (
+      {data.map((listing) => (
         <div
           className={` ${
             colstyle ? "col-sm-12 col-lg-6" : "col-sm-6 col-lg-4 col-xl-3"
@@ -28,6 +28,13 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
             }
           >
             <div className="list-thumb">
+            <Link
+								href={{
+									pathname: "/property-details",
+									query: {
+										prop_id: listing.prop_id,
+									},
+								}}>
               <Image
                 width={382}
                 height={248}
@@ -36,6 +43,7 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
                 src={`https://toprealtorsdubai.com/api/upload/properties/${ JSON.parse(listing.images)[0]}`}
                 alt="listings"
               />
+              </Link>
               <div className="sale-sticker-wrap">
                 {!listing.forRent && (
                   <div className="list-tag fz12">

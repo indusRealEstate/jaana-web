@@ -6,7 +6,7 @@ import Bathroom from "./Bathroom";
 import Amenities from "./Amenities";
 import { useRouter } from "next/navigation";
 
-const AdvanceFilterModal = () => {
+const AdvanceFilterModal = ({listings}) => {
   const router = useRouter();
   const catOptions = [
     { value: "Banking", label: "Apartments" },

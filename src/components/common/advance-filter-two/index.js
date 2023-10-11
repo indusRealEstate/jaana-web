@@ -15,11 +15,11 @@ const AdvanceFilterModal = ({ filterFunctions }) => {
 	}, [min, max])
 
 	const catOptions = [
-		{ value: "Houses", label: "Houses" },
-
-		{ value: "Office", label: "Office" },
-		{ value: "Apartments", label: "Apartments" },
-		{ value: "Villa", label: "Villa" },
+		{ value: "all", label: "All Propeties" },
+		{ value: "house", label: "Houses" },
+		{ value: "office", label: "Office" },
+		{ value: "apartment", label: "Apartments" },
+		{ value: "villa", label: "Villa" },
 	]
 
 	// const locationOptions = [
@@ -107,7 +107,7 @@ const AdvanceFilterModal = ({ filterFunctions }) => {
 								<h6 className='list-title'>Type</h6>
 								<div className='form-style2 input-group'>
 									<Select
-										defaultValue={[catOptions[1]]}
+										defaultValue={[catOptions[0]]}
 										name='colors'
 										options={catOptions}
 										styles={customStyles}
@@ -134,6 +134,7 @@ const AdvanceFilterModal = ({ filterFunctions }) => {
 										onChange={(event) =>
 											filterFunctions?.setPropertyId(event.target.value)
 										}
+										
 									/>
 								</div>
 							</div>

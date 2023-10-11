@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 const Social = () => {
   const socialIcons = [
     
@@ -15,9 +15,10 @@ const Social = () => {
     //   icon: "fab fa-twitter",
     //   link: "/images/listings/apartment.jpg",
     // },
+    // https://instagram.com/top_dubai_realtor?igshid=OGQ5ZDc2ODk2ZA==
     {
       icon: "fab fa-instagram",
-      link: "https://www.instagram.com/dubairealestate4you/",
+      link: "https://instagram.com/top_dubai_realtor?igshid=OGQ5ZDc2ODk2ZA=="
     },
     {
       icon: "fab fa-linkedin-in",
@@ -28,7 +29,10 @@ const Social = () => {
   return (
     <div className="social-style1">
       {socialIcons.map((iconClass, index) => (
-        <a key={index} href={iconClass.link}>
+        // <Link key={index} href={iconClass.link}>
+        //    <i className={iconClass.icon + " list-inline-item"} />
+        // </Link>
+        <a key={index} href={iconClass.link} target="_blank">
           <i className={iconClass.icon + " list-inline-item"} />
         </a>
       ))}

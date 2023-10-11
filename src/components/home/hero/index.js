@@ -1,10 +1,25 @@
+"use client"
 import AdvanceFilterModal from "@/components/common/advance-filter"
 import HeroContent from "./HeroContent"
 import Image from "next/image"
 import Category from "./Category"
 import VideoBox from "./VideoBox"
+import { getAllProperties } from "@/api/properties"
+import { useState, useEffect } from "react"
 
 const Hero = () => {
+	const [allProperties, setAllProperties] = useState([])
+
+	useEffect(() => {
+		getAllProperties()
+			.then((response) => {
+				//console.log(response);
+				setAllProperties(response)
+			})
+			.catch((error) => {
+				console.log("error" + error)
+			})
+	}, [allProperties])
 	return (
 		<>
 			<div className='inner-banner-style4'>
@@ -46,7 +61,7 @@ const Hero = () => {
 					tabIndex={-1}
 					aria-labelledby='advanceSeachModalLabel'
 					aria-hidden='true'>
-					<AdvanceFilterModal />
+					<AdvanceFilterModal listings={allProperties} />
 				</div>
 			</div>
 			{/* <!-- Advance Feature Modal End --> */}

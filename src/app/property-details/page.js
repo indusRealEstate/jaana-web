@@ -232,7 +232,7 @@ const PropertyDetailsPage = ({ params }) => {
                     <h4 className="title fz17 mb30">Leave A Review</h4>
                     <div className="row">
                       <ReviewBoxForm />
-                    </div>
+                    </div> 
                   </div> */}
                   {/* End .ps-widget */}
                 </div>
