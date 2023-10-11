@@ -2,7 +2,7 @@ const Features = () => {
   // Define an array of feature objects
   const features = [
     {
-      icon: "flaticon-house-price",
+      icon: "flaticon-security",
       title: "Full conveyance for buyers and sellers",
       description:
       "Full conveyance for buyers and sellers involves the legal transfer of property ownership.",

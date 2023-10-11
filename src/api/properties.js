@@ -53,3 +53,9 @@ export  async function getAgentsAllProperties(agent_id) {
     const response = await axios.post("https://toprealtorsdubai.com/api/listings/get_agents_all_property.php",agentPropeties);
     return response.data;
 }
+
+export  async function submitContactForm(data) {
+
+    const response = await axios.post("https://toprealtorsdubai.com/api/listings/send_email_details.php",data);
+    return response;
+}

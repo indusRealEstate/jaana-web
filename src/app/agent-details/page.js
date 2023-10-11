@@ -16,37 +16,54 @@ import { getAgentDetails } from "@/api/properties";
 import React from "react";
 import { useSearchParams } from "next/navigation";
 import { getAgentsAllProperties } from "@/api/properties";
+import { getAllAgents } from "@/api/properties";
+import { Box, CircularProgress } from "@mui/material";
 
 export const metadata = {
   title: "Agents",
 };
 
 const AgentDetails = ({ params }) => {
-  const searchParams = useSearchParams();
-  const agent_id = searchParams.get("agent_id");
-  //console.log(agent_id);
+  // const searchParams = useSearchParams();
+  // const agent_id = searchParams.get("agent_id");
+  // //console.log(agent_id);
 
-  const [agentInfo, setagentInfo] = useState([]);
-  const [agentProp, setagentProp] = useState([]);
-  // useEffect(() => {
-  //   getAgentDetails(agent_id).then((response) => {
-  //     setagentInfo(response);
-  //      //console.log(response);
-  //      getAgentsAllProperties(agent_id).then((item)=>{
-  //       setagentProp(item);
-  //        //console.log(item);
-  //     })
+  // const [agentInfo, setagentInfo] = useState([]);
+  // const [agentProp, setagentProp] = useState([]);
+  // getAgentDetails(agent_id).then((response) => {
+  //   setagentInfo(response);
+  //   //console.log(response);
+  //   getAgentsAllProperties(agent_id).then((item) => {
+  //     setagentProp(item);
+  //     // console.log(item);
   //   });
-  // }, [agentInfo,agentProp]);
+  // });
 
-  getAgentDetails(agent_id).then((response) => {
-    setagentInfo(response);
-    //console.log(response);
-    getAgentsAllProperties(agent_id).then((item) => {
-      setagentProp(item);
-      // console.log(item);
-    });
-  });
+  const [allAgents, setAllAgents] = useState([]);
+
+  useEffect(() => {
+    getAllAgents()
+      .then((response) => {
+         //console.log(response);
+        setAllAgents(response);
+      })
+      .catch((error) => {
+        console.log("error" + error);
+      });
+  }, [allAgents]);
+  //console.log(allAgents);
+
+  // const firstPara = new String(desc)
+  //   .split(" ")
+  //   .filter((words, index) => index < 50)
+  //   .toString()
+  //   .replace(/,/g, " ");
+
+  // const lastPara = new String(desc)
+  //   .split(" ")
+  //   .filter((words, index) => index > 50)
+  //   .toString()
+  //   .replace(/,/g, " ");
   return (
     <>
       {/* Main Header Nav */}
@@ -58,12 +75,45 @@ const AgentDetails = ({ params }) => {
       {/* End Mobile Nav  */}
 
       {/* Agent Single Section Area */}
-      <section className="agent-single pt60">
+      
+     
+      {allAgents == "" ? (
+        <>
+          <Box
+            sx={{
+              display: "flex",
+              height: "60rem",
+              width: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CircularProgress size={50}></CircularProgress>
+          </Box>
+        </>
+      ) : (
+        <>
+         <section className="agent-single pt60">
         <div className="cta-agent bgc-thm-light mx-auto maxw1600 pt60 pb60 bdrs12 position-relative mx20-lg">
           <div className="container">
             <div className="row align-items-center">
               <div className="col-xl-7">
-                <SingleAgentCta id={params.id} agentInfo={agentInfo} />
+                { allAgents != undefined? <SingleAgentCta id={params.id}  allAgents={allAgents}/>:(
+                 <>
+                 <Box
+                   sx={{
+                     display: "flex",
+                     height: "60rem",
+                     width: "100%",
+                     justifyContent: "center",
+                     alignItems: "center",
+                   }}
+                 >
+                   <CircularProgress size={50}></CircularProgress>
+                 </Box>
+               </>
+                )}
+               
                 <div className="img-box-11 position-relative d-none d-xl-block">
                   <Image
                     width={120}
@@ -92,15 +142,15 @@ const AgentDetails = ({ params }) => {
           </div>
         </div>
         {/* End cta-agent */}
-
+        {allAgents.map((listing) => (
         <div className="container">
           <div className="row wow fadeInUp" data-aos-delay="300">
             <div className="col-lg-8 pr40 pr20-lg">
               <div className="row">
                 <div className="col-lg-12">
                   <div className="agent-single-details mt30 pb30 bdrb1">
-                    <h6 className="fz17 mb30">About Agents</h6>
-                    <p className="text">{agentInfo.agent_description}</p>
+                    <h6 className="fz17 mb30">About Agent</h6>
+                    <p className="text">{listing.agent_description}</p>
                     <div className="agent-single-accordion">
                       <div
                         className="accordion accordion-flush"
@@ -124,7 +174,7 @@ const AgentDetails = ({ params }) => {
                             className="accordion-header"
                             id="flush-headingOne"
                           >
-                            <button
+                            {/* <button
                               className="accordion-button p-0 collapsed"
                               type="button"
                               data-bs-toggle="collapse"
@@ -133,7 +183,7 @@ const AgentDetails = ({ params }) => {
                               aria-controls="flush-collapseOne"
                             >
                               Show more
-                            </button>
+                            </button> */}
                           </h2>
                         </div>
                       </div>
@@ -142,11 +192,11 @@ const AgentDetails = ({ params }) => {
                 </div>
               </div>
               {/* End .row */}
-              {agentProp != undefined ? (
+              {/* {agentProp != undefined ? (
                 <ListingItemsContainer agentProp={agentProp} />
               ) : (
                 ""
-              )}
+              )} */}
 
               <div className="row">
                 <div className="col-lg-12">
@@ -175,7 +225,11 @@ const AgentDetails = ({ params }) => {
             {/* End .col-lg-4 */}
           </div>
         </div>
+          ))}
       </section>
+        
+        </>)}
+     
       {/* End Agent Single Section Area */}
 
       {/* Start Our Footer */}

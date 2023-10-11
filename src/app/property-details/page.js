@@ -243,7 +243,7 @@ const PropertyDetailsPage = ({ params }) => {
                     <div className="default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white position-relative">
                       <h6 className="title fz17 mb30">Get More Information</h6>
                       <ContactWithAgent contactAgent={data} />
-                      <ScheduleForm />
+                      <ScheduleForm contactform={data}/>
                     </div>
                   </div>
                 </div>

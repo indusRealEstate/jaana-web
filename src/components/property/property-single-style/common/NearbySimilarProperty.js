@@ -8,7 +8,7 @@ import "swiper/swiper-bundle.min.css";
 
 const NearbyinputData = ({ inputData, prop_id }) => {
   // const images = JSON.parse(inputData.images);
-  console.log(inputData);
+ // console.log(inputData);
 
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",

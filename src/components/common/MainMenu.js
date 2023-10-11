@@ -6,7 +6,7 @@ import {
 	listingItems,
 	propertyItems,
 	pageItems,
-	Agents,
+	Agent,
 	AllProperties,
 	ContactUs,
 	AboutUs,
@@ -54,12 +54,12 @@ const MainMenu = () => {
 				setTopMenu("All Properties")
 			}
 		})
-		Agents.forEach((elm) => {
+		Agent.forEach((elm) => {
 			if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-				setTopMenu("Agents")
+				setTopMenu("About Agent")
 			}
 		})
-		// console.log(topMenu);
+		console.log(topMenu)
 	}, [])
 
 	const handleActive = (link) => {
@@ -135,10 +135,11 @@ const MainMenu = () => {
 				<Link
 					className='list-item'
 					href={{
-						pathname: "/agents",
+						pathname: "/agent-details",
 					}}>
-					<span className={topMenu == "Agents" ? "title menuActive" : "title"}>
-						Agents
+					<span
+						className={topMenu == "About Agent" ? "title menuActive" : "title"}>
+						About Agent
 					</span>
 				</Link>
 			</li>

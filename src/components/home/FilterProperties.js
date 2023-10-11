@@ -29,6 +29,7 @@ const FilterProperties = () => {
 	useEffect(() => {
 		getAllProperties()
 			.then((props) => {
+				// console.log(props);
 				setAllProperties(props)
 				setFilteredListings(
 					selectedTag == "all"
@@ -45,6 +46,8 @@ const FilterProperties = () => {
 			.catch((error) => {
 				console.log(error)
 			})
+
+			
 	}, [loaded, allProperties, selectedTag, filteredListings])
 
 	return (
