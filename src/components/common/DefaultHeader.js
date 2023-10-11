@@ -10,20 +10,20 @@ import React, { useEffect, useState } from "react";
 const DefaultHeader = () => {
   const [navbar, setNavbar] = useState(false);
 
-  // const changeBackground = () => {
-  //   if (window.scrollY >= 10) {
-  //     setNavbar(true);
-  //   } else {
-  //     setNavbar(false);
-  //   }
-  // };
+  const changeBackground = () => {
+    if (window.scrollY >= 10) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", changeBackground);
-  //   return () => {
-  //     window.removeEventListener("scroll", changeBackground);
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", changeBackground);
+    return () => {
+      window.removeEventListener("scroll", changeBackground);
+    };
+  }, []);
 
   return (
     <>
@@ -40,8 +40,8 @@ const DefaultHeader = () => {
                   <div className="logos mr40">
                     <Link className="header-logo logo1" href="/">
                       <Image
-                        width={130}
-                        height={50}
+                        width={170}
+                        height={60}
                         objectFit="cover"
                         objectPosition="center"
                         src="/images/logo/light-logo.svg"
@@ -50,11 +50,11 @@ const DefaultHeader = () => {
                     </Link>
                     <Link className="header-logo logo2" href="/">
                       <Image
-                        width={138}
-                        height={44}
+                        width={170}
+                        height={60}
                         objectFit="cover"
                         objectPosition="center"
-                        src="/images/logo/light-logo.svg"
+                        src="/images/logo/dark-logo.svg"
                         alt="Header Logo"
                       />
                     </Link>

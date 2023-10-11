@@ -55,7 +55,7 @@ const ApartmentTypes = () => {
 										/>
 									</div>
 									<div className='apartment-content'>
-										<h6 className='title mb-0'>{apartment.title}</h6>
+										<h6 className='title mb-0 green-title-theme'>{apartment.title}</h6>
 										<p className='text mb-0'>
 											{apartment.properties} Properties
 										</p>

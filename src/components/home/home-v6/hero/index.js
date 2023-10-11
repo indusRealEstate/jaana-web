@@ -30,7 +30,12 @@ const Hero = () => {
         </div>
       </div>
       {/* <!-- Advance Feature Modal End --> */}
-      <p className="h6 fw600 text-white fz14 animate-up-4 my-3">
+      <p
+        className="h6 fw600 text-white fz14 animate-up-4 my-3"
+        style={{
+          color: "#F4EBD0 !important",
+        }}
+      >
         Or browse featured categories:
       </p>
       <Category />

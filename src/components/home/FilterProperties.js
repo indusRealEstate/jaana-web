@@ -23,6 +23,7 @@ const FilterProperties = () => {
 	const formatter = new Intl.NumberFormat("en-US", {
 		style: "currency",
 		currency: "AED",
+		maximumFractionDigits: 0
 	})
 
 	const [loaded, setLoaded] = useState([])

@@ -15,6 +15,9 @@ const Category = () => {
           key={index}
           href="/map-v2"
           className="d-flex align-items-center text-white ff-heading me-4"
+          style={{
+            color: "#F4EBD0 !important",
+          }}
         >
           <i className={`icon mr10 ${category.icon}`} /> {category.text}
         </Link>
