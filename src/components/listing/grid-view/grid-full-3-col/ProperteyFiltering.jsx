@@ -32,7 +32,7 @@ export default function ProperteyFiltering() {
 
 	const [listingStatus, setListingStatus] = useState("All")
 	const [propertyTypes, setPropertyTypes] = useState([])
-	const [priceRange, setPriceRange] = useState([0, 100000])
+	const [priceRange, setPriceRange] = useState([0, 100000000])
 	const [bedrooms, setBedrooms] = useState(0)
 	const [bathroms, setBathroms] = useState(0)
 	const [location, setLocation] = useState("All Cities")
@@ -43,7 +43,7 @@ export default function ProperteyFiltering() {
 	const resetFilter = () => {
 		setListingStatus("All")
 		setPropertyTypes([])
-		setPriceRange([0, 100000])
+		setPriceRange([0, 100000000])
 		setBedrooms(0)
 		setBathroms(0)
 		setLocation("All Cities")
