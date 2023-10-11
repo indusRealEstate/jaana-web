@@ -1,10 +1,31 @@
+"use client"
 import AdvanceFilterModal from "@/components/common/advance-filter"
-import HeroContent from "./HeroContent"
 import Image from "next/image"
+import { useState } from "react"
 import Category from "./Category"
+import HeroContent from "./HeroContent"
 import VideoBox from "./VideoBox"
 
 const Hero = () => {
+	const [searchProperties, setSearchProperties] = useState({
+		tab: "",
+		searchText: "",
+		category: "",
+		priceRange: [],
+		propertyType: [],
+		propertyId: "",
+		beds: "",
+		bath: "",
+		location: "",
+		squareFeetRange: [],
+		amenities: [],
+	})
+
+	const transferData = {
+		setSearchProperties,
+		searchProperties,
+	}
+
 	return (
 		<>
 			<div className='inner-banner-style4'>
@@ -34,7 +55,7 @@ const Hero = () => {
 					/>
 					<VideoBox />
 				</div>
-				<HeroContent />
+				<HeroContent transferData={transferData} />
 			</div>
 			{/* End Hero content */}
 
@@ -46,7 +67,7 @@ const Hero = () => {
 					tabIndex={-1}
 					aria-labelledby='advanceSeachModalLabel'
 					aria-hidden='true'>
-					<AdvanceFilterModal />
+					<AdvanceFilterModal transferData={transferData} />
 				</div>
 			</div>
 			{/* <!-- Advance Feature Modal End --> */}

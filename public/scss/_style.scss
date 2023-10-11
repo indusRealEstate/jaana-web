@@ -246,6 +246,10 @@ li {
 .bg-theme-light {
   background-color: var(--light-cream-color) !important;
 }
+
+.bg-theme-white {
+  background-color: #ffffff !important;
+}
 /* Header Styles */
 .login-info {
   font-size: 14px;
@@ -2850,7 +2854,7 @@ li {
 
 /* Property Signle CSS */
 .property-action .icon {
-  border: 1px solid #dddddd;
+  border: 1px solid var(--bg-color);
   border-radius: 6px;
   display: block;
   height: 35px;
@@ -2862,8 +2866,8 @@ li {
   transition: all 0.4s ease;
 }
 .property-action .icon:hover {
-  border: 1px solid #181a20;
-  color: #181a20;
+  border: 1px solid var(--tan-color);
+  color: var(--tan-color);
 }
 .property-action .price {
   font-size: 26px;
@@ -3057,9 +3061,10 @@ li {
   position: relative;
 }
 .overview-element .icon {
-  border: 1px solid #dddddd;
+  border: 1px solid var(--bg-color);
+  background-color: var(--bg-color);
   border-radius: 12px;
-  color: var(--headings-color);
+  color: var(--light-cream-color);
   display: block;
   font-size: 20px;
   height: 50px;

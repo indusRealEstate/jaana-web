@@ -22,14 +22,14 @@ const PropertyAddress = ({PropAddress}) => {
         >
           <div className="d-flex justify-content-between">
             <div className="pd-list">
-              <p className="fw600 mb10 ff-heading dark-color">Address</p>
-              <p className="fw600 mb10 ff-heading dark-color">City</p>
-              <p className="fw600 mb-0 ff-heading dark-color">State/county</p>
+              <p className="fw600 mb10 ff-heading dark-color paragraph-theme">Address</p>
+              <p className="fw600 mb10 ff-heading dark-color paragraph-theme">City</p>
+              <p className="fw600 mb-0 ff-heading dark-color paragraph-theme">State/county</p>
             </div>
             <div className="pd-list">
-              <p className="text mb10">{PropAddress.address != undefined ? PropAddress.address : ""}</p>
-              <p className="text mb10">{PropAddress.city != undefined ? PropAddress.city : ""}</p>
-              <p className="text mb-0">{PropAddress.country != undefined ? PropAddress.country : ""}</p>
+              <p className="text mb10 text-light">{PropAddress.address != undefined ? PropAddress.address : ""}</p>
+              <p className="text mb10 text-light">{PropAddress.city != undefined ? PropAddress.city : ""}</p>
+              <p className="text mb-0 text-light">{PropAddress.country != undefined ? PropAddress.country : ""}</p>
             </div>
           </div>
         </div>
