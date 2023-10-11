@@ -157,8 +157,8 @@ const TopFilterBar = ({
 								setCurrentSortingOption(e.target.value)
 							}>
 							<option>Newest</option>
-							<option>Best Seller</option>
-							<option>Best Match</option>
+							{/* <option>Best Seller</option>
+							<option>Best Match</option> */}
 							<option>Price Low</option>
 							<option>Price High</option>
 						</select>

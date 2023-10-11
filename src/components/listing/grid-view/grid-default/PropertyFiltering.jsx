@@ -276,14 +276,18 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 		setPageNumber(1)
 		if (currentSortingOption == "Newest") {
 			const sorted = [...filteredData].sort(
-				(a, b) => a.yearBuilding - b.yearBuilding,
+				(a, b) => Number(b.year_built) - Number(a.year_built),
 			)
 			setSortedFilteredData(sorted)
 		} else if (currentSortingOption.trim() == "Price Low") {
-			const sorted = [...filteredData].sort((a, b) => a.price - b.price)
+			const sorted = [...filteredData].sort(
+				(a, b) => Number(a.price) - Number(b.price),
+			)
 			setSortedFilteredData(sorted)
 		} else if (currentSortingOption.trim() == "Price High") {
-			const sorted = [...filteredData].sort((a, b) => b.price - a.price)
+			const sorted = [...filteredData].sort(
+				(a, b) => Number(b.price) - Number(a.price),
+			)
 			setSortedFilteredData(sorted)
 		} else {
 			setSortedFilteredData(filteredData)

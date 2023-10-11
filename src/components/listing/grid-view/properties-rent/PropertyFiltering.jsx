@@ -281,7 +281,9 @@ export default function PropertyFiltering({ listings }) {
 			)
 			setSortedFilteredData(sorted)
 		} else if (currentSortingOption.trim() == "Price High") {
-			const sorted = [...filteredData].sort((a, b) => b.price - a.price)
+			const sorted = [...filteredData].sort(
+				(a, b) => Number(b.price) - Number(a.price),
+			)
 			setSortedFilteredData(sorted)
 		} else {
 			setSortedFilteredData(filteredData)
