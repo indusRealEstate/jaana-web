@@ -1,15 +1,15 @@
-import DefaultHeader from "@/components/common/DefaultHeader"
-import Partner from "@/components/common/Partner"
-import MobileMenu from "@/components/common/mobile-menu"
-import ApartmentTypes from "@/components/home/ApartmentTypes"
-import Features from "@/components/home/Features"
-import FilterProperties from "@/components/home/FilterProperties"
-import About from "@/components/home/about"
-import Hero from "@/components/home/hero"
-import Link from "next/link"
+import DefaultHeader from "@/components/common/DefaultHeader";
+import Partner from "@/components/common/Partner";
+import MobileMenu from "@/components/common/mobile-menu";
+import ApartmentTypes from "@/components/home/ApartmentTypes";
+import Features from "@/components/home/Features";
+import FilterProperties from "@/components/home/FilterProperties";
+import About from "@/components/home/about";
+import Hero from "@/components/home/home-v6/hero";
+import Link from "next/link";
 //import Footer from "@/components/home/footer";
-import Footer from "@/components/common/default-footer"
-import Cta from "@/components/home/Cta"
+import Footer from "@/components/common/default-footer";
+import Cta from "@/components/home/Cta";
 export const metadata = {
 	title: "Top Realtors Dubai | Explore Properties",
 }
