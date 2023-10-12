@@ -30,13 +30,14 @@ const PropertyDetailsPage = () => {
   useEffect(() => {
     getPropertyDetails(prop_id).then((response) => {
       setData(response);
+      // getSimilarProperties(response.property_type).then((props) => {
+      //   setInputData(props);
+      // });
     });
-    if (data != "") {
-      getSimilarProperties(data.property_type).then((props) => {
-        setInputData(props);
-      });
-    }
-  }, [data, inputData]);
+    // if (data != "") {
+
+    // }
+  }, [data, inputData, prop_id]);
 
   return (
     <>
@@ -235,7 +236,9 @@ const PropertyDetailsPage = () => {
                 <div className="col-lg-4">
                   <div className="column">
                     <div className="default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white position-relative bg-theme2">
-                      <h6 className="title fz17 mb30 text-light">Get More Information</h6>
+                      <h6 className="title fz17 mb30 text-light">
+                        Get More Information
+                      </h6>
                       <ContactWithAgent contactAgent={data} />
                       <ScheduleForm contactform={data} />
                     </div>
