@@ -3,7 +3,7 @@ export const homeItems = [
 ];
 
 export const RentItems = [
-  { href: "/rent", label: "Rent" },
+  { href: "/properties-rent", label: "Rent" },
 ];
 
 export const Agent = [

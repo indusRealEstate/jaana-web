@@ -134,6 +134,7 @@ const AdvanceFilterModal = ({ filterFunctions }) => {
 										onChange={(event) =>
 											filterFunctions?.setPropertyId(event.target.value)
 										}
+										
 									/>
 								</div>
 							</div>

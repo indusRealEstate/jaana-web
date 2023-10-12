@@ -15,7 +15,7 @@ const TopFilterBar = ({filterFunctions,setCurrentSortingOption,colstyle,setColst
       <div className="col-xl-9 d-none d-lg-block">
         <div className="dropdown-lists">
           <ul className="p-0 text-center text-xl-start">
-            <li className="list-inline-item position-relative">
+            {/* <li className="list-inline-item position-relative">
               <button
                 type="button"
                 className="open-btn mb15 dropdown-toggle"
@@ -40,7 +40,7 @@ const TopFilterBar = ({filterFunctions,setCurrentSortingOption,colstyle,setColst
                   </button>
                 </div>
               </div>
-            </li>
+            </li> */}
             {/* End li Listing Status */}
 
             <li className="list-inline-item position-relative">
@@ -158,8 +158,8 @@ const TopFilterBar = ({filterFunctions,setCurrentSortingOption,colstyle,setColst
             <span style={{ minWidth: "60px" }}>Sort by</span>
             <select className="form-select" onChange={(e)=>setCurrentSortingOption && setCurrentSortingOption(e.target.value)}>
               <option>Newest</option>
-              <option>Best Seller</option>
-              <option>Best Match</option>
+              {/* <option>Best Seller</option>
+              <option>Best Match</option> */}
               <option>Price Low</option>
               <option>Price High</option>
             </select>
