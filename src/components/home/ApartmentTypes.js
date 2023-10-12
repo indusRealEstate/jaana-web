@@ -86,7 +86,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component"
 import { Skeleton } from "@mui/material"
 
 const ApartmentTypes = () => {
-	const [townhouse, setTownhouse] = useState([])
+	const [house, setHouse] = useState([])
 	const [apartment, setApartment] = useState([])
 	const [office, setOffice] = useState([])
 	const [villa, setVilla] = useState([])
@@ -101,9 +101,9 @@ const ApartmentTypes = () => {
 					props.filter((prop) => prop.property_type.toLowerCase() == "villa")
 						.length,
 				)
-				setTownhouse(
+				setHouse(
 					props.filter(
-						(prop) => prop.property_type.toLowerCase() == "townhouse",
+						(prop) => prop.property_type.toLowerCase() == "house",
 					).length,
 				)
 				setApartment(
@@ -124,13 +124,13 @@ const ApartmentTypes = () => {
 			.catch((error) => {
 				console.log(error)
 			})
-	}, [townhouse, apartment, office, villa, penthouse, allProperties])
+	}, [house, apartment, office, villa, penthouse, allProperties])
 
 	const property_types = [
 		{
-			title: "TownHouse",
+			title: "House",
 			imageSrc: "/images/listings/townhouse.jpg",
-			properties: townhouse,
+			properties: house,
 		},
 		{
 			title: "Apartments",

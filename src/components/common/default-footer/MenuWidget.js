@@ -5,10 +5,10 @@ const MenuWidget = () => {
     {
       title: "Popular Search",
       links: [
-        { label: "Apartment for Rent", href: "#" },
-        { label: "Apartment Low to Hide", href: "#" },
-        { label: "Offices for Buy", href: "#" },
-        { label: "Offices for Rent", href: "#" },
+        { label: "Apartment for Rent", href: "/all-properties" },
+        { label: "Apartment Low to High", href: "/all-properties" },
+        { label: "Offices for Buy", href: "/all-properties" },
+        { label: "Offices for Rent", href: "/all-properties" },
       ],
     },
     {
@@ -26,10 +26,10 @@ const MenuWidget = () => {
     {
       title: "Discover",
       links: [
-        { label: "Dubai Marina", href: "#" },
-        { label: "Business Bay", href: "#" },
-        { label: "Al Barsha", href: "#" },
-        { label: "Downtown", href: "#" },
+        { label: "Dubai Marina", href: "/all-properties" },
+        { label: "Business Bay", href: "/all-properties" },
+        { label: "Al Barsha", href: "/all-properties" },
+        { label: "Downtown", href: "/all-properties" },
       ],
     },
   ];

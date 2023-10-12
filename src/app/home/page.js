@@ -90,7 +90,7 @@ const HomePage = () => {
       {/* End Explore property-city */}
 
       {/* Popular Property */}
-      <section className="pt-0 pb60" style={{marginTop:"3rem;"}}>
+      <section className="pt-0 pb60" style={{marginTop:"3rem"}}>
         <div className="container">
           <FilterProperties />
         </div>
