@@ -145,8 +145,8 @@ const AgentDetails = ({ params }) => {
               </div>
             </div>
             {/* End cta-agent */}
-            {allAgents.map((listing) => (
-              <div className="container">
+            {allAgents.map((listing, index) => (
+              <div className="container" key={index}>
                 <div className="row wow fadeInUp" data-aos-delay="300">
                   <div className="col-lg-8 pr40 pr20-lg">
                     <div className="row">
@@ -216,7 +216,9 @@ const AgentDetails = ({ params }) => {
 
                   <div className="col-lg-4">
                     <div className="agent-single-form home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white position-relative bg-theme2">
-                      <h4 className="form-title mb25 paragraph-theme">Contact Form</h4>
+                      <h4 className="form-title mb25 paragraph-theme">
+                        Contact Form
+                      </h4>
                       <FormContact />
                     </div>
                     <div className="agen-personal-info position-relative bgc-white default-box-shadow1 bdrs12 p30 mt30 bg-theme2">

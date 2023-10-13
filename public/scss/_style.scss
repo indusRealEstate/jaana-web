@@ -96,7 +96,7 @@ body {
   // font-family: var(--body-font-family);
   font-size: 14px;
   font-weight: 400;
-  color: var(--headings-color);
+  // color: var(--headings-color);
   line-height: 26px;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -152,7 +152,7 @@ h5,
 .h6,
 h6 {
   font-family: var(--title-font-family);
-  color: var(--headings-color);
+  // color: var(--headings-color);
   font-weight: 600;
   line-height: 1.5;
 }
@@ -4492,7 +4492,7 @@ li {
   border-radius: 60px;
   color: var(--headings-color);
   display: block;
-  font-family: var(--body-font-family);
+  font-family: var(--title-font-family);
   font-weight: 500;
   font-size: 13px;
   line-height: 28px;
@@ -6021,7 +6021,7 @@ textarea:focus {
   background-color: rgba(235, 103, 83, 0.07);
   border-radius: 60px;
   color: #eb6753;
-  font-family: var(--body-font-family);
+  font-family: var(--title-font-family);
   font-size: 13px;
   font-weight: 500;
   line-height: 28px;

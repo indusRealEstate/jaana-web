@@ -1,13 +1,12 @@
-"use client"
+
 import CallToActions from "@/components/common/CallToActions";
 import DefaultHeader from "@/components/common/DefaultHeader";
 import Footer from "@/components/common/default-footer";
 import MobileMenu from "@/components/common/mobile-menu";
 import Form from "@/components/pages/contact/Form";
-import Office from "@/components/pages/contact/Office";
 
 export const metadata = {
-  title: "Contact Us|| Top Realtors Dubai",
+  title: "Contact Us || Top Realtors Dubai",
 };
 
 const Contact = () => {
@@ -26,11 +25,15 @@ const Contact = () => {
         <iframe
           className="home8-map contact-page"
           loading="lazy"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.9705159772866!2d55.13862987611368!3d25.068988436880367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6d04d580eb8d%3A0x8d223d86886fa136!2sIndus%20Real%20Estate%20LLC%20(DMCC%20Branch)!5e0!3m2!1sen!2sae!4v1696587153581!5m2!1sen!2sae" width="600" height="450" style={{border:0}} allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.9705159772866!2d55.13862987611368!3d25.068988436880367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6d04d580eb8d%3A0x8d223d86886fa136!2sIndus%20Real%20Estate%20LLC%20(DMCC%20Branch)!5e0!3m2!1sen!2sae!4v1696587153581!5m2!1sen!2sae"
+          width="600"
+          height="450"
+          style={{ border: 0 }}
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade"
           title="Indus Real Estate - Dubai"
           aria-label="Indus Real Estate - Dubai"
         />
-        
       </section>
       {/* End Our Contact With Map */}
 
@@ -40,10 +43,15 @@ const Contact = () => {
           <div className="row d-flex align-items-end">
             <div className="col-lg-5 position-relative">
               <div className="home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white">
-                <h4 className="form-title mb25 title-theme">
+                <h4
+                  className="form-title mb25"
+                  style={{
+                    color: "#d6ad60 !important",
+                  }}
+                >
                   Have questions? Get in touch!
                 </h4>
-                <Form /> 
+                <Form />
               </div>
             </div>
             {/* End .col */}
@@ -54,7 +62,9 @@ const Contact = () => {
                 from you.
               </h2>
               <p className="text">
-              We have been successfully active in business since 2004. During this time, we have successfully assisted hundreds clients and we will be happy to guide you.
+                We have been successfully active in business since 2004. During
+                this time, we have successfully assisted hundreds clients and we
+                will be happy to guide you.
               </p>
             </div>
             {/* End .col */}

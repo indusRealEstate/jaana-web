@@ -40,7 +40,7 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
 						alignItems: "center",
 					}}>
 					<Image
-						src={`/images/svg/images/No data-pana.svg`}
+						src={`/images/svg/no-data.svg`}
 						width={300}
 						height={300}
 						alt='Image no data'

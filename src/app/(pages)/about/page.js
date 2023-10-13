@@ -3,10 +3,7 @@ import DefaultHeader from "@/components/common/DefaultHeader";
 import Partner from "@/components/common/Partner";
 import Footer from "@/components/common/default-footer";
 import MobileMenu from "@/components/common/mobile-menu";
-import Agents from "@/components/pages/about/Agents";
 import Features from "@/components/pages/about/Features";
-import FunFact from "@/components/pages/about/FunFact";
-import Mission from "@/components/pages/about/Mission";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -58,7 +55,7 @@ const About = () => {
               Welcome to Top Realtors Dubai, your premier destination for all things related to real estate and property listings. We are passionate about helping you find your dream home, investment property, or rental space while providing valuable resources and guidance along the way.
               </p>
               <p className="text mb55">
-              At Top Realtors Dubai, our mission is to simplify the property search process, making it easy and enjoyable for you. We aim to empower you with the tools and information needed to make informed decisions in the real estate market. Whether you're a first-time buyer, a seasoned investor, or a homeowner looking to sell, we're here to support you every step of the way.
+              At Top Realtors Dubai, our mission is to simplify the property search process, making it easy and enjoyable for you. We aim to empower you with the tools and information needed to make informed decisions in the real estate market. Whether you&apos;re a first-time buyer, a seasoned investor, or a homeowner looking to sell, we&apos;re here to support you every step of the way.
               </p>
               {/* <div className="row">
                 <Mission />
@@ -150,7 +147,7 @@ const About = () => {
               >
                 <div className="mb30">
                   <h2 className="title text-capitalize title-theme">
-                    Let’s find the right <br className="d-none d-md-block" />{" "}
+                    Let&apos;s find the right <br className="d-none d-md-block" />{" "}
                     property for you
                   </h2>
                 </div>
@@ -174,7 +171,7 @@ const About = () => {
           <div className="row">
             <div className="col-lg-12" data-aos="fade-up">
               <div className="main-title text-center">
-                <h6>Trusted by the dubai’s best</h6>
+                <h6>Trusted by the dubai&apos;s best</h6>
               </div>
             </div>
             <div className="col-lg-12 text-center">

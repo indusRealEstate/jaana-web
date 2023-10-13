@@ -2,20 +2,20 @@
 import ScrollToTop from "@/components/common/ScrollTop";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import "../../public/scss/main.scss";
-import { DM_Sans, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { useEffect } from "react";
+import "../../public/scss/main.scss";
 
 if (typeof window !== "undefined") {
   import("bootstrap");
 }
 
 // DM_Sans font
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--body-font-family",
-});
+// const dmSans = DM_Sans({
+//   subsets: ["latin"],
+//   weight: ["400", "500", "700"],
+//   variable: "--body-font-family",
+// });
 
 // Poppins font
 const montserrat = Montserrat({
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`body ${montserrat.variable} ${dmSans.variable}`}
+        className={`body ${montserrat.className}`}
         cz-shortcut-listen="false"
       >
         <div className="wrapper ovh">{children}</div>
