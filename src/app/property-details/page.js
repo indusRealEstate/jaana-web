@@ -50,7 +50,7 @@ const PropertyDetailsPage = ({ params }) => {
         setInputData(props);
       });
     });
-  }, [data, inputData]);
+  }, [data, inputData, prop_id]);
 
   return (
     <>

@@ -18,7 +18,7 @@ const MenuWidget = () => {
         { label: "All Properties", href: "/all-properties" },
         { label: "Sale", href: "/sale" },
         { label: "Rent", href: "/rent" },
-        { label: "Agents", href: "/agents" },
+        { label: "About Agent", href: "/agent-details" },
         { label: "About Us", href: "/about" },
         { label: "Contact Us", href: "/contact" },
       ],

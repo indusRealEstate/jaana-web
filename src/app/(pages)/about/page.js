@@ -58,7 +58,7 @@ const About = () => {
               Welcome to Top Realtors Dubai, your premier destination for all things related to real estate and property listings. We are passionate about helping you find your dream home, investment property, or rental space while providing valuable resources and guidance along the way.
               </p>
               <p className="text mb55">
-              At Top Realtors Dubai, our mission is to simplify the property search process, making it easy and enjoyable for you. We aim to empower you with the tools and information needed to make informed decisions in the real estate market. Whether you're a first-time buyer, a seasoned investor, or a homeowner looking to sell, we're here to support you every step of the way.
+              At Top Realtors Dubai, our mission is to simplify the property search process, making it easy and enjoyable for you. We aim to empower you with the tools and information needed to make informed decisions in the real estate market. Whether you&apos;re a first-time buyer, a seasoned investor, or a homeowner looking to sell, we&apos;re here to support you every step of the way.
               </p>
               {/* <div className="row">
                 <Mission />

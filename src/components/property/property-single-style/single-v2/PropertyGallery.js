@@ -51,7 +51,7 @@ const PropertyGallery = ({ imagesRaw }) => {
           <div className="row">
             {images.map((image, index) => (
               
-              <div className="col-sm-12 ps-lg-0" key={index}>
+              <div className="col-sm-12 ps-lg-0" key={index} >
                 <div className="sp-img-content">
                   {/* <div
                     className={`popup-img preview-img-${index + 2} sp-img mb10`}
@@ -79,9 +79,9 @@ const PropertyGallery = ({ imagesRaw }) => {
                       )}
                     </Item>
                     ):""}
-                  </div>
+                  {/* </div> */}
                 </div>
-              // </div>
+               </div>
             ))}
           </div>
         </div>

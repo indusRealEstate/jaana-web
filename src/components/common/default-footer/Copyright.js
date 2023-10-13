@@ -33,7 +33,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-white"
               >
-                © Top Realtors Dubai {getCurrentYear()}{" "}
+                © Top Realtor Dubai {getCurrentYear()}{" "}
               </a>{" "}
               - All rights reserved
             </p>

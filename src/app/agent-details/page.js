@@ -142,8 +142,8 @@ const AgentDetails = ({ params }) => {
           </div>
         </div>
         {/* End cta-agent */}
-        {allAgents.map((listing) => (
-        <div className="container">
+        {allAgents.map((listing,index) => (
+        <div className="container" key={index}>
           <div className="row wow fadeInUp" data-aos-delay="300">
             <div className="col-lg-8 pr40 pr20-lg">
               <div className="row">
