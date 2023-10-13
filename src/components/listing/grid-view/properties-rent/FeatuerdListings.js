@@ -167,14 +167,14 @@ const FeaturedListings = ({
 								<div className='list-meta2 d-flex justify-content-between align-items-center'>
 									<span className='for-what'>For Rent</span>
 									<div className='icons d-flex align-items-center'>
-										<a href='#'>
-											<span className='flaticon-fullscreen' />
+										<a href='#' className="bg-theme">
+											<span className='flaticon-fullscreen paragraph-theme' />
 										</a>
-										<a href='#'>
-											<span className='flaticon-new-tab' />
+										<a href='#' className="bg-theme">
+											<span className='flaticon-new-tab paragraph-theme' />
 										</a>
-										<a href='#'>
-											<span className='flaticon-like' />
+										<a href='#' className="bg-theme">
+											<span className='flaticon-like paragraph-theme' />
 										</a>
 									</div>
 								</div>

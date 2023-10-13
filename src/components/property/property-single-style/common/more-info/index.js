@@ -42,7 +42,7 @@ const InfoWithForm = (agentsDetails) => {
           <form className="form-style1 row">
             <div className="col-md-6">
               <div className="mb20">
-                <label className="heading-color ff-heading fw600 mb10">
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
                   Name
                 </label>
                 <input
@@ -56,7 +56,7 @@ const InfoWithForm = (agentsDetails) => {
 
             <div className="col-md-6">
               <div className="mb20">
-                <label className="heading-color ff-heading fw600 mb10">
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
                   Phone
                 </label>
                 <input
@@ -70,7 +70,7 @@ const InfoWithForm = (agentsDetails) => {
 
             <div className="col-md-6">
               <div className="mb20">
-                <label className="heading-color ff-heading fw600 mb10">
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
                   Email
                 </label>
                 <input
@@ -84,7 +84,7 @@ const InfoWithForm = (agentsDetails) => {
 
             <div className="col-md-6">
               <div className="widget-wrapper sideborder-dropdown">
-                <label className="heading-color ff-heading fw600 mb10">
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
                   I&apos;m a
                 </label>
                 <div className="form-style2 input-group">
@@ -105,7 +105,7 @@ const InfoWithForm = (agentsDetails) => {
 
             <div className="col-md-12">
               <div className="mb10">
-                <label className="heading-color ff-heading fw600 mb10">
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
                   Message
                 </label>
                 <textarea
@@ -119,7 +119,7 @@ const InfoWithForm = (agentsDetails) => {
             {/* End .col */}
 
             <div className="checkbox-style1 d-block d-sm-flex align-items-center justify-content-between mb10">
-              <label className="custom_checkbox fz14 ff-heading">
+              <label className="custom_checkbox fz14 ff-heading paragraph-theme">
                 By submitting this form I agree to Terms of Use
                 <input type="checkbox" />
                 <span className="checkmark" />

@@ -118,7 +118,7 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
 								</div>
 							</div>
 							<div className='list-content'>
-								<h6 className='list-title'>
+								<h6 className='list-title title-theme'>
 									<Link
 										href={{
 											pathname: "/property-details",
@@ -147,14 +147,14 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
 										For {listing.property_status}
 									</span>
 									<div className='icons d-flex align-items-center'>
-										<a href='#'>
-											<span className='flaticon-fullscreen' />
+										<a href='#' className="bg-theme">
+											<span className='flaticon-fullscreen paragraph-theme' />
 										</a>
-										<a href='#'>
-											<span className='flaticon-new-tab' />
+										<a href='#' className="bg-theme">
+											<span className='flaticon-new-tab paragraph-theme' />
 										</a>
-										<a href='#'>
-											<span className='flaticon-like' />
+										<a href='#' className="bg-theme">
+											<span className='flaticon-like paragraph-theme' />
 										</a>
 									</div>
 								</div>

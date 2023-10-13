@@ -1151,7 +1151,7 @@ li {
   top: -40px;
 }
 .listing-style1 .list-tag {
-  background-color: #eb6753;
+  background-color: var(--gold-color);
   border-radius: 6px;
   color: #ffffff;
   font-family: var(--title-font-family);
@@ -8449,7 +8449,7 @@ li.mm-listitem:focus {
   box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07);
 }
 .mbp_pagination .page-item.active .page-link {
-  background-color: #eb6753;
+  background-color: var(--gold-color);
   color: #ffffff;
   -webkit-box-shadow: none;
   box-shadow: none;

@@ -30,9 +30,9 @@ const PropertyDetailsPage = () => {
   useEffect(() => {
     getPropertyDetails(prop_id).then((response) => {
       setData(response);
-      // getSimilarProperties(response.property_type).then((props) => {
-      //   setInputData(props);
-      // });
+      getSimilarProperties(response.property_type).then((props) => {
+        setInputData(props);
+      });
     });
     // if (data != "") {
 
@@ -207,8 +207,8 @@ const PropertyDetailsPage = () => {
                   </div> */}
                   {/* End .ps-widget */}
 
-                  <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-                    <h4 className="title fz17 mb30 title-theme">
+                  <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative bg-theme2">
+                    <h4 className="title fz17 mb30 text-light">
                       Get More Information
                     </h4>
                     <InfoWithForm agentsDetails={data} />

@@ -149,7 +149,7 @@ const About = () => {
                 data-aos-delay="300"
               >
                 <div className="mb30">
-                  <h2 className="title text-capitalize">
+                  <h2 className="title text-capitalize title-theme">
                     Let’s find the right <br className="d-none d-md-block" />{" "}
                     property for you
                   </h2>
