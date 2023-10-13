@@ -5,9 +5,9 @@ import React from "react"
 const OtherFeatures = ({ filterFunctions }) => {
 	const featuresLeftColumn = [
 		{ label: "Central A/C" },
-		{ label: "Security", defaultChecked: true },
-		{ label: "Balcony", defaultChecked: true },
-		{ label: "Children's Play Area", defaultChecked: true },
+		{ label: "Security" },
+		{ label: "Balcony" },
+		{ label: "Children's Play Area" },
 		{ label: "Shared Gym" },
 		{ label: "Covered Parking" },
 		{ label: "Private Pool" },

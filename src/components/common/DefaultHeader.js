@@ -41,8 +41,10 @@ const DefaultHeader = () => {
 											<Image
 												width={138}
 												height={44}
-												objectFit='cover'
-												objectPosition='center'
+												style={{
+													objectFit: "cover",
+													objectPosition: "center",
+												}}
 												src='/images/INDUS_NEW.jpg'
 												alt='Header Logo'
 											/>

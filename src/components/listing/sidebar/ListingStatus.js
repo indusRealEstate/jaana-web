@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useEffect } from "react"
 
 const ListingStatus = ({ filterFunctions }) => {
 	const options = [
@@ -8,6 +8,12 @@ const ListingStatus = ({ filterFunctions }) => {
 		{ id: "flexRadioDefault1", label: "Buy" },
 		{ id: "flexRadioDefault2", label: "Rent" },
 	]
+
+	if (filterFunctions?.searchData != undefined) {
+		useEffect(() => {
+			filterFunctions?.handlelistingStatus(filterFunctions?.searchData.tab)
+		}, [filterFunctions?.searchData])
+	}
 
 	return (
 		<>
@@ -18,8 +24,15 @@ const ListingStatus = ({ filterFunctions }) => {
 					<input
 						className='form-check-input'
 						type='radio'
-						checked={filterFunctions?.listingStatus == option.label}
-						onChange={() => filterFunctions.handlelistingStatus(option.label)}
+						id={option.id}
+						checked={
+							filterFunctions?.listingStatus.toLowerCase() ==
+							option.label.toLowerCase()
+						}
+						onChange={() => {
+							console.log(option.label.toLowerCase())
+							filterFunctions.handlelistingStatus(option.label)
+						}}
 					/>
 					<label className='form-check-label' htmlFor={option.id}>
 						{option.label}

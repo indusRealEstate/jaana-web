@@ -7,9 +7,12 @@ import TopFilterBar from "./TopFilterBar"
 import FeaturedListings from "./FeatuerdListings"
 
 import PaginationTwo from "../../PaginationTwo"
+import { object } from "prop-types"
 
-export default function PropertyFiltering({ allProperties, prop_for }) {
+export default function PropertyFiltering({ allProperties, prop_for, search }) {
 	const [filteredData, setFilteredData] = useState([])
+
+	const [searchData, setSearchData] = useState(search)
 
 	const [currentSortingOption, setCurrentSortingOption] = useState("Newest")
 
@@ -30,15 +33,47 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 		])
 	}, [pageNumber, sortedFilteredData])
 
-	const [listingStatus, setListingStatus] = useState(prop_for)
-	const [propertyTypes, setPropertyTypes] = useState([])
-	const [priceRange, setPriceRange] = useState([0, 10000000])
-	const [bedrooms, setBedrooms] = useState(0)
-	const [bathroms, setBathroms] = useState(0)
-	const [location, setLocation] = useState("All Cities")
-	const [squirefeet, setSquirefeet] = useState([])
+	const [listingStatus, setListingStatus] = useState(
+		searchData != undefined ? search.tab : prop_for,
+	)
+	// const [listingStatus, setListingStatus] = useState(prop_for)
+	const [propertyTypes, setPropertyTypes] = useState(
+		searchData != undefined ? search.propertyType : [],
+	)
+
+	const [priceRange, setPriceRange] = useState(
+		searchData != undefined
+			? [search.priceRange.min, search.priceRange.max]
+			: [0, 10000000],
+	)
+	const [bedrooms, setBedrooms] = useState(
+		searchData != undefined ? search.beds : 0,
+	)
+	const [bathroms, setBathroms] = useState(
+		searchData != undefined ? search.bath : 0,
+	)
+	let wordArray = []
+	if (searchData != undefined) {
+		searchData.location.split(" ").map((item) => {
+			if (!wordArray.includes(item.charAt(0).toUpperCase() + item.slice(1))) {
+				wordArray.push(item.charAt(0).toUpperCase() + item.slice(1))
+			}
+		})
+	}
+
+	const [location, setLocation] = useState(
+		search != undefined ? wordArray.toString().replace(",", " ") : "All Cities",
+	)
+	const [squirefeet, setSquirefeet] = useState(
+		search != undefined
+			? [search.squareFeetRangeMin, search.squareFeetRangeMax]
+			: [],
+	)
 	const [yearBuild, setyearBuild] = useState([])
-	const [categories, setCategories] = useState([])
+	const [categories, setCategories] = useState(
+		search != undefined ? search.property_amenities : [],
+	)
+
 	const [searchQuery, setSearchQuery] = useState("")
 	const [valueReset, setValueReset] = useState(false)
 
@@ -62,6 +97,7 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 		})
 		setValueReset(true)
 		window.scrollTo(0, 0)
+		setSearchData(undefined)
 	}
 
 	const handlelistingStatus = (elm) => {
@@ -69,7 +105,7 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 	}
 
 	const handlepropertyTypes = (elm) => {
-		if (elm == "All") {
+		if (elm.toLowerCase() == "all") {
 			setPropertyTypes([])
 		} else {
 			setPropertyTypes((pre) =>
@@ -87,7 +123,6 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 		setBathroms(elm)
 	}
 	const handlelocation = (elm) => {
-		console.log(elm)
 		setLocation(elm)
 	}
 	const handlesquirefeet = (elm) => {
@@ -115,19 +150,20 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 		handlesquirefeet,
 		handleyearBuild,
 		handlecategories,
+		setSearchData,
+		setPropertyTypes,
+		setSearchQuery,
+		resetFilter,
 		priceRange,
 		listingStatus,
 		propertyTypes,
-		resetFilter,
-
 		bedrooms,
 		bathroms,
 		location,
 		squirefeet,
 		yearBuild,
 		categories,
-		setPropertyTypes,
-		setSearchQuery,
+		searchData,
 	}
 
 	useEffect(() => {
@@ -139,29 +175,26 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 	}, [filterFunctions, valueReset])
 
 	useEffect(() => {
+		if (searchData == undefined) {
+		}
+		// filter properties according to the purpose of the property
 		const refItems = allProperties.filter((elm) => {
-			if (listingStatus == "All") {
+			if (listingStatus.toLowerCase() == "all") {
 				return true
-			} else if (listingStatus == "Buy") {
+			} else if (listingStatus.toLowerCase() == "buy") {
 				return elm.property_status == "sale"
-			} else if (listingStatus == "Rent") {
+			} else if (listingStatus.toLowerCase() == "rent") {
 				return elm.property_status == "rent"
 			}
 		})
 
 		let filteredArrays = []
 
-		// if (propertyTypes.length > 0) {
-		// 	const filtered = refItems.filter((elm) =>
-		// 		propertyTypes.includes(elm.propertyType),
-		// 	)
-		// 	filteredArrays = [...filteredArrays, filtered]
-		// }
-
+		// property type checking
 		if (propertyTypes.length > 0) {
-			if (propertyTypes[0] != "all") {
+			if (!propertyTypes.includes("all")) {
 				const filtered = refItems.filter((elm) => {
-					return propertyTypes.includes(elm.property_type)
+					return propertyTypes.includes(elm.property_type.toLowerCase())
 				})
 				filteredArrays = [...filteredArrays, filtered]
 			} else {
@@ -169,14 +202,19 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 			}
 		}
 
+		// filter bedrooms
 		filteredArrays = [
 			...filteredArrays,
 			refItems.filter((el) => el.bed >= bedrooms),
 		]
+
+		// filter bathrooms
 		filteredArrays = [
 			...filteredArrays,
 			refItems.filter((el) => el.bath >= bathroms),
 		]
+
+		// filter search text
 		filteredArrays = [
 			...filteredArrays,
 			refItems.filter(
@@ -188,23 +226,20 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 						.toLowerCase()
 						.includes(searchQuery.toLowerCase()) ||
 					el.property_type.toLowerCase().includes(searchQuery.toLowerCase()),
-				// el.features
-				// 	.join(" ")
-				// 	.toLowerCase()
-				// 	.includes(searchQuery.toLowerCase()),
 			),
 		]
 
+		// filter features
 		filteredArrays = [
 			...filteredArrays,
 			!categories.length
 				? [...refItems]
 				: refItems.filter((elm) =>
-						categories.every((elem) =>
+						categories.every((elem) => {
 							JSON.parse(elm.features.toLowerCase()).includes(
 								elem.toLowerCase(),
-							),
-						),
+							)
+						}),
 				  ),
 		]
 
@@ -260,6 +295,7 @@ export default function PropertyFiltering({ allProperties, prop_for }) {
 		categories,
 		searchQuery,
 		// allProperties,
+		searchData,
 	])
 
 	const setScreenWidth = (width) => {

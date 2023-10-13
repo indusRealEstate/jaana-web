@@ -8,13 +8,33 @@ import PropertyFiltering from "@/components/listing/grid-view/grid-default/Prope
 import { useEffect, useState } from "react"
 import { getAllProperties } from "@/api/properties"
 import { Box, CircularProgress } from "@mui/material"
+import { useRouter, useSearchParams } from "next/navigation"
 
 export const metadata = {
 	title: "All Properties",
 }
 
 const AllProperties = () => {
+	const searchParams = useSearchParams()
+	const searchRaw = searchParams.get("search")
+
+	const base64UrlDecode = (base64) => {
+		// ['+', '/', '='],
+		// ['-', '_', '#'],
+
+		const text1 = new String(base64).replace(/-/g, "+")
+		const text2 = text1.replace(/_/g, "/")
+		const text3 = text2.replace(/#/g, "=")
+
+		return text3
+	}
+
+	const searchData =
+		searchRaw != null ? JSON.parse(atob(base64UrlDecode(searchRaw))) : undefined
+
 	const [allProperties, setAllProperties] = useState([])
+
+	console.log(searchData)
 
 	useEffect(() => {
 		getAllProperties()
@@ -77,7 +97,11 @@ const AllProperties = () => {
 					</Box>
 				</>
 			) : (
-				<PropertyFiltering allProperties={allProperties} prop_for={"All"} />
+				<PropertyFiltering
+					allProperties={allProperties}
+					prop_for={"All"}
+					search={searchData}
+				/>
 			)}
 			{/* Property Filtering */}
 
