@@ -19,7 +19,7 @@ const SingleAgentCta = ({id, allAgents}) => {
     social: [
       // { icon: "fab fa-facebook-f", link: "#" },
       // { icon: "fab fa-twitter", link: "#" },
-      { icon: "fab fa-instagram", link: "https://www.instagram.com/dubairealestate4you/" },
+      { icon: "fab fa-instagram", link: "https://instagram.com/top_dubai_realtor?igshid=OGQ5ZDc2ODk2ZA==" },
       { icon: "fab fa-linkedin-in", link: "https://www.linkedin.com/in/jaana-markkanen-08463717?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" },
     ],
   };
@@ -27,8 +27,8 @@ const SingleAgentCta = ({id, allAgents}) => {
   return (
     
     <>
-    {allAgents.map((listing) => (
-      <div className="agent-single d-sm-flex align-items-center">
+    {allAgents.map((listing, index) => (
+      <div className="agent-single d-sm-flex align-items-center" key={index}>
         <div className="single-img mb30-sm">
           <Image
             width={172}

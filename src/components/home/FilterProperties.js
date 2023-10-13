@@ -50,9 +50,6 @@ const FilterProperties = () => {
 
 			
 	}, [loaded, allProperties, selectedTag, filteredListings])
-
-	// console.log(allProperties)
-
 	return (
 		<>
 			<div className='row wow fadeInUp mt-5' data-wow-delay='100ms'>
