@@ -28,7 +28,7 @@ const Footer = () => {
             <p className="copyright-text text-gray ff-heading">
              
               <a
-                href="https://themeforest.net/user/ib-themes"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white"

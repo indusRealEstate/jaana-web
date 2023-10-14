@@ -47,6 +47,7 @@ const PriceRange = ({ filterFunctions, dataReset }) => {
 						])
 						setPrice({ value })
 					}}
+					
 					// onChange={(value) => handleOnChange(value)}
 					id='slider'
 				/>

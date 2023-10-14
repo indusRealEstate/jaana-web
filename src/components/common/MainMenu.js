@@ -49,7 +49,7 @@ const MainMenu = ({ scroll }) => {
     });
     Agent.forEach((elm) => {
       if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-        setTopMenu("agent");
+        setTopMenu("About agent");
       }
     });
   }, [topMenu, pathname]);
@@ -123,7 +123,7 @@ const MainMenu = ({ scroll }) => {
         >
           <span
             className={
-              topMenu == "agent"
+              topMenu == "About Agent"
                 ? `title ${scroll ? "menuActive-scroll" : "menuActive"}`
                 : "title"
             }
