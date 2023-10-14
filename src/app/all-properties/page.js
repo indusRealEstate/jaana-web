@@ -3,34 +3,54 @@ import DefaultHeader from "@/components/common/DefaultHeader";
 import Footer from "@/components/common/default-footer";
 import MobileMenu from "@/components/common/mobile-menu";
 
-import React from "react";
-import PropertyFiltering from "@/components/listing/grid-view/grid-default/PropertyFiltering";
-import { useEffect, useState } from "react";
-import { getAllProperties } from "@/api/properties";
-import { Box, CircularProgress } from "@mui/material";
+import React from "react"
+import PropertyFiltering from "@/components/listing/grid-view/grid-default/PropertyFiltering"
+import { useEffect, useState } from "react"
+import { getAllProperties } from "@/api/properties"
+import { Box, CircularProgress } from "@mui/material"
+import { useRouter, useSearchParams } from "next/navigation"
 
 export const metadata = {
   title: "All Properties",
 };
 
 const AllProperties = () => {
-  const [allProperties, setAllProperties] = useState([]);
+	const searchParams = useSearchParams()
+	const searchRaw = searchParams.get("search")
 
-  useEffect(() => {
-    getAllProperties()
-      .then((response) => {
-        //console.log(response.prop);
-        setAllProperties(response);
-      })
-      .catch((error) => {
-        console.log("error" + error);
-      });
-  }, [allProperties]);
-  return (
-    <>
-      {/* Main Header Nav */}
-      <DefaultHeader />
-      {/* End Main Header Nav */}
+	const base64UrlDecode = (base64) => {
+		// ['+', '/', '='],
+		// ['-', '_', '#'],
+
+		const text1 = new String(base64).replace(/-/g, "+")
+		const text2 = text1.replace(/_/g, "/")
+		const text3 = text2.replace(/#/g, "=")
+
+		return text3
+	}
+
+	const searchData =
+		searchRaw != null ? JSON.parse(atob(base64UrlDecode(searchRaw))) : undefined
+
+	const [allProperties, setAllProperties] = useState([])
+
+	console.log(searchData)
+
+	useEffect(() => {
+		getAllProperties()
+			.then((response) => {
+				//console.log(response.prop);
+				setAllProperties(response)
+			})
+			.catch((error) => {
+				console.log("error" + error)
+			})
+	}, [allProperties])
+	return (
+		<>
+			{/* Main Header Nav */}
+			<DefaultHeader />
+			{/* End Main Header Nav */}
 
       {/* Mobile Nav  */}
       <MobileMenu />
@@ -63,25 +83,28 @@ const AllProperties = () => {
       </section>
       {/* End Breadcumb Sections */}
 
-      {/* Property Filtering */}
-      {allProperties == "" ? (
-        <>
-          <Box
-            sx={{
-              display: "flex",
-              height: "50vh",
-              width: "100%",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <CircularProgress size={50}></CircularProgress>
-          </Box>
-        </>
-      ) : (
-        <PropertyFiltering allProperties={allProperties} prop_for={"All"} />
-      )}
-      {/* Property Filtering */}
+			{/* Property Filtering */}
+			{allProperties == "" ? (
+				<>
+					<Box
+						sx={{
+							display: "flex",
+							height: "50vh",
+							width: "100%",
+							justifyContent: "center",
+							alignItems: "center",
+						}}>
+						<CircularProgress size={50}></CircularProgress>
+					</Box>
+				</>
+			) : (
+				<PropertyFiltering
+					allProperties={allProperties}
+					prop_for={"All"}
+					search={searchData}
+				/>
+			)}
+			{/* Property Filtering */}
 
       {/* Start Our Footer */}
       {/* <section className="footer-style1 pt60 pb-0">

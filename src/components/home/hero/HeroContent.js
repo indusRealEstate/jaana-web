@@ -4,9 +4,10 @@ import { useRouter } from "next/navigation"
 
 const HeroContent = ({ transferData }) => {
 	const router = useRouter()
-	const [activeTab, setActiveTab] = useState("buy")
+	const [activeTab, setActiveTab] = useState("all")
 
 	const tabs = [
+		{ id: "all", label: "All" },
 		{ id: "buy", label: "Buy" },
 		{ id: "rent", label: "Rent" },
 	]
@@ -15,7 +16,7 @@ const HeroContent = ({ transferData }) => {
 		setActiveTab(tab.id)
 		transferData?.setSearchProperties({
 			...transferData.searchProperties,
-			tab: tab.id,
+			tab: tab.label,
 		})
 	}
 
@@ -75,7 +76,14 @@ const HeroContent = ({ transferData }) => {
 										<button
 											className='advance-search-icon ud-btn btn-dark ms-4'
 											type='button'
-											onClick={() => router.push("/all-properties")}>
+											onClick={(event) => {
+												event.preventDefault()
+												if (event.type === "click") {
+													transferData?.search(transferData?.searchProperties)
+												}
+											}}
+											// onClick={() => router.push("/all-properties")}
+										>
 											<span className='flaticon-search' />
 										</button>
 									</div>

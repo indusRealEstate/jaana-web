@@ -5,17 +5,21 @@ import Bedroom from "./Bedroom"
 import Bathroom from "./Bathroom"
 import Amenities from "./Amenities"
 import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
 
 const AdvanceFilterModal = ({ transferData }) => {
+	const onlyDigit = /^\d+$/
+
 	const router = useRouter()
 	const catOptions = [
-		{ value: "Banking", label: "Apartments" },
-		{ value: "Bungalow", label: "Bungalow" },
-		{ value: "Houses", label: "Houses" },
-		{ value: "Loft", label: "Loft" },
-		{ value: "Office", label: "Office" },
-		{ value: "Townhome", label: "Townhome" },
-		{ value: "Villa", label: "Villa" },
+		{ value: "all", label: "All properties" },
+		{ value: "apartment", label: "Apartment" },
+		{ value: "bungalow", label: "Bungalow" },
+		{ value: "house", label: "House" },
+		{ value: "loft", label: "Loft" },
+		{ value: "office", label: "Office" },
+		{ value: "townhome", label: "Townhome" },
+		{ value: "villa", label: "Villa" },
 	]
 	const locationOptions = [
 		{ value: "All Cities", label: "All Cities" },
@@ -41,25 +45,8 @@ const AdvanceFilterModal = ({ transferData }) => {
 		{ value: "Zabeel", label: "Zabeel" },
 	]
 
-	// const featuresLeftColumn = [
-	// 	{ label: "Central A/C" },
-	// 	{ label: "Security", defaultChecked: true },
-	// 	{ label: "Balcony", defaultChecked: true },
-	// 	{ label: "Children's Play Area", defaultChecked: true },
-	// 	{ label: "Shared Gym" },
-	// 	{ label: "Covered Parking" },
-	// 	{ label: "Private Pool" },
-	// ]
-
-	// const featuresRightColumn = [
-	// 	{ label: "Furnished" },
-	// 	{ label: "Kitchen Appliances" },
-	// 	{ label: "Built in Wardrobes" },
-	// 	{ label: "Unfurnished" },
-	// 	{ label: "Front yard" },
-	// 	{ label: "Refrigerator" },
-	// 	{ label: "Terrace" },
-	// ]
+	const [invalidMinArea, setInvalidMinArea] = useState(false)
+	const [invalidMaxArea, setInvalidMaxArea] = useState(false)
 
 	const customStyles = {
 		option: (styles, { isFocused, isSelected, isHovered }) => {
@@ -121,7 +108,7 @@ const AdvanceFilterModal = ({ transferData }) => {
 										onChange={(event) =>
 											transferData?.setSearchProperties({
 												...transferData.searchProperties,
-												propertyType: event,
+												propertyType: [event.value.toLowerCase()],
 											})
 										}
 									/>
@@ -167,7 +154,7 @@ const AdvanceFilterModal = ({ transferData }) => {
 							<div className='widget-wrapper'>
 								<h6 className='list-title'>Bathrooms</h6>
 								<div className='d-flex'>
-									<Bathroom />
+									<Bathroom transferData={transferData} />
 								</div>
 							</div>
 						</div>
@@ -188,6 +175,12 @@ const AdvanceFilterModal = ({ transferData }) => {
 										className='select-custom'
 										classNamePrefix='select'
 										required
+										onChange={(event) =>
+											transferData?.setSearchProperties({
+												...transferData.searchProperties,
+												location: event.value.toLowerCase(),
+											})
+										}
 									/>
 								</div>
 							</div>
@@ -204,6 +197,29 @@ const AdvanceFilterModal = ({ transferData }) => {
 												type='text'
 												className='form-control'
 												placeholder='Min.'
+												style={
+													invalidMinArea
+														? {
+																border: "2px solid red",
+														  }
+														: {}
+												}
+												onChange={(event) => {
+													try {
+														if (!event.target.value.match(onlyDigit)) {
+															setInvalidMinArea(true)
+															throw new Error("Only digits can enter")
+														} else {
+															setInvalidMinArea(false)
+															transferData?.setSearchProperties({
+																...transferData.searchProperties,
+																squareFeetRangeMin: event.target.value,
+															})
+														}
+													} catch (error) {
+														console.log(error.message)
+													}
+												}}
 											/>
 										</div>
 										<span className='dark-color'>-</span>
@@ -212,6 +228,29 @@ const AdvanceFilterModal = ({ transferData }) => {
 												type='text'
 												className='form-control'
 												placeholder='Max'
+												style={
+													invalidMaxArea
+														? {
+																border: "2px solid red",
+														  }
+														: {}
+												}
+												onChange={(event) => {
+													try {
+														if (!event.target.value.match(onlyDigit)) {
+															setInvalidMaxArea(true)
+															throw new Error("Only digits can enter")
+														} else {
+															setInvalidMaxArea(false)
+															transferData?.setSearchProperties({
+																...transferData.searchProperties,
+																squareFeetRangeMax: event.target.value,
+															})
+														}
+													} catch (error) {
+														console.log(error.message)
+													}
+												}}
 											/>
 										</div>
 									</div>
@@ -225,16 +264,22 @@ const AdvanceFilterModal = ({ transferData }) => {
 					<div className='row'>
 						<div className='col-lg-12'>
 							<div className='widget-wrapper mb0'>
-								<h6 className='list-title mb10'>Amenities</h6>
+								<h6 className='list-title mb10'>Features</h6>
 							</div>
 						</div>
-						<Amenities />
+						<Amenities transferData={transferData} />
 					</div>
 				</div>
 				{/* End modal body */}
 
 				<div className='modal-footer justify-content-between'>
-					<button className='reset-button'>
+					<button
+						className='reset-button'
+						onClick={(event) => {
+							if (event.type === "click") {
+								transferData?.dataReset(true)
+							}
+						}}>
 						<span className='flaticon-turn-back' />
 						<u>Reset all filters</u>
 					</button>
@@ -244,7 +289,12 @@ const AdvanceFilterModal = ({ transferData }) => {
 							data-bs-dismiss='modal'
 							type='submit'
 							className='ud-btn btn-thm'
-							onClick={() => router.push("#")}>
+							onClick={(event) => {
+								event.preventDefault()
+								if (event.type === "click") {
+									transferData?.search(transferData?.searchProperties)
+								}
+							}}>
 							<span className='flaticon-search align-text-top pr10' />
 							Search
 						</button>
