@@ -9,7 +9,10 @@ const SingleAgentCta = ({id, allAgents}) => {
   const data = agents.filter((elm) => elm.id == id)[0] || agents[0];
 
 //console.log(allAgents);
-
+const contactInfoList = 
+  {
+    mailLink: "mailto:jaana.markkanen@indusre.ae", // Changed mailLink to direct email address
+  };
   const agentData = {
     // name: data.name,
     // company: "Modern House Real Estate",
