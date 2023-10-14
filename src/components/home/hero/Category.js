@@ -17,33 +17,12 @@ const Category = ({ transferData }) => {
 	return (
 		<div className='home4-icon-style mt30 d-none d-sm-flex animate-up-4'>
 			{categories.map((category, index) => (
-				// <Link
-				// 	key={index}
-				// 	href='#'
-				// 	className='d-flex align-items-center dark-color ff-heading me-4 text-light'>
-				// 	<i className={`icon mr10 ${category.icon}`} /> {category.text}
-				// </Link>
-				<button
-					style={{
-						padding: "0",
-						border: "none",
-						background: "none",
-					}}
-					type='button'
+				<Link
 					key={index}
-					href='#'
-					className='d-flex align-items-center dark-color ff-heading me-4 text-light'
-					onClick={(event) => {
-						if (event.type == "click") {
-							transferData?.setSearchProperties({
-								...transferData.searchProperties,
-								propertyType: [event.toLowerCase()],
-							})
-							transferData?.search(transferData?.searchProperties)
-						}
-					}}>
+					href={`/all-properties?categories=${category.value}`}
+					className='d-flex align-items-center dark-color ff-heading me-4 text-light'>
 					<i className={`icon mr10 ${category.icon}`} /> {category.text}
-				</button>
+				</Link>
 			))}
 		</div>
 	)

@@ -11,6 +11,7 @@ import Location from "./Location"
 import SquareFeet from "./SquareFeet"
 import YearBuilt from "./YearBuilt"
 import OtherFeatures from "./OtherFeatures"
+import FindPropertyById from "./FindPropertyById"
 
 const ListingSidebar = ({ filterFunctions, dataReset }) => {
 	return (
@@ -18,6 +19,10 @@ const ListingSidebar = ({ filterFunctions, dataReset }) => {
 			<div className='widget-wrapper'>
 				<h6 className='list-title'>Find your home</h6>
 				<SearchBox filterFunctions={filterFunctions} />
+			</div>
+			<div className='widget-wrapper'>
+				<h6 className='list-title'>Find propert by ID</h6>
+				<FindPropertyById filterFunctions={filterFunctions} />
 			</div>
 			{/* End .widget-wrapper */}
 

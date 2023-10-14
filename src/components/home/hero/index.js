@@ -49,9 +49,9 @@ const Hero = () => {
 
 	const search = (value) => {
 		console.log(value)
-		// router.push(
-		// 	`/all-properties?search=${base64UrlEncode(btoa(JSON.stringify(value)))}`,
-		// )
+		router.push(
+			`/all-properties?search=${base64UrlEncode(btoa(JSON.stringify(value)))}`,
+		)
 		dataReset(true)
 	}
 

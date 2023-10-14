@@ -16,6 +16,7 @@ export const metadata = {
 
 const AllProperties = () => {
 	const searchParams = useSearchParams()
+	const categoryRow = searchParams.get("categories")
 	const searchRaw = searchParams.get("search")
 
 	const base64UrlDecode = (base64) => {
@@ -33,8 +34,6 @@ const AllProperties = () => {
 		searchRaw != null ? JSON.parse(atob(base64UrlDecode(searchRaw))) : undefined
 
 	const [allProperties, setAllProperties] = useState([])
-
-	console.log(searchData)
 
 	useEffect(() => {
 		getAllProperties()
@@ -100,6 +99,7 @@ const AllProperties = () => {
 				<PropertyFiltering
 					allProperties={allProperties}
 					prop_for={"All"}
+					categoryRow={categoryRow}
 					search={searchData}
 				/>
 			)}
