@@ -56,7 +56,7 @@ const MobileMenu = () => {
 							aria-label='Close'>
 							<span className='far fa-times'></span>
 						</div>
-						<h4 className='title'>Top Realtors Dubai</h4>
+						<h4 className='title'>Top Realtor Dubai</h4>
 					</div>
 					{/* End header */}
 

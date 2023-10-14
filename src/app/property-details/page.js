@@ -250,10 +250,8 @@ const PropertyDetailsPage = () => {
               <div className="row mt30 align-items-center justify-content-between">
                 <div className="col-auto">
                   <div className="main-title">
-                    <h2 className="title">Discover Our Featured Listings</h2>
-                    {/* <p className="paragraph">
-                      Aliquam lacinia diam quis lacus euismod
-                    </p> */}
+                    {inputData == "" ? <h2 className="title">Discover Our Featured Listings</h2> : <></>}
+                   
                   </div>
                 </div>
                 {/* End header */}
