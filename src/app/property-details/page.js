@@ -1,55 +1,42 @@
 "use client";
+import { getPropertyDetails, getSimilarProperties } from "@/api/properties";
 import DefaultHeader from "@/components/common/DefaultHeader";
 import Footer from "@/components/common/default-footer";
 import MobileMenu from "@/components/common/mobile-menu";
-import EnergyClass from "@/components/property/property-single-style/common/EnergyClass";
 import FloorPlans from "@/components/property/property-single-style/common/FloorPlans";
-import HomeValueChart from "@/components/property/property-single-style/common/HomeValueChart";
-import InfoWithForm from "@/components/property/property-single-style/common/more-info";
 import NearbySimilarProperty from "@/components/property/property-single-style/common/NearbySimilarProperty";
-import OverView from "@/components/property/property-single-style/single-v2/OverView";
 import PropertyAddress from "@/components/property/property-single-style/common/PropertyAddress";
 import PropertyDetails from "@/components/property/property-single-style/common/PropertyDetails";
 import PropertyFeaturesAminites from "@/components/property/property-single-style/common/PropertyFeaturesAminites";
-import PropertyNearby from "@/components/property/property-single-style/common/PropertyNearby";
 import PropertyVideo from "@/components/property/property-single-style/common/PropertyVideo";
-import PropertyViews from "@/components/property/property-single-style/common/property-view";
 import ProperytyDescriptions from "@/components/property/property-single-style/common/ProperytyDescriptions";
-import ReviewBoxForm from "@/components/property/property-single-style/common/ReviewBoxForm";
-import VirtualTour360 from "@/components/property/property-single-style/common/VirtualTour360";
-import AllReviews from "@/components/property/property-single-style/common/reviews";
+import InfoWithForm from "@/components/property/property-single-style/common/more-info";
 import ContactWithAgent from "@/components/property/property-single-style/single-v2/ContactWithAgent";
+import OverView from "@/components/property/property-single-style/single-v2/OverView";
 import PropertyGallery from "@/components/property/property-single-style/single-v2/PropertyGallery";
-import MortgageCalculator from "@/components/property/property-single-style/common/MortgageCalculator";
-import WalkScore from "@/components/property/property-single-style/common/WalkScore";
 import PropertyHeader from "@/components/property/property-single-style/single-v2/PropertyHeader";
 import ScheduleForm from "@/components/property/property-single-style/single-v2/ScheduleForm";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState, useLayoutEffect } from "react";
-import { getPropertyDetails } from "@/api/properties";
 import { Box, CircularProgress } from "@mui/material";
-import { getSimilarProperties } from "@/api/properties";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export const metadata = {
-  title: "Properties- details",
-};
-
-const PropertyDetailsPage = ({ params }) => {
+const PropertyDetailsPage = () => {
   const searchParams = useSearchParams();
   const prop_id = searchParams.get("prop_id");
 
   const [data, setData] = useState("");
-  const [similarProperties, setSimilarProperties] = useState([]);
-  const [inputData, setInputData] = useState();
+  const [inputData, setInputData] = useState("");
 
   useEffect(() => {
     getPropertyDetails(prop_id).then((response) => {
       setData(response);
-      //  console.log(response.property_type);
       getSimilarProperties(response.property_type).then((props) => {
         setInputData(props);
       });
     });
+    // if (data != "") {
+
+    // }
   }, [data, inputData, prop_id]);
 
   return (
@@ -79,7 +66,7 @@ const PropertyDetailsPage = ({ params }) => {
           {/* End Mobile Nav  */}
 
           {/* Property All Single V1 */}
-          <section className="pt60 pb0 bgc-white">
+          <section className="pt60 pb0 bg-theme-white">
             <div className="container">
               <div className="row">
                 <PropertyHeader headerdata={data} />
@@ -105,11 +92,15 @@ const PropertyDetailsPage = ({ params }) => {
               <div className="row wrap">
                 <div className="col-lg-8">
                   <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-                    <h4 className="title fz17 mb30">Property Description</h4>
+                    <h4 className="title fz17 mb30 title-theme">
+                      Property Description
+                    </h4>
                     <ProperytyDescriptions ProDescriptions={data} />
                     {/* End property description */}
 
-                    <h4 className="title fz17 mb30 mt50">Property Details</h4>
+                    <h4 className="title fz17 mb30 mt50 title-theme">
+                      Property Details
+                    </h4>
                     <div className="row">
                       <PropertyDetails proDetails={data} />
                     </div>
@@ -117,7 +108,9 @@ const PropertyDetailsPage = ({ params }) => {
                   {/* End .ps-widget */}
 
                   <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-                    <h4 className="title fz17 mb30 mt30">Address</h4>
+                    <h4 className="title fz17 mb30 mt30 title-theme">
+                      Address
+                    </h4>
                     <div className="row">
                       <PropertyAddress PropAddress={data} />
                     </div>
@@ -125,7 +118,7 @@ const PropertyDetailsPage = ({ params }) => {
                   {/* End .ps-widget */}
 
                   <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-                    <h4 className="title fz17 mb30">
+                    <h4 className="title fz17 mb30 title-theme">
                       Features &amp; Amenities
                     </h4>
                     <div className="row">
@@ -143,7 +136,7 @@ const PropertyDetailsPage = ({ params }) => {
                   {/* End .ps-widget */}
 
                   <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-                    <h4 className="title fz17 mb30">Floor Plans</h4>
+                    <h4 className="title fz17 mb30 title-theme">Floor Plans</h4>
                     <div className="row">
                       <div className="col-md-12">
                         <div className="accordion-style1 style2">
@@ -155,7 +148,7 @@ const PropertyDetailsPage = ({ params }) => {
                   {/* End .ps-widget */}
 
                   <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 ">
-                    <h4 className="title fz17 mb30">Video</h4>
+                    <h4 className="title fz17 mb30 title-theme">Video</h4>
                     <div className="row">
                       <PropertyVideo />
                     </div>
@@ -214,8 +207,10 @@ const PropertyDetailsPage = ({ params }) => {
                   </div> */}
                   {/* End .ps-widget */}
 
-                  <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-                    <h4 className="title fz17 mb30">Get More Information</h4>
+                  <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative bg-theme2">
+                    <h4 className="title fz17 mb30 text-light">
+                      Get More Information
+                    </h4>
                     <InfoWithForm agentsDetails={data} />
                   </div>
                   {/* End .ps-widget */}
@@ -240,10 +235,12 @@ const PropertyDetailsPage = ({ params }) => {
 
                 <div className="col-lg-4">
                   <div className="column">
-                    <div className="default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white position-relative">
-                      <h6 className="title fz17 mb30">Get More Information</h6>
+                    <div className="default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white position-relative bg-theme2">
+                      <h6 className="title fz17 mb30 text-light">
+                        Get More Information
+                      </h6>
                       <ContactWithAgent contactAgent={data} />
-                      <ScheduleForm contactform={data}/>
+                      <ScheduleForm contactform={data} />
                     </div>
                   </div>
                 </div>
@@ -291,7 +288,7 @@ const PropertyDetailsPage = ({ params }) => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="property-city-slider">
-                    {inputData != undefined ? (
+                    {inputData != "" ? (
                       <NearbySimilarProperty
                         inputData={inputData}
                         prop_id={prop_id}

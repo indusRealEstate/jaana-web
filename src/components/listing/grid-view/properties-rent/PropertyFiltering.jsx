@@ -43,6 +43,9 @@ export default function PropertyFiltering({ listings }) {
 	const [yearBuild, setyearBuild] = useState([])
 	const [categories, setCategories] = useState([])
 	const [propertyId, setPropertyId] = useState("")
+	const [valueReset, setValueReset] = useState(false)
+	const [dataChanged, setDataChange] = useState(false)
+	const [loaded, setLoaded] = useState([])
 
 	const resetFilter = () => {
 		setListingStatus("All")
@@ -62,6 +65,13 @@ export default function PropertyFiltering({ listings }) {
 		document.querySelectorAll(".filterSelect").forEach(function (element) {
 			element.value = "All Cities"
 		})
+		setValueReset(true)
+	}
+
+	const handleImageLoading = (dataArray) => {
+		if (dataArray.length === 0) {
+			setLoaded([])
+		}
 	}
 
 	const handlelistingStatus = (elm) => {
@@ -87,7 +97,6 @@ export default function PropertyFiltering({ listings }) {
 		setBathroms(elm)
 	}
 	const handlelocation = (elm) => {
-		console.log(elm)
 		setLocation(elm)
 	}
 	const handlesquirefeet = (elm) => {
@@ -116,18 +125,26 @@ export default function PropertyFiltering({ listings }) {
 		handleyearBuild,
 		handlecategories,
 		setPropertyId,
+		setDataChange,
+		setPropertyTypes,
+		resetFilter,
+		setValueReset,
+		setLoaded,
+		handleImageLoading,
 		priceRange,
 		listingStatus,
 		propertyTypes,
-		resetFilter,
-
 		bedrooms,
 		bathroms,
 		location,
 		squirefeet,
 		yearBuild,
 		categories,
-		setPropertyTypes,
+		valueReset,
+		propertyId,
+		valueReset,
+		dataChanged,
+		loaded,
 	}
 
 	useEffect(() => {
@@ -143,7 +160,7 @@ export default function PropertyFiltering({ listings }) {
 
 		let filteredArrays = []
 
-		if (propertyTypes.length > 0) {
+		if (propertyTypes.length > 0 && propertyTypes[0] !== "all") {
 			const filtered = refItems.filter((elm) =>
 				propertyTypes.includes(elm.property_type.toLowerCase()),
 			)
@@ -151,11 +168,11 @@ export default function PropertyFiltering({ listings }) {
 		}
 		filteredArrays = [
 			...filteredArrays,
-			refItems.filter((el) => el.bed >= bedrooms),
+			refItems.filter((el) => Number(el.bed) >= Number(bedrooms)),
 		]
 		filteredArrays = [
 			...filteredArrays,
-			refItems.filter((el) => el.bath >= bathroms),
+			refItems.filter((el) => Number(el.bath) >= Number(bathroms)),
 		]
 
 		if (propertyId != "") {
@@ -208,10 +225,11 @@ export default function PropertyFiltering({ listings }) {
 			filteredArrays = [...filteredArrays, filtered]
 		}
 		if (squirefeet.length > 0 && squirefeet[1]) {
+			console.log(squirefeet)
 			const filtered = refItems.filter(
 				(elm) =>
-					elm.area.toLowerCase() >= squirefeet[0] &&
-					elm.area.toLowerCase() <= squirefeet[1],
+					Number(elm.area) >= Number(squirefeet[0]) &&
+					Number(elm.area) <= Number(squirefeet[1]),
 			)
 			filteredArrays = [...filteredArrays, filtered]
 		}
@@ -221,6 +239,12 @@ export default function PropertyFiltering({ listings }) {
 					elm.year_built >= yearBuild[0] && elm.year_built <= yearBuild[1],
 			)
 			filteredArrays = [...filteredArrays, filtered]
+		}
+
+		if (filterFunctions.priceRange[0] > 20) {
+			setValueReset(false)
+		} else if (filterFunctions.priceRange[1] < 100000000) {
+			setValueReset(false)
 		}
 
 		const commonItems = refItems.filter((item) =>
@@ -239,20 +263,27 @@ export default function PropertyFiltering({ listings }) {
 		yearBuild,
 		categories,
 		propertyId,
+		valueReset,
+		dataChanged,
+		loaded,
 	])
 
 	useEffect(() => {
 		setPageNumber(1)
 		if (currentSortingOption == "Newest") {
 			const sorted = [...filteredData].sort(
-				(a, b) => a.yearBuilding - b.yearBuilding,
+				(a, b) => Number(b.year_built) - Number(a.year_built),
 			)
 			setSortedFilteredData(sorted)
 		} else if (currentSortingOption.trim() == "Price Low") {
-			const sorted = [...filteredData].sort((a, b) => a.price - b.price)
+			const sorted = [...filteredData].sort(
+				(a, b) => Number(a.price) - Number(b.price),
+			)
 			setSortedFilteredData(sorted)
 		} else if (currentSortingOption.trim() == "Price High") {
-			const sorted = [...filteredData].sort((a, b) => b.price - a.price)
+			const sorted = [...filteredData].sort(
+				(a, b) => Number(b.price) - Number(a.price),
+			)
 			setSortedFilteredData(sorted)
 		} else {
 			setSortedFilteredData(filteredData)
@@ -308,7 +339,11 @@ export default function PropertyFiltering({ listings }) {
 				{/* End TopFilterBar */}
 
 				<div className='row'>
-					<FeaturedListings colstyle={colstyle} data={pageItems} />
+					<FeaturedListings
+						colstyle={colstyle}
+						data={pageItems}
+						filterFunctions={filterFunctions}
+					/>
 				</div>
 				{/* End .row */}
 

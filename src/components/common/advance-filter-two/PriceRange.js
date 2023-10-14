@@ -20,16 +20,24 @@ const PriceRange = ({ filterFunctions }) => {
 					maxValue={100000000}
 					minValue={20}
 					value={{
-						min: filterFunctions?.priceRange[0],
-						max: filterFunctions?.priceRange[1],
+						min: filterFunctions?.valueReset
+							? "20"
+							: filterFunctions?.priceRange[0],
+						max: filterFunctions?.valueReset
+							? "10000000"
+							: filterFunctions?.priceRange[1],
 					}}
 					onChange={(value) => handleOnChange(value)}
 					id='slider'
 				/>
 				<div className='d-flex align-items-center'>
-					<span id='slider-range-value1'>AED {price.value.min}</span>
+					<span id='slider-range-value1'>
+						AED {filterFunctions?.valueReset ? "20" : price.value.min}
+					</span>
 					<i className='fa-sharp fa-solid fa-minus mx-2 dark-color icon' />
-					<span id='slider-range-value2'>AED {price.value.max}</span>
+					<span id='slider-range-value2'>
+						AED {filterFunctions?.valueReset ? "10000000" : price.value.max}
+					</span>
 				</div>
 			</div>
 		</>

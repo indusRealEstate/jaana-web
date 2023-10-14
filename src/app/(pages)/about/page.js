@@ -3,10 +3,7 @@ import DefaultHeader from "@/components/common/DefaultHeader";
 import Partner from "@/components/common/Partner";
 import Footer from "@/components/common/default-footer";
 import MobileMenu from "@/components/common/mobile-menu";
-import Agents from "@/components/pages/about/Agents";
 import Features from "@/components/pages/about/Features";
-import FunFact from "@/components/pages/about/FunFact";
-import Mission from "@/components/pages/about/Mission";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -149,8 +146,8 @@ const About = () => {
                 data-aos-delay="300"
               >
                 <div className="mb30">
-                  <h2 className="title text-capitalize">
-                    Let’s find the right <br className="d-none d-md-block" />{" "}
+                  <h2 className="title text-capitalize title-theme">
+                    Let&apos;s find the right <br className="d-none d-md-block" />{" "}
                     property for you
                   </h2>
                 </div>
@@ -174,7 +171,7 @@ const About = () => {
           <div className="row">
             <div className="col-lg-12" data-aos="fade-up">
               <div className="main-title text-center">
-                <h6>Trusted by the dubai’s best</h6>
+                <h6>Trusted by the dubai&apos;s best</h6>
               </div>
             </div>
             <div className="col-lg-12 text-center">

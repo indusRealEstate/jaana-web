@@ -1,7 +1,7 @@
 module.exports = [
   {
     label: "Home",
-    path: "/home",
+    path: "/",
   },
   {
     label: "All Properties",

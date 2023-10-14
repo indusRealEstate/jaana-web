@@ -1,45 +1,37 @@
-import MobileMenu from "@/components/common/mobile-menu";
-import CallToActions from "@/components/home/CallToActions";
 import DefaultHeader from "@/components/common/DefaultHeader";
 import Partner from "@/components/common/Partner";
-import PropertiesByCities from "@/components/home/PropertiesByCities";
-import Hero from "@/components/home/hero";
-import Blog from "@/components/common/Blog";
-import Features from "@/components/home/Features";
-import Link from "next/link";
-import Funfact from "@/components/home/Funfact";
+import MobileMenu from "@/components/common/mobile-menu";
 import ApartmentTypes from "@/components/home/ApartmentTypes";
-import About from "@/components/home/about";
-import Testimonial from "@/components/home/Testimonial";
+import Features from "@/components/home/Features";
 import FilterProperties from "@/components/home/FilterProperties";
+import About from "@/components/home/about";
+import Hero from "@/components/home/home-v6/hero";
+import Link from "next/link";
 //import Footer from "@/components/home/footer";
- import Footer from "@/components/common/default-footer";
- import Skeleton from '@mui/material/Skeleton';
+import Footer from "@/components/common/default-footer";
+import Cta from "@/components/home/Cta";
 export const metadata = {
-  title: "Top Realtors Dubai | Explore Properties",
-};
+	title: "Top Realtors Dubai | Explore Properties",
+}
 
 const HomePage = () => {
-  const url = "/images/home/5.webp";
-  return (
-    <>
-      {/* Main Header Nav */}
-      <DefaultHeader />
-      {/* End Main Header Nav */}
+	const url = "/images/home/5.webp"
+	return (
+		<>
+			{/* Main Header Nav */}
+			<DefaultHeader />
+			{/* End Main Header Nav */}
 
-      {/* Mobile Nav  */}
-      <MobileMenu />
-      {/* End Mobile Nav  */}
+			{/* Mobile Nav  */}
+			<MobileMenu />
+			{/* End Mobile Nav  */}
 
       {/* Home Banner Style V1 */}
-      <section className="home-banner-style4 p0 bgc-white">
-        <div className="home-style4 maxw1600 bdrs24 position-relative mx-auto mx20-lg" style={{
-          backgroundImage : `url(${url})`
-        }}>
-          
+      <section className="home-banner-style6 p0">
+        <div className="home-style1">
           <div className="container">
             <div className="row">
-              <div className="col-xl-9">
+              <div className="col-xl-10">
                 <Hero />
               </div>
             </div>
@@ -49,8 +41,8 @@ const HomePage = () => {
       </section>
       {/* End Home Banner Style V4 */}
 
-      {/* Explore property-city */}
-      {/* <section className="pb40-md pb90">
+			{/* Explore property-city */}
+			{/* <section className="pb40-md pb90">
         <div className="container">
           <div
             className="row align-items-center"
@@ -87,10 +79,10 @@ const HomePage = () => {
        
         </div>
       </section> */}
-      {/* End Explore property-city */}
+			{/* End Explore property-city */}
 
       {/* Popular Property */}
-      <section className="pt-0 pb60" style={{marginTop:"3rem"}}>
+      <section className="pt-0 pb60" style={{ marginTop: "3rem;" }}>
         <div className="container">
           <FilterProperties />
         </div>
@@ -107,9 +99,9 @@ const HomePage = () => {
                 data-aos-delay="300"
               >
                 <div className="mb30">
-                  <h2 className="title text-capitalize">
-                    Let’s find the right <br className="d-none d-md-block" />{" "}
-                    property for you
+                  <h2 className="title text-capitalize title-theme">
+                    Let&apos;s find the right{" "}
+                    <br className="d-none d-md-block" /> property for you
                   </h2>
                 </div>
                 <div className="why-chose-list style2">
@@ -127,20 +119,19 @@ const HomePage = () => {
       {/* Abut intro */}
 
       {/* Funfact */}
-      <section className="pt45 pb-0">
+      {/* <section className="pt45 pb-0 ">
         <div className="container maxw1600 bdrb1 pb50">
           <div
             className="row justify-content-center wow fadeInUp"
             data-wow-delay="300ms"
           >
-            {/* <Funfact /> */}
           </div>
         </div>
-      </section>
+      </section> */}
       {/* End Funfact */}
 
       {/* Property Cities */}
-      <section className="pb80 pb30-md">
+      <section className="pb80 pb30-md bg-theme">
         <div className="container">
           <div className="row  justify-content-between align-items-center">
             <div className="col-auto">
@@ -149,60 +140,60 @@ const HomePage = () => {
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                <h2 className="title">Explore Apartment Types</h2>
+                <h2 className="title title-theme">Explore Apartment Types</h2>
                 {/* <p className="paragraph">
                   Aliquam lacinia diam quis lacus euismod
                 </p> */}
-              </div>
-            </div>
-            {/* End header */}
+							</div>
+						</div>
+						{/* End header */}
 
-            <div className="col-auto mb30">
-              <div className="row align-items-center justify-content-center">
-                <div className="col-auto">
-                  <button className="apartment-type2-prev__active swiper_button">
-                    <i className="far fa-arrow-left-long" />
-                  </button>
-                </div>
-                {/* End prev */}
+						<div className='col-auto mb30'>
+							<div className='row align-items-center justify-content-center'>
+								<div className='col-auto'>
+									<button className='apartment-type2-prev__active swiper_button'>
+										<i className='far fa-arrow-left-long' />
+									</button>
+								</div>
+								{/* End prev */}
 
-                <div className="col-auto">
-                  <div className="pagination swiper--pagination apartment-type2_pagination__active" />
-                </div>
-                {/* End pagination */}
+								<div className='col-auto'>
+									<div className='pagination swiper--pagination apartment-type2_pagination__active' />
+								</div>
+								{/* End pagination */}
 
-                <div className="col-auto">
-                  <button className="apartment-type2-next__active swiper_button">
-                    <i className="far fa-arrow-right-long" />
-                  </button>
-                </div>
-                {/* End Next */}
-              </div>
-            </div>
-            {/* End .col for navigation and pagination */}
-          </div>
-          {/* End .row */}
+								<div className='col-auto'>
+									<button className='apartment-type2-next__active swiper_button'>
+										<i className='far fa-arrow-right-long' />
+									</button>
+								</div>
+								{/* End Next */}
+							</div>
+						</div>
+						{/* End .col for navigation and pagination */}
+					</div>
+					{/* End .row */}
 
-          <div className="row">
-            <div className="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-              <div className="property-city-slider">
-                <ApartmentTypes />
-              </div>
-            </div>
-          </div>
-          {/* End .row */}
-        </div>
-      </section>
-      {/* End property cities */}
+					<div className='row'>
+						<div className='col-lg-12' data-aos='fade-up' data-aos-delay='300'>
+							<div className='property-city-slider'>
+								<ApartmentTypes />
+							</div>
+						</div>
+					</div>
+					{/* End .row */}
+				</div>
+			</section>
+			{/* End property cities */}
 
       {/* About Us */}
-      <section className="pt0 pb40-md">
+      <section className="pt0 pb40-md bg-theme">
         <About />
       </section>
       {/* End About Us */}
 
-      {/* Our Testimonials */}
-      {/* <section className="pt0 pb40-md">
+			{/* Our Testimonials */}
+			{/* <section className="pt0 pb40-md">
         <div className="container">
           <div className="row  justify-content-between align-items-center">
             <div className="col-auto">
@@ -258,14 +249,14 @@ const HomePage = () => {
           </div>
         </div>
       </section> */}
-      {/* End Our Testimonials */}
+			{/* End Our Testimonials */}
 
       {/* Our Partners */}
       <section className="our-partners p-0">
         <div className="container">
           <div className="row">
             <div className="col-lg-12" data-aos="fade-up">
-              <div className="main-title text-center">
+              <div className="mt-5 main-title text-center">
                 <h6>Trusted by the dubai’s best</h6>
               </div>
             </div>
@@ -276,7 +267,7 @@ const HomePage = () => {
                 data-aos-delay="100"
                 style={{
                   marginBottom: "4rem",
-                  marginTop:"1rem"
+                  marginTop: "1rem",
                 }}
               >
                 <Partner />
@@ -287,8 +278,8 @@ const HomePage = () => {
       </section>
       {/* End Our Partners */}
 
-      {/* Explore Blog */}
-      {/* <section className="mb75 mb0-md pb30-md">
+			{/* Explore Blog */}
+			{/* <section className="mb75 mb0-md pb30-md">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 m-auto" data-aos="fade-up">
@@ -304,16 +295,20 @@ const HomePage = () => {
         
         </div>
       </section> */}
-      {/* Explore Blog */}
+			{/* Explore Blog */}
 
       {/* Our CTA */}
-      <section className="our-cta p-0 mb-2 pt-3">
-        <CallToActions />
-      </section>
+      {/* <section className='our-cta p-0 mb-2 pt-3'>
+				<CallToActions />
+			</section> */}
       {/* Our CTA */}
+
+      {/* Our CTA */}
+      <Cta />
+      {/* End Our CTA */}
 
       {/* Start Our Footer */}
-      <section className="footer-style1 pt60 pb-0">
+      <section className="footer-style1 at-home2 pb-0">
         <Footer />
       </section>
       {/* End Our Footer */}
@@ -321,4 +316,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomePage

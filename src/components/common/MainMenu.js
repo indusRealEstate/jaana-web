@@ -1,170 +1,174 @@
 import {
-	homeItems,
-	SaleItems,
-	RentItems,
-	blogItems,
-	listingItems,
-	propertyItems,
-	pageItems,
-	Agent,
-	AllProperties,
-	ContactUs,
-	AboutUs,
-} from "@/data/navItems"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+  AboutUs,
+  Agent,
+  AllProperties,
+  ContactUs,
+  RentItems,
+  SaleItems,
+  homeItems,
+} from "@/data/navItems";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const MainMenu = () => {
-	const pathname = usePathname()
-	//console.log(pathname);
-	const [topMenu, setTopMenu] = useState("")
-	const [submenu, setSubmenu] = useState("")
-	const [activeLink, setActiveLink] = useState("")
+const MainMenu = ({ scroll }) => {
+  const pathname = usePathname();
+  const [topMenu, setTopMenu] = useState("");
 
-	useEffect(() => {
-		homeItems.forEach((elm) => {
-			if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-				setTopMenu("home")
-			}
-		})
+  useEffect(() => {
+    homeItems.forEach((elm) => {
+      if (elm.href.split("/")[1] == pathname.split("/")[1]) {
+        setTopMenu("home");
+      }
+    });
 
-		ContactUs.forEach((elm) => {
-			if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-				setTopMenu("ContactUs")
-			}
-		})
-		AboutUs.forEach((elm) => {
-			if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-				setTopMenu("AboutUs")
-			}
-		})
-		RentItems.forEach((elm) => {
-			if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-				setTopMenu("Rent")
-			}
-		})
-		SaleItems.forEach((elm) => {
-			if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-				setTopMenu("Sale")
-			}
-		})
-		AllProperties.forEach((elm) => {
-			if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-				setTopMenu("All Properties")
-			}
-		})
-		Agent.forEach((elm) => {
-			if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-				setTopMenu("About Agent")
-			}
-		})
-		console.log(topMenu)
-	}, [])
+    ContactUs.forEach((elm) => {
+      if (elm.href.split("/")[1] == pathname.split("/")[1]) {
+        setTopMenu("contact");
+      }
+    });
+    AboutUs.forEach((elm) => {
+      if (elm.href.split("/")[1] == pathname.split("/")[1]) {
+        setTopMenu("about");
+      }
+    });
+    RentItems.forEach((elm) => {
+      if (elm.href.split("/")[1] == pathname.split("/")[1]) {
+        setTopMenu("rent");
+      }
+    });
+    SaleItems.forEach((elm) => {
+      if (elm.href.split("/")[1] == pathname.split("/")[1]) {
+        setTopMenu("sale");
+      }
+    });
+    AllProperties.forEach((elm) => {
+      if (elm.href.split("/")[1] == pathname.split("/")[1]) {
+        setTopMenu("all-prop");
+      }
+    });
+    Agent.forEach((elm) => {
+      if (elm.href.split("/")[1] == pathname.split("/")[1]) {
+        setTopMenu("agent");
+      }
+    });
+  }, [topMenu, pathname]);
 
-	const handleActive = (link) => {
-		if (link.split("/")[1] == pathname.split("/")[1]) {
-			return "menuActive"
-		}
-	}
-
-	return (
-		<ul className='ace-responsive-menu'>
-			<li className='visible_list dropitem'>
-				<a className='list-item' href='/'>
-					<span className={topMenu == "home" ? "title menuActive" : "title"}>
-						Home
-					</span>
-					{/* <span className="arrow"></span> */}
-				</a>
-				{/* Level Two*/}
-				{/* <ul className="sub-menu">
-          {homeItems.map((item, index) => (
-            <li key={index}>
-              <Link className={`${handleActive(item.href)}`} href={item.href}>
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul> */}
-			</li>
-			{/* End homeItems */}
-			<li className='visible_list dropitem'>
-				<Link
-					className='list-item'
-					href={{
-						pathname: "/all-properties",
-					}}>
-					<span
-						className={
-							topMenu == "All Properties" ? "title menuActive" : "title"
-						}>
-						All Properties
-					</span>
-				</Link>
-			</li>
-			<li className='visible_list dropitem'>
-				<Link
-					className='list-item'
-					href={{
-						pathname: "/properties-rent",
-						
-					}}>
-					<span className={topMenu == "Rent" ? "title menuActive" : "title"}>
-						Rent
-					</span>
-				</Link>
-			</li>
-			<li className='visible_list dropitem'>
-				<Link
-					className='list-item'
-					href={{
-						pathname: "/properties-sale",
-						// query: {
-						// 	type: "sale",
-						// },
-					}}>
-					<span className={topMenu == "Sale" ? "title menuActive" : "title"}>
-						Sale
-					</span>
-				</Link>
-			</li>
-			<li className='visible_list dropitem'>
-				<Link
-					className='list-item'
-					href={{
-						pathname: "/agent-details",
-					}}>
-					<span
-						className={topMenu == "About Agent" ? "title menuActive" : "title"}>
-						About Agent
-					</span>
-				</Link>
-			</li>
-			<li className='visible_list dropitem'>
-				<Link
-					className='list-item'
-					href={{
-						pathname: "/about",
-					}}>
-					<span className={topMenu == "AboutUs" ? "title menuActive" : "title"}>
-						About Us
-					</span>
-				</Link>
-			</li>
-			<li className='visible_list dropitem'>
-				<Link
-					className='list-item'
-					href={{
-						pathname: "/contact",
-					}}>
-					<span
-						className={topMenu == "ContactUs" ? "title menuActive" : "title"}>
-						Contact Us
-					</span>
-				</Link>
-			</li>
-			{/* <li className="megamenu_style dropitem">
+  return (
+    <ul className="ace-responsive-menu">
+      <li className="visible_list dropitem">
+        <Link className="list-item" href="/">
+          <span
+            className={
+              topMenu == "home"
+                ? `title ${scroll ? "menuActive-scroll" : "menuActive"}`
+                : "title"
+            }
+          >
+            Home
+          </span>
+        </Link>
+      </li>
+      {/* End homeItems */}
+      <li className="visible_list dropitem">
+        <Link
+          className="list-item"
+          href={{
+            pathname: "/all-properties",
+          }}
+        >
+          <span
+            className={
+              topMenu == "all-prop"
+                ? `title ${scroll ? "menuActive-scroll" : "menuActive"}`
+                : "title"
+            }
+          >
+            All Properties
+          </span>
+        </Link>
+      </li>
+      <li className="visible_list dropitem">
+        <Link className="list-item" href="/properties-rent">
+          <span
+            className={
+              topMenu == "rent"
+                ? `title ${scroll ? "menuActive-scroll" : "menuActive"}`
+                : "title"
+            }
+          >
+            Rent
+          </span>
+        </Link>
+      </li>
+      <li className="visible_list dropitem">
+        <Link className="list-item" href="/properties-sale">
+          <span
+            className={
+              topMenu == "sale"
+                ? `title ${scroll ? "menuActive-scroll" : "menuActive"}`
+                : "title"
+            }
+          >
+            Sale
+          </span>
+        </Link>
+      </li>
+      <li className="visible_list dropitem">
+        <Link
+          className="list-item"
+          href={{
+            pathname: "/agent-details",
+          }}
+        >
+          <span
+            className={
+              topMenu == "agent"
+                ? `title ${scroll ? "menuActive-scroll" : "menuActive"}`
+                : "title"
+            }
+          >
+            About Agent
+          </span>
+        </Link>
+      </li>
+      <li className="visible_list dropitem">
+        <Link
+          className="list-item"
+          href={{
+            pathname: "/about",
+          }}
+        >
+          <span
+            className={
+              topMenu == "about"
+                ? `title ${scroll ? "menuActive-scroll" : "menuActive"}`
+                : "title"
+            }
+          >
+            About Us
+          </span>
+        </Link>
+      </li>
+      <li className="visible_list dropitem">
+        <Link
+          className="list-item"
+          href={{
+            pathname: "/contact",
+          }}
+        >
+          <span
+            className={
+              topMenu == "contact"
+                ? `title ${scroll ? "menuActive-scroll" : "menuActive"}`
+                : "title"
+            }
+          >
+            Contact Us
+          </span>
+        </Link>
+      </li>
+      {/* <li className="megamenu_style dropitem">
         <a className="list-item" href="#">
           <span className={topMenu == "listing" ? "title menuActive" : "title"}>
             Listing
@@ -191,9 +195,9 @@ const MainMenu = () => {
           ))}
         </ul>
       </li> */}
-			{/* End listings */}
+      {/* End listings */}
 
-			{/* <li className="visible_list dropitem">
+      {/* <li className="visible_list dropitem">
         <a className="list-item" href="#">
           <span
             className={topMenu == "property" ? "title menuActive" : "title"}
@@ -231,9 +235,9 @@ const MainMenu = () => {
           ))}
         </ul>
       </li> */}
-			{/* End property Items */}
+      {/* End property Items */}
 
-			{/* <li className="visible_list dropitem">
+      {/* <li className="visible_list dropitem">
         <a className="list-item" href="#">
           <span className={topMenu == "blog" ? "title menuActive" : "title"}>
             Blog
@@ -250,9 +254,9 @@ const MainMenu = () => {
           ))}
         </ul>
       </li> */}
-			{/* End blog Items */}
+      {/* End blog Items */}
 
-			{/* <li className="visible_list dropitem">
+      {/* <li className="visible_list dropitem">
         <a className="list-item" href="#">
           <span className={topMenu == "pages" ? "title menuActive" : "title"}>
             Pages
@@ -269,9 +273,9 @@ const MainMenu = () => {
           ))}
         </ul>
       </li> */}
-			{/* End pages Items */}
-		</ul>
-	)
-}
+      {/* End pages Items */}
+    </ul>
+  );
+};
 
-export default MainMenu
+export default MainMenu;

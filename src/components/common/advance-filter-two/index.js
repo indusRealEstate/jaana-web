@@ -15,8 +15,8 @@ const AdvanceFilterModal = ({ filterFunctions }) => {
 	}, [min, max])
 
 	const catOptions = [
-		{ value: "all", label: "All Propeties" },
-		{ value: "house", label: "Houses" },
+		{ value: "all", label: "All Properties" },
+		{ value: "houses", label: "Houses" },
 		{ value: "office", label: "Office" },
 		{ value: "apartment", label: "Apartments" },
 		{ value: "villa", label: "Villa" },

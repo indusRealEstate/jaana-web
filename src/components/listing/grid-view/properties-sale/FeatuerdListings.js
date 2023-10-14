@@ -12,7 +12,6 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
   // {formatter.format(listing.price).replace('.00', '')}
   return (
     <>
-    
       {data.map((listing) => (
         <div
           className={` ${
@@ -28,21 +27,24 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
             }
           >
             <div className="list-thumb">
-            <Link
-								href={{
-									pathname: "/property-details",
-									query: {
-										prop_id: listing.prop_id,
-									},
-								}}>
-              <Image
-                width={382}
-                height={248}
-                style={{ height: "170px" }}
-                className="w-100 cover"
-                src={`https://toprealtorsdubai.com/api/upload/properties/${ JSON.parse(listing.images)[0]}`}
-                alt="listings"
-              />
+              <Link
+                href={{
+                  pathname: "/property-details",
+                  query: {
+                    prop_id: listing.prop_id,
+                  },
+                }}
+              >
+                <Image
+                  width={382}
+                  height={248}
+                  style={{ height: "170px" }}
+                  className="w-100 cover"
+                  src={`https://toprealtorsdubai.com/api/upload/properties/${
+                    JSON.parse(listing.images)[0]
+                  }`}
+                  alt="listings"
+                />
               </Link>
               <div className="sale-sticker-wrap">
                 {!listing.forRent && (
@@ -54,18 +56,21 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
               </div>
 
               <div className="list-price">
-              {formatter.format(listing.price).replace('.00', '')}
+                {formatter.format(listing.price).replace(".00", "")}
               </div>
             </div>
             <div className="list-content">
               <h6 className="list-title">
-                <Link 
-                href={{
-                  pathname: "/property-details",
-                  query: {
-                    prop_id: listing.prop_id,
-                  },
-                }}>{listing.property_name}</Link>
+                <Link
+                  href={{
+                    pathname: "/property-details",
+                    query: {
+                      prop_id: listing.prop_id,
+                    },
+                  }}
+                >
+                  {listing.property_name}
+                </Link>
               </h6>
               <p className="list-text">{listing.address}</p>
               <div className="list-meta d-flex align-items-center">
@@ -83,14 +88,14 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
               <div className="list-meta2 d-flex justify-content-between align-items-center">
                 <span className="for-what">For {listing.property_status}</span>
                 <div className="icons d-flex align-items-center">
-                  <a href="#">
-                    <span className="flaticon-fullscreen" />
+                  <a href="#" className="bg-theme">
+                    <span className="flaticon-fullscreen paragraph-theme" />
                   </a>
-                  <a href="#">
-                    <span className="flaticon-new-tab" />
+                  <a href="#" className="bg-theme">
+                    <span className="flaticon-new-tab paragraph-theme" />
                   </a>
-                  <a href="#">
-                    <span className="flaticon-like" />
+                  <a href="#" className="bg-theme">
+                    <span className="flaticon-like paragraph-theme" />
                   </a>
                 </div>
               </div>

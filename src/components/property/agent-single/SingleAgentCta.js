@@ -43,7 +43,7 @@ const contactInfoList =
         </div>
         {/* End single image */}
         <div className="single-contant ml30 ml0-xs">
-          <h2 className="title mb-0">{listing.agent_name != undefined ?listing.agent_name : ""}</h2>
+          <h2 className="title mb-0 title-theme">{listing.agent_name != undefined ?listing.agent_name : ""}</h2>
           {/* <p className="fz15">
             Company Agent at <b>{agentData.company}</b>
           </p> */}
@@ -52,11 +52,11 @@ const contactInfoList =
               <i className="fas fa-star fz10 review-color2 pr10" />
               {agentData.reviews}
             </a> */}
-            <a className="text fz15 pe-2 ps-2 bdrr1" href="tel:971505527479">
+            <a className="text fz15 pe-2 ps-2 bdrr1 paragraph-theme" href="tel:971505527479">
               <i className="flaticon-call pe-1" />
               {listing.agent_mobile != undefined ? listing.agent_mobile : ""}
             </a>
-            <a className="text fz15 pe-2 ps-2 bdrr1" href={contactInfoList.mailLink}>
+            <a className="text fz15 pe-2 ps-2 bdrr1 paragraph-theme" href="">
               <i className="flaticon-email pe-1" />
               {listing.agent_email}
             </a>
@@ -64,7 +64,7 @@ const contactInfoList =
           </div>
           <div className="agent-social">
             {agentData.social.map((socialItem, index) => (
-              <a key={index} className="mr20" href={socialItem.link}>
+              <a key={index} className="mr20 paragraph-theme" href={socialItem.link}>
                 <i className={socialItem.icon} />
               </a>
             ))}

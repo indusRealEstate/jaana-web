@@ -210,8 +210,8 @@ const InfoWithForm = (agentsDetails) => {
           <form className="form-style1 row" id="form">
             <div className="col-md-6">
               <div className="mb20">
-                <label className="heading-color ff-heading fw600 mb10">
-                  First Name
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
+                  Name
                 </label>
                 <input
                   type="text"
@@ -227,23 +227,7 @@ const InfoWithForm = (agentsDetails) => {
 
             <div className="col-md-6">
               <div className="mb20">
-                <label className="heading-color ff-heading fw600 mb10">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Ali Tufan"
-                  onChange={(event) => {
-                    setFormData({ ...formData, last_name: event.target.value });
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="col-md-6">
-              <div className="mb20">
-                <label className="heading-color ff-heading fw600 mb10">
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
                   Phone
                 </label>
                 <input
@@ -260,7 +244,7 @@ const InfoWithForm = (agentsDetails) => {
 
             <div className="col-md-6">
               <div className="mb20">
-                <label className="heading-color ff-heading fw600 mb10">
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
                   Email
                 </label>
                 <input
@@ -277,7 +261,7 @@ const InfoWithForm = (agentsDetails) => {
 
             {/* <div className="col-md-6">
               <div className="widget-wrapper sideborder-dropdown">
-                <label className="heading-color ff-heading fw600 mb10">
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
                   I&apos;m a
                 </label>
                 <div className="form-style2 input-group">
@@ -298,7 +282,7 @@ const InfoWithForm = (agentsDetails) => {
 
             <div className="col-md-12">
               <div className="mb10">
-                <label className="heading-color ff-heading fw600 mb10">
+                <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
                   Message
                 </label>
                 <textarea

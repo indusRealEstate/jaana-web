@@ -18,6 +18,11 @@ const SquareFeet = ({ filterFunctions }) => {
 						type='number'
 						onChange={(e) => setMin(e.target.value)}
 						className='form-control filterInput'
+						defaultValue={
+							filterFunctions?.searchData != undefined
+								? filterFunctions?.searchData.squareFeetRangeMin
+								: ""
+						}
 						placeholder='Min.'
 					/>
 				</div>
@@ -27,6 +32,11 @@ const SquareFeet = ({ filterFunctions }) => {
 						type='number'
 						onChange={(e) => setMax(e.target.value)}
 						className='form-control filterInput'
+						defaultValue={
+							filterFunctions?.searchData != undefined
+								? filterFunctions?.searchData.squareFeetRangeMax
+								: ""
+						}
 						placeholder='Max'
 					/>
 				</div>

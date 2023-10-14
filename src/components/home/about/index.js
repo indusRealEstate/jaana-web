@@ -7,7 +7,7 @@ import Image from "next/image"
 
 const About = () => {
 	return (
-		<div className='cta-banner bgc-f7 mx-auto maxw1600 pt70 pb140 pb30-md bdrs12 position-relative mx20-lg px20-sm mb-3'>
+		<div className='cta-banner bg-theme-light mx-auto maxw1600 pt70 pb140 pb30-md bdrs12 position-relative mx20-lg px20-sm mb-3'>
 			<div className='container'>
 				<div className='row align-items-start align-items-xl-center'>
 					<div className='col-md-10 col-lg-7 col-xl-6'>
