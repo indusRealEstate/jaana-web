@@ -9,7 +9,12 @@ import FeaturedListings from "./FeatuerdListings";
 import PaginationTwo from "../../PaginationTwo"
 import { object } from "prop-types"
 
-export default function PropertyFiltering({ allProperties, prop_for, search }) {
+export default function PropertyFiltering({
+	allProperties,
+	prop_for,
+	search,
+	categoryRow,
+}) {
 	const [filteredData, setFilteredData] = useState([])
 
 	const [searchData, setSearchData] = useState(search)
@@ -40,7 +45,11 @@ export default function PropertyFiltering({ allProperties, prop_for, search }) {
 	)
 	// const [listingStatus, setListingStatus] = useState(prop_for)
 	const [propertyTypes, setPropertyTypes] = useState(
-		searchData != undefined ? search.propertyType : [],
+		categoryRow != null
+			? categoryRow
+			: searchData != undefined
+			? search.propertyType
+			: [],
 	)
 
 	const [priceRange, setPriceRange] = useState(
@@ -77,6 +86,9 @@ export default function PropertyFiltering({ allProperties, prop_for, search }) {
 	)
 
 	const [searchQuery, setSearchQuery] = useState("")
+	const [searchId, setSearchId] = useState(
+		searchData != undefined ? searchData.propertyId : "",
+	)
 	const [valueReset, setValueReset] = useState(false)
 
   const resetFilter = () => {
@@ -156,6 +168,8 @@ export default function PropertyFiltering({ allProperties, prop_for, search }) {
 		setPropertyTypes,
 		setSearchQuery,
 		resetFilter,
+		setSearchId,
+		searchId,
 		priceRange,
 		listingStatus,
 		propertyTypes,
@@ -215,6 +229,7 @@ export default function PropertyFiltering({ allProperties, prop_for, search }) {
 			...filteredArrays,
 			refItems.filter((el) => el.bath >= bathroms),
 		]
+		// console.log(refItems)
 
 		// filter search text
 		filteredArrays = [
@@ -222,6 +237,7 @@ export default function PropertyFiltering({ allProperties, prop_for, search }) {
 			refItems.filter(
 				(el) =>
 					el.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					el.prop_id.toLowerCase().includes(searchQuery.toLowerCase()) ||
 					el.address.toLowerCase().includes(searchQuery.toLowerCase()) ||
 					el.country.toLowerCase().includes(searchQuery.toLowerCase()) ||
 					el.property_status
@@ -231,17 +247,25 @@ export default function PropertyFiltering({ allProperties, prop_for, search }) {
 			),
 		]
 
+		// filter search by property id
+		filteredArrays = [
+			...filteredArrays,
+			refItems.filter((el) =>
+				el.prop_id.toLowerCase().includes(searchId.toLowerCase()),
+			),
+		]
+
 		// filter features
 		filteredArrays = [
 			...filteredArrays,
 			!categories.length
 				? [...refItems]
 				: refItems.filter((elm) =>
-						categories.every((elem) => {
+						categories.every((elem) =>
 							JSON.parse(elm.features.toLowerCase()).includes(
 								elem.toLowerCase(),
-							)
-						}),
+							),
+						),
 				  ),
 		]
 
@@ -295,6 +319,7 @@ export default function PropertyFiltering({ allProperties, prop_for, search }) {
 		yearBuild,
 		categories,
 		searchQuery,
+		searchId,
 		// allProperties,
 		searchData,
 	])
