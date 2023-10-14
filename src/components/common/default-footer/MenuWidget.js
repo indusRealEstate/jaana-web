@@ -16,8 +16,8 @@ const MenuWidget = () => {
       links: [
         { label: "Home", href: "/home" },
         { label: "All Properties", href: "/all-properties" },
-        { label: "Sale", href: "/sale" },
-        { label: "Rent", href: "/rent" },
+        { label: "Sale", href: "/properties-sale" },
+        { label: "Rent", href: "/properties-rent" },
         { label: "About Agent", href: "/agent-details" },
         { label: "About Us", href: "/about" },
         { label: "Contact Us", href: "/contact" },
