@@ -16,8 +16,8 @@ module.exports = [
     path: "/properties-sale",
   },
   {
-    label: "Agents",
-    path: "/agents",
+    label: "About Agent",
+    path: "/agent-details",
   },
   {
     label: "About Us",

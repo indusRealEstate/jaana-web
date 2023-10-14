@@ -12,7 +12,7 @@ const ContactInfo = () => {
       id: 2,
       title: "Email",
       email: "jaana.markkanen@indusre.ae",
-      emailHref: "jaana.markkanen@indusre.ae", // Updated emailHref to use "mailto" URI
+      emailHref: "mailto:jaana.markkanen@indusre.ae", // Updated emailHref to use "mailto" URI
     },
   ];
 

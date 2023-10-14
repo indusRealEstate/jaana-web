@@ -49,7 +49,7 @@ const MainMenu = ({ scroll }) => {
     });
     Agent.forEach((elm) => {
       if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-        setTopMenu("About agent");
+        setTopMenu("About Agent");
       }
     });
   }, [topMenu, pathname]);
