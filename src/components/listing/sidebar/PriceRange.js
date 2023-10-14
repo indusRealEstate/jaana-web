@@ -40,7 +40,13 @@ const PriceRange = ({ filterFunctions, dataReset }) => {
 							  }
 					}
 					onChange={(value) => {
-						filterFunctions?.setSearchData(undefined)
+						if (
+							filterFunctions?.searchData != null ||
+							filterFunctions?.searchData != undefined
+						) {
+							filterFunctions?.setSearchData(undefined)
+						}
+
 						filterFunctions?.handlepriceRange([
 							price.value.min || 0,
 							price.value.max,
