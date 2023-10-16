@@ -1,27 +1,22 @@
 "use client"
-import { Gallery, Item } from "react-photoswipe-gallery"
-import "photoswipe/dist/photoswipe.css"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { FreeMode, Navigation, Thumbs } from "swiper"
+import { Skeleton } from "@mui/material"
 import Image from "next/image"
 import "photoswipe/dist/photoswipe.css"
-import listings from "@/data/listings"
 import { useEffect, useState } from "react"
 import { LazyLoadImage } from "react-lazy-load-image-component"
-import { Skeleton } from "@mui/material"
-import { render } from "react-dom"
+import { Gallery, Item } from "react-photoswipe-gallery"
+import { FreeMode, Navigation, Thumbs } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
 
 const PropertyGallery = ({ imagesRaw }) => {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null)
 	const [loaded, setLoaded] = useState([])
 	const [loadThumb, setLoadThumb] = useState([])
-	const [mainImageIndex, setMainImageIndex] = useState("")
-	const [subImageIndex, setSubImageIndex] = useState("")
 	useEffect(() => {}, [loaded])
 	// const data = listings.filter((elm) => elm.id == id)[0] || listings[0]
 
 	const seeAllImages = (event) => {
-		console.log(event)
+		console.log("hello")
 	}
 
 	return (
@@ -29,7 +24,7 @@ const PropertyGallery = ({ imagesRaw }) => {
 			<div className='ps-v6-slider nav_none mt30'>
 				<Gallery className='h-100'>
 					<Swiper
-						loop={true}
+						// loop={true}
 						spaceBetween={10}
 						navigation={{
 							prevEl: ".prev-btn",
