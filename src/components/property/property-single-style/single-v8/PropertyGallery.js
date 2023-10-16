@@ -45,12 +45,8 @@ const PropertyGallery = ({ imagesRaw }) => {
 										/>
 									)}
 									<Item
-										original={`https://toprealtorsdubai.com/api/upload/properties/${
-											JSON.parse(imagesRaw)[index]
-										}`}
-										thumbnail={`https://toprealtorsdubai.com/api/upload/properties/${
-											JSON.parse(imagesRaw)[index]
-										}`}
+										original={`https://toprealtorsdubai.com/api/upload/properties/${item}`}
+										thumbnail={`https://toprealtorsdubai.com/api/upload/properties/${item}`}
 										width={1206}
 										height={671}>
 										{({ ref, open }) => (
@@ -60,15 +56,14 @@ const PropertyGallery = ({ imagesRaw }) => {
 												ref={ref}
 												onClick={open}
 												alt='gallery'
-												src={`https://toprealtorsdubai.com/api/upload/properties/${
-													JSON.parse(imagesRaw)[index]
-												}`}
+												src={`https://toprealtorsdubai.com/api/upload/properties/${item}`}
 												className={`${
 													!loaded.includes(index)
 														? "opacity-0 position-absolute  bdrs12 pointer"
 														: "opacity-100  bdrs12 pointer gallery-images position-relative"
 												}}`}
 												onLoad={(event) => {
+													console.log(event)
 													if (!loaded.includes(index)) {
 														loaded.push(index)
 														setLoaded(loaded)
