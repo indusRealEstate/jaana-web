@@ -2890,11 +2890,11 @@ li {
 	margin-top: 0.5rem;
 	margin-bottom: 0.6rem;
 	overflow: hidden;
-	cursor: pointer;
-	transition: 2s ease-in-out;
 	border-radius: 10px;
 	&:hover {
 		img {
+			transition: 0.5s ease-in-out;
+			cursor: pointer;
 			-webkit-transform: scale(1.5) rotate(-5deg);
 			-ms-transform: scale(1.5) rotate(-5deg);
 			transform: scale(1.5) rotate(-5deg);
