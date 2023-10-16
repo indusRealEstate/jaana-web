@@ -1,6 +1,5 @@
 "use client";
 import { Skeleton } from "@mui/material";
-import Image from "next/image";
 import "photoswipe/dist/photoswipe.css";
 import { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -50,7 +49,7 @@ const PropertyGallery = ({ imagesRaw }) => {
 										width={1206}
 										height={671}>
 										{({ ref, open }) => (
-											<Image
+											<img
 												width={1206}
 												height={671}
 												ref={ref}
@@ -106,7 +105,7 @@ const PropertyGallery = ({ imagesRaw }) => {
                       width={100}
                     />
                   )}
-                  <img
+                  <LazyLoadImage
                     src={`https://toprealtorsdubai.com/api/upload/properties/${
                       JSON.parse(imagesRaw)[i]
                     }`}
