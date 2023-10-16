@@ -137,11 +137,7 @@ const ApartmentTypes = () => {
 			imageSrc: "/images/listings/apartment.jpg",
 			properties: apartment,
 		},
-		{
-			title: "Office",
-			imageSrc: "/images/listings/office.jpg",
-			properties: office,
-		},
+		
 		{
 			title: "Villa",
 			imageSrc: "/images/listings/villa.jpg",
@@ -151,6 +147,11 @@ const ApartmentTypes = () => {
 			title: "PentHouse",
 			imageSrc: "/images/listings/penthouse.webp",
 			properties: penthouse,
+		},
+		{
+			title: "Office",
+			imageSrc: "/images/listings/office.jpg",
+			properties: office,
 		},
 	]
 	return (
@@ -183,16 +184,16 @@ const ApartmentTypes = () => {
 				}}>
 				{property_types.map((apartment, index) => (
 					<SwiperSlide key={index}>
-						<div className='item'>
+						{apartment.properties != 0 ? <div className='item'>
 							<Link href='#'>
 								<div className='apartment-style1'>
 									<div className='apartment-img'>
 										<Image
 											width={217}
-											height={223}
-											className='w-100 h-100 cover'
+											height={150}
+											className=''
 											style={{
-												height: "9rem !important",
+												height: "",
 												objectFit: "cover",
 												objectPosition: "center",
 											}}
@@ -208,7 +209,8 @@ const ApartmentTypes = () => {
 									</div>
 								</div>
 							</Link>
-						</div>
+						</div>:""}
+						
 					</SwiperSlide>
 				))}
 			</Swiper>

@@ -7,8 +7,11 @@ const MenuWidget = () => {
       links: [
         { label: "Apartment for Rent", href: "/all-properties" },
         { label: "Apartment Low to High", href: "/all-properties" },
-        { label: "Offices for Buy", href: "/all-properties" },
-        { label: "Offices for Rent", href: "/all-properties" },
+        { label: "Villa for Buy", href: "/all-properties" },
+        { label: "Villa for Rent", href: "/all-properties" },
+        { label: "House for Buy", href: "/all-properties" },
+        { label: "House for Rent", href: "/all-properties" },
+        { label: "Office for Rent", href: "/all-properties" },
       ],
     },
     {

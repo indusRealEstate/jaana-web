@@ -11,7 +11,7 @@ import Link from "next/link";
 import Footer from "@/components/common/default-footer";
 import Cta from "@/components/home/Cta";
 export const metadata = {
-	title: "Top Realtors Dubai | Explore Properties",
+	title: "Top Realtor Dubai | Explore Properties",
 }
 
 const HomePage = () => {

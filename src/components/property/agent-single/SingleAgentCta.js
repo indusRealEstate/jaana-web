@@ -55,7 +55,7 @@ const contactInfoList =
             <a className="text fz15 pe-2 ps-2 bdrr1 paragraph-theme" href="tel:971505527479">
               <i className="flaticon-call pe-1" />
               {listing.agent_mobile != undefined ? listing.agent_mobile : ""}
-            </a>
+            </a><br></br>
             <a className="text fz15 pe-2 ps-2 bdrr1 paragraph-theme" href="">
               <i className="flaticon-email pe-1" />
               {listing.agent_email}
