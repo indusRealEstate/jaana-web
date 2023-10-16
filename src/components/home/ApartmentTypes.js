@@ -190,9 +190,9 @@ const ApartmentTypes = () => {
 										<Image
 											width={217}
 											height={223}
-											className='w-100 h-100 cover'
+											className='w-100 cover'
 											style={{
-												height: "9rem !important",
+												maxHeight: "9rem",
 												objectFit: "cover",
 												objectPosition: "center",
 											}}
