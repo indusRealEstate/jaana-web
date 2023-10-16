@@ -12,10 +12,6 @@ import { Box, CircularProgress } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export const metadata = {
-  title: "Agents",
-};
-
 const AgentDetails = ({ params }) => {
   // const searchParams = useSearchParams();
   // const agent_id = searchParams.get("agent_id");
