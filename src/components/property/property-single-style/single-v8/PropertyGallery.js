@@ -19,77 +19,69 @@ const PropertyGallery = ({ imagesRaw }) => {
     console.log("hello");
   };
 
-  return (
-    <>
-      <div className="ps-v6-slider nav_none mt30">
-        <Gallery className="h-100">
-          <Swiper
-            // loop={true}
-            spaceBetween={10}
-            navigation={{
-              prevEl: ".prev-btn",
-              nextEl: ".next-btn",
-            }}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2 position-relative"
-          >
-            {JSON.parse(imagesRaw).map((item, index) => (
-              <SwiperSlide key={index} className="card border-0 h-100">
-                <div className="sp-img-content">
-                  {!loaded.includes(index) && (
-                    <Skeleton
-                      variant="rectangular"
-                      className="height-50 width-auto bdrs12"
-                      width={1206}
-                      height={671}
-                    />
-                  )}
-                  <Item
-                    original={`https://toprealtorsdubai.com/api/upload/properties/${
-                      JSON.parse(imagesRaw)[index]
-                    }`}
-                    thumbnail={`https://toprealtorsdubai.com/api/upload/properties/${
-                      JSON.parse(imagesRaw)[index]
-                    }`}
-                    width={1206}
-                    height={671}
-                  >
-                    {({ ref, open }) => (
-                      <img
-                        width={1206}
-                        height={671}
-                        ref={ref}
-                        onClick={open}
-                        alt="gallery"
-                        src={`https://toprealtorsdubai.com/api/upload/properties/${
-                          JSON.parse(imagesRaw)[index]
-                        }`}
-                        className={`${
-                          !loaded.includes(index)
-                            ? "opacity-0 position-absolute  bdrs12 pointer"
-                            : "opacity-100  bdrs12 pointer gallery-images position-relative"
-                        }}`}
-                        onLoad={(event) => {
-                          if (!loaded.includes(index)) {
-                            loaded.push(index);
-                            setLoaded(loaded);
-                          }
-                        }}
-                      />
-                    )}
-                  </Item>
-                  <button
-                    className="all-tag popup-img border-0 pe-none"
-                    onClick={(event) => seeAllImages(event)}
-                  >
-                    See All {`${JSON.parse(imagesRaw).length}`} Photos
-                  </button>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Gallery>
+	return (
+		<>
+			<div className='ps-v6-slider nav_none mt30'>
+				<Gallery className='h-100'>
+					<Swiper
+						// loop={true}
+						spaceBetween={10}
+						navigation={{
+							prevEl: ".prev-btn",
+							nextEl: ".next-btn",
+						}}
+						thumbs={{ swiper: thumbsSwiper }}
+						modules={[FreeMode, Navigation, Thumbs]}
+						className='mySwiper2 position-relative'>
+						{JSON.parse(imagesRaw).map((item, index) => (
+							<SwiperSlide key={index} className='card border-0 h-100'>
+								<div className='sp-img-content'>
+									{!loaded.includes(index) && (
+										<Skeleton
+											variant='rectangular'
+											className='height-50 width-auto bdrs12'
+											width={1206}
+											height={671}
+										/>
+									)}
+									<Item
+										original={`https://toprealtorsdubai.com/api/upload/properties/${item}`}
+										thumbnail={`https://toprealtorsdubai.com/api/upload/properties/${item}`}
+										width={1206}
+										height={671}>
+										{({ ref, open }) => (
+											<Image
+												width={1206}
+												height={671}
+												ref={ref}
+												onClick={open}
+												alt='gallery'
+												src={`https://toprealtorsdubai.com/api/upload/properties/${item}`}
+												className={`${
+													!loaded.includes(index)
+														? "opacity-0 position-absolute  bdrs12 pointer"
+														: "opacity-100  bdrs12 pointer gallery-images position-relative"
+												}}`}
+												onLoad={(event) => {
+													console.log(event)
+													if (!loaded.includes(index)) {
+														loaded.push(index)
+														setLoaded(loaded)
+													}
+												}}
+											/>
+										)}
+									</Item>
+									<button
+										className='all-tag popup-img border-0 pe-none'
+										onClick={(event) => seeAllImages(event)}>
+										See All {`${JSON.parse(imagesRaw).length}`} Photos
+									</button>
+								</div>
+							</SwiperSlide>
+						))}
+					</Swiper>
+				</Gallery>
 
         <div className="row">
           <div className="col-lg-5 col-md-7">
