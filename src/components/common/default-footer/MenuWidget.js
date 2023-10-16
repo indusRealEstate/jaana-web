@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const MenuWidget = () => {
@@ -20,7 +21,7 @@ const MenuWidget = () => {
         { label: "Rent", href: "/properties-rent" },
         { label: "About Agent", href: "/agent-details" },
         { label: "About Us", href: "/about" },
-        { label: "Contact Us", href: "/contact" },
+        { label: "Contact Us", href: "/contact-us" },
       ],
     },
     {
@@ -43,7 +44,7 @@ const MenuWidget = () => {
             <ul className="ps-0">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex}>
-                  <a href={link.href}>{link.label}</a>
+                  <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>

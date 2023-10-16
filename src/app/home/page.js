@@ -107,7 +107,7 @@ const HomePage = () => {
                 <div className="why-chose-list style2">
                   <Features />
                 </div>
-                <Link href="/contact" className="ud-btn btn-dark">
+                <Link href="/contact-us" className="ud-btn btn-dark">
                   Contact Us
                   <i className="fal fa-arrow-right-long" />
                 </Link>
