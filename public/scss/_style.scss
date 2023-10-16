@@ -6654,7 +6654,7 @@ textarea:focus {
   text-align: center;
   width: 40px;
   &:hover {
-    background-color: #f8d3cd;
+    background-color: var(--light-cream-color);
   }
 }
 .advance-feature-modal .btn-close:focus,
@@ -7716,7 +7716,7 @@ li.mm-listitem:focus {
   position: relative;
 }
 .rightside-hidden-bar .hsidebar-header .title {
-  color: var(--headings-color);
+  color: var(--gold-color);
   font-family: var(--title-font-family);
   font-weight: 600;
 }
