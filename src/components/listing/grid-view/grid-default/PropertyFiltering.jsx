@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import listings from "@/data/listings";
-import React, { useState, useEffect } from "react";
-import ListingSidebar from "../../sidebar";
-import TopFilterBar from "./TopFilterBar";
-import FeaturedListings from "./FeatuerdListings";
+import listings from "@/data/listings"
+import React, { useState, useEffect } from "react"
+import ListingSidebar from "../../sidebar"
+import TopFilterBar from "./TopFilterBar"
+import FeaturedListings from "./FeatuerdListings"
 
 import PaginationTwo from "../../PaginationTwo"
 import { object } from "prop-types"
@@ -21,24 +21,22 @@ export default function PropertyFiltering({
 
 	const [currentSortingOption, setCurrentSortingOption] = useState("Newest")
 
-  const [sortedFilteredData, setSortedFilteredData] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1);
+	const [sortedFilteredData, setSortedFilteredData] = useState([])
+	const [pageNumber, setPageNumber] = useState(1)
 
-  const [colstyle, setColstyle] = useState(false);
-  const [pageItems, setPageItems] = useState([]);
+	const [colstyle, setColstyle] = useState(false)
+	const [pageItems, setPageItems] = useState([])
 
-  const [pageContentTrac, setPageContentTrac] = useState([]);
+	const [pageContentTrac, setPageContentTrac] = useState([])
 
-  useEffect(() => {
-    setPageItems(
-      sortedFilteredData.slice((pageNumber - 1) * 8, pageNumber * 8)
-    );
-    setPageContentTrac([
-      (pageNumber - 1) * 8 + 1,
-      pageNumber * 8,
-      sortedFilteredData.length,
-    ]);
-  }, [pageNumber, sortedFilteredData]);
+	useEffect(() => {
+		setPageItems(sortedFilteredData.slice((pageNumber - 1) * 8, pageNumber * 8))
+		setPageContentTrac([
+			(pageNumber - 1) * 8 + 1,
+			pageNumber * 8,
+			sortedFilteredData.length,
+		])
+	}, [pageNumber, sortedFilteredData])
 
 	const [listingStatus, setListingStatus] = useState(
 		searchData != undefined ? search.tab : prop_for,
@@ -46,7 +44,7 @@ export default function PropertyFiltering({
 	// const [listingStatus, setListingStatus] = useState(prop_for)
 	const [propertyTypes, setPropertyTypes] = useState(
 		categoryRow != null
-			? categoryRow
+			? [categoryRow]
 			: searchData != undefined
 			? search.propertyType
 			: [],
@@ -91,20 +89,20 @@ export default function PropertyFiltering({
 	)
 	const [valueReset, setValueReset] = useState(false)
 
-  const resetFilter = () => {
-    setListingStatus("All");
-    setPropertyTypes([]);
-    setPriceRange([0, 10000000]);
-    setBedrooms(0);
-    setBathroms(0);
-    setLocation("All Cities");
-    setSquirefeet([]);
-    setyearBuild([0, 2050]);
-    setCategories([]);
-    setCurrentSortingOption("Newest");
-    document.querySelectorAll(".filterInput").forEach(function (element) {
-      element.value = null;
-    });
+	const resetFilter = () => {
+		setListingStatus("All")
+		setPropertyTypes([])
+		setPriceRange([0, 10000000])
+		setBedrooms(0)
+		setBathroms(0)
+		setLocation("All Cities")
+		setSquirefeet([])
+		setyearBuild([0, 2050])
+		setCategories([])
+		setCurrentSortingOption("Newest")
+		document.querySelectorAll(".filterInput").forEach(function (element) {
+			element.value = null
+		})
 
 		document.querySelectorAll(".filterSelect").forEach(function (element) {
 			element.value = "All Cities"
@@ -114,9 +112,9 @@ export default function PropertyFiltering({
 		setSearchData(undefined)
 	}
 
-  const handlelistingStatus = (elm) => {
-    setListingStatus((pre) => (pre == elm ? "All" : elm));
-  };
+	const handlelistingStatus = (elm) => {
+		setListingStatus((pre) => (pre == elm ? "All" : elm))
+	}
 
 	const handlepropertyTypes = (elm) => {
 		if (elm.toLowerCase() == "all") {
@@ -182,13 +180,13 @@ export default function PropertyFiltering({
 		searchData,
 	}
 
-  useEffect(() => {
-    if (filterFunctions.priceRange[0] > 20) {
-      setValueReset(false);
-    } else if (filterFunctions.priceRange[1] < 10000000) {
-      setValueReset(false);
-    }
-  }, [filterFunctions, valueReset]);
+	useEffect(() => {
+		if (filterFunctions.priceRange[0] > 20) {
+			setValueReset(false)
+		} else if (filterFunctions.priceRange[1] < 10000000) {
+			setValueReset(false)
+		}
+	}, [filterFunctions, valueReset])
 
 	useEffect(() => {
 		if (searchData == undefined) {
@@ -204,7 +202,7 @@ export default function PropertyFiltering({
 			}
 		})
 
-    let filteredArrays = [];
+		let filteredArrays = []
 
 		// property type checking
 		if (propertyTypes.length > 0) {
@@ -229,7 +227,6 @@ export default function PropertyFiltering({
 			...filteredArrays,
 			refItems.filter((el) => el.bath >= bathroms),
 		]
-		// console.log(refItems)
 
 		// filter search text
 		filteredArrays = [
@@ -269,43 +266,44 @@ export default function PropertyFiltering({
 				  ),
 		]
 
-    if (location != "All Cities") {
-      filteredArrays = [
-        ...filteredArrays,
-        refItems.filter(
-          (el) => el.city.toLowerCase() == location.toLowerCase()
-        ),
-      ];
-    }
+		if (location != "All Cities") {
+			filteredArrays = [
+				...filteredArrays,
+				refItems.filter(
+					(el) => el.city.toLowerCase() == location.toLowerCase(),
+				),
+			]
+		}
 
-    if (priceRange.length > 0) {
-      const filtered = refItems.filter(
-        (elm) =>
-          Number(elm.price) >= priceRange[0] &&
-          Number(elm.price) <= priceRange[1]
-      );
-      filteredArrays = [...filteredArrays, filtered];
-    }
+		if (priceRange.length > 0) {
+			const filtered = refItems.filter(
+				(elm) =>
+					Number(elm.price) >= priceRange[0] &&
+					Number(elm.price) <= priceRange[1],
+			)
+			filteredArrays = [...filteredArrays, filtered]
+		}
 
-    if (squirefeet.length > 0 && squirefeet[1]) {
-      const filtered = refItems.filter(
-        (elm) =>
-          elm.area >= Number(squirefeet[0]) && elm.area <= Number(squirefeet[1])
-      );
-      filteredArrays = [...filteredArrays, filtered];
-    }
-    if (yearBuild.length > 0) {
-      const filtered = refItems.filter(
-        (elm) =>
-          elm.year_built >= Number(yearBuild[0]) &&
-          elm.year_built <= Number(yearBuild[1])
-      );
-      filteredArrays = [...filteredArrays, filtered];
-    }
+		if (squirefeet.length > 0 && squirefeet[1]) {
+			const filtered = refItems.filter(
+				(elm) =>
+					elm.area >= Number(squirefeet[0]) &&
+					elm.area <= Number(squirefeet[1]),
+			)
+			filteredArrays = [...filteredArrays, filtered]
+		}
+		if (yearBuild.length > 0) {
+			const filtered = refItems.filter(
+				(elm) =>
+					elm.year_built >= Number(yearBuild[0]) &&
+					elm.year_built <= Number(yearBuild[1]),
+			)
+			filteredArrays = [...filteredArrays, filtered]
+		}
 
-    const commonItems = refItems.filter((item) =>
-      filteredArrays.every((array) => array.includes(item))
-    );
+		const commonItems = refItems.filter((item) =>
+			filteredArrays.every((array) => array.includes(item)),
+		)
 
 		setFilteredData(commonItems)
 	}, [
@@ -413,26 +411,26 @@ export default function PropertyFiltering({
 						</div>
 						{/* End TopFilterBar */}
 
-            <div className="row mt15">
-              <FeaturedListings colstyle={colstyle} data={pageItems} />
-            </div>
-            {/* End .row */}
+						<div className='row mt15'>
+							<FeaturedListings colstyle={colstyle} data={pageItems} />
+						</div>
+						{/* End .row */}
 
-            <div className="row">
-              <PaginationTwo
-                pageCapacity={8}
-                data={sortedFilteredData}
-                pageNumber={pageNumber}
-                setPageNumber={setPageNumber}
-              />
-            </div>
-            {/* End .row */}
-          </div>
-          {/* End .col-lg-8 */}
-        </div>
-        {/* End .row */}
-      </div>
-      {/* End .container */}
-    </section>
-  );
+						<div className='row'>
+							<PaginationTwo
+								pageCapacity={8}
+								data={sortedFilteredData}
+								pageNumber={pageNumber}
+								setPageNumber={setPageNumber}
+							/>
+						</div>
+						{/* End .row */}
+					</div>
+					{/* End .col-lg-8 */}
+				</div>
+				{/* End .row */}
+			</div>
+			{/* End .container */}
+		</section>
+	)
 }
