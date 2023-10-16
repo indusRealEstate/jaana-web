@@ -30,7 +30,7 @@ export default function ListingItemsContainer({agentProp}) {
                 break;
         }
       
-    }, [currentCategory])
+    }, [currentCategory, agentProp])
     
   return (
 <div className="row align-items-center mt20">

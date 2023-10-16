@@ -44,7 +44,7 @@ const PropertiesSale = () => {
               <div className="breadcumb-style1">
                 <h2 className="title">Properties For Sale</h2>
                 <div className="breadcumb-list">
-                  <a href="#">Home</a>
+                  <a href="/">Home</a>
                   <a href="#">For Sale</a>
                 </div>
                 <a

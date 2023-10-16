@@ -10,26 +10,26 @@ import React, { useEffect, useState } from "react";
 const DefaultHeader = () => {
   const [navbar, setNavbar] = useState(false);
 
-  // const changeBackground = () => {
-  //   if (window.scrollY >= 10) {
-  //     setNavbar(true);
-  //   } else {
-  //     setNavbar(false);
-  //   }
-  // };
+  const changeBackground = () => {
+    if (window.scrollY >= 10) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", changeBackground);
-  //   return () => {
-  //     window.removeEventListener("scroll", changeBackground);
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", changeBackground);
+    return () => {
+      window.removeEventListener("scroll", changeBackground);
+    };
+  }, []);
 
   return (
     <>
       <header
         className={`header-nav nav-homepage-style light-header menu-home4 main-menu ${
-          navbar ? "sticky slideInDown animated" : ""
+          navbar ? "sticky slideInDown animated scrolled-down" : ""
         }`}
       >
         <nav className="posr">
@@ -40,28 +40,28 @@ const DefaultHeader = () => {
                   <div className="logos mr40">
                     <Link className="header-logo logo1" href="/">
                       <Image
-                        width={138}
-                        height={44}
+                        width={170}
+                        height={60}
                         objectFit="cover"
                         objectPosition="center"
-                        src="/images/INDUS_NEW.jpg"
+                        src="/images/logo/light-logo.svg"
                         alt="Header Logo"
                       />
                     </Link>
                     <Link className="header-logo logo2" href="/">
                       <Image
-                        width={138}
-                        height={44}
+                        width={170}
+                        height={60}
                         objectFit="cover"
                         objectPosition="center"
-                        src="/images/INDUS_NEW.jpg"
+                        src="/images/logo/dark-logo.svg"
                         alt="Header Logo"
                       />
                     </Link>
                   </div>
                   {/* End Logo */}
 
-                  <MainMenu />
+                  <MainMenu scroll={navbar} />
                   {/* End Main Menu */}
                 </div>
               </div>

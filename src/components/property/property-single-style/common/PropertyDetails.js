@@ -57,12 +57,12 @@ const PropertyDetails = ({proDetails}) => {
           {column.map((detail, index) => (
             <div key={index} className="d-flex justify-content-between">
               <div className="pd-list">
-                <p className="fw600 mb10 ff-heading dark-color">
+                <p className="fw600 mb10 ff-heading dark-color paragraph-theme">
                   {detail.label}
                 </p>
               </div>
               <div className="pd-list">
-                <p className="text mb10">{detail.value}</p>
+                <p className="text mb10 text-light">{detail.value}</p>
               </div>
             </div>
           ))}

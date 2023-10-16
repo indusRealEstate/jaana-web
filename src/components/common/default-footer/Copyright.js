@@ -28,12 +28,12 @@ const Footer = () => {
             <p className="copyright-text text-gray ff-heading">
              
               <a
-                href="https://themeforest.net/user/ib-themes"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white"
               >
-                © Top Realtors Dubai {getCurrentYear()}{" "}
+                © Top Realtor Dubai {getCurrentYear()}{" "}
               </a>{" "}
               - All rights reserved
             </p>
@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
         {/* End .col-sm-6 */}
 
-        <div className="col-sm-6">
+        {/* <div className="col-sm-6">
           <div className="text-center text-lg-end">
             <p className="footer-menu ff-heading text-gray">
               {footerMenuItems.map((item, index) => (
@@ -54,7 +54,7 @@ const Footer = () => {
               ))}
             </p>
           </div>
-        </div>
+        </div> */}
         {/* End .col-sm-6 */}
       </div>
     </div>

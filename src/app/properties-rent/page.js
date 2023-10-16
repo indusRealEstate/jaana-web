@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import DefaultHeader from "@/components/common/DefaultHeader";
 
 import Footer from "@/components/common/default-footer";
@@ -18,12 +18,10 @@ export const metadata = {
 const PropertiesRent = () => {
   const [rentProperties, setRentProperties] = useState([]);
 
-  useEffect(() => {
-    getAllRentProperties().then((response) => {
-      setRentProperties(response.prop);
-      //console.log(response);
-    });
-  }, [rentProperties]);
+  getAllRentProperties().then((response) => {
+    setRentProperties(response.prop);
+    //console.log(response);
+  });
   //console.log(rentProperties);
   return (
     <>
@@ -43,7 +41,7 @@ const PropertiesRent = () => {
               <div className="breadcumb-style1">
                 <h2 className="title">Properties For Rent</h2>
                 <div className="breadcumb-list">
-                  <a href="#">Home</a>
+                  <a href="/">Home</a>
                   <a href="#">For Rent</a>
                 </div>
                 <a
@@ -63,9 +61,9 @@ const PropertiesRent = () => {
       {/* End Breadcumb Sections */}
 
       {/* Property Filtering */}
-      
+
       {/* <ProperteyFiltering listings = {rentProperties}/> */}
-      {rentProperties == "" ? (
+      {rentProperties == "" || rentProperties == undefined ? (
         <>
           <Box
             sx={{
@@ -73,16 +71,16 @@ const PropertiesRent = () => {
               height: "50vh",
               width: "100%",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <CircularProgress size={50}></CircularProgress>
           </Box>
         </>
-      ) : ( 
-      <ProperteyFiltering listings = {rentProperties}/>
+      ) : (
+        <ProperteyFiltering listings={rentProperties} />
       )}
-      
+
       {/* Property Filtering */}
 
       {/* Start Our Footer */}

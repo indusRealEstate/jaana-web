@@ -30,11 +30,13 @@ const ExclusiveAgnts = () => {
 				<span className='text-thm'></span> Exclusive Agent
 			</h4>
 			<Image
-				width={300}
-				height={250}
-				className='wa'
+				width={350}
+				height={350}
+				className='cover'
 				style={{
 					borderRadius: "10px",
+					objectFit: "cover",
+					objectPosition: "center",
 				}}
 				src='/images/team/jaana.jpeg'
 				alt='team'

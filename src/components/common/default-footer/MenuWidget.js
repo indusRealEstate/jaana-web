@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const MenuWidget = () => {
@@ -5,10 +6,10 @@ const MenuWidget = () => {
     {
       title: "Popular Search",
       links: [
-        { label: "Apartment for Rent", href: "#" },
-        { label: "Apartment Low to Hide", href: "#" },
-        { label: "Offices for Buy", href: "#" },
-        { label: "Offices for Rent", href: "#" },
+        { label: "Apartment for Rent", href: "/all-properties" },
+        { label: "Apartment Low to High", href: "/all-properties" },
+        { label: "Offices for Buy", href: "/all-properties" },
+        { label: "Offices for Rent", href: "/all-properties" },
       ],
     },
     {
@@ -16,20 +17,20 @@ const MenuWidget = () => {
       links: [
         { label: "Home", href: "/home" },
         { label: "All Properties", href: "/all-properties" },
-        { label: "Sale", href: "/sale" },
-        { label: "Rent", href: "/rent" },
-        { label: "Agents", href: "/agents" },
+        { label: "Sale", href: "/properties-sale" },
+        { label: "Rent", href: "/properties-rent" },
+        { label: "About Agent", href: "/agent-details" },
         { label: "About Us", href: "/about" },
-        { label: "Contact Us", href: "/contact" },
+        { label: "Contact Us", href: "/contact-us" },
       ],
     },
     {
       title: "Discover",
       links: [
-        { label: "Dubai Marina", href: "#" },
-        { label: "Business Bay", href: "#" },
-        { label: "Al Barsha", href: "#" },
-        { label: "Downtown", href: "#" },
+        { label: "Dubai Marina", href: "/all-properties" },
+        { label: "Business Bay", href: "/all-properties" },
+        { label: "Al Barsha", href: "/all-properties" },
+        { label: "Downtown", href: "/all-properties" },
       ],
     },
   ];
@@ -43,7 +44,7 @@ const MenuWidget = () => {
             <ul className="ps-0">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex}>
-                  <a href={link.href}>{link.label}</a>
+                  <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>

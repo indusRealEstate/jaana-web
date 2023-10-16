@@ -9,7 +9,7 @@ const PropertyFeaturesAminites = ({Features}) => {
         <div key={rowIndex} className="col-sm-6 col-md-4">
           <div className="pd-list">
             
-              <p key={rowIndex} className="text mb10">
+              <p key={rowIndex} className="text mb10 paragraph-theme">
                 <i className="fas fa-circle fz6 align-middle pe-2" />
                 {row}
               </p>

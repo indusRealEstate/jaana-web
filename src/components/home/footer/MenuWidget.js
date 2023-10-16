@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const MenuWidget = () => {
@@ -25,31 +26,31 @@ const MenuWidget = () => {
 
   return (
     <>
-    <div className="col-sm-6 col-lg-3">
+      <div className="col-sm-6 col-lg-3">
         <div className="footer-widget mb-4 mb-lg-5 ps-0 ps-lg-5">
           <div className="link-style1 light-style mb-3">
             <h6 className="mb25">Quick Links</h6>
             <ul className="ps-0">
               <li>
-                <a href="/home">Home</a>
+                <Link href="/">Home</Link>
               </li>
               <li>
-                <a href="/all-properties">All Propeties</a>
+                <Link href="/all-properties">All Propeties</Link>
               </li>
               <li>
-                <a href="/rent">Rent</a>
+                <Link href="/rent">Rent</Link>
               </li>
               <li>
-                <a href="/sale">Sale</a>
+                <Link href="/sale">Sale</Link>
               </li>
               <li>
-                <a href="/agents">Agents</a>
+                <Link href="/agents">Agents</Link>
               </li>
               <li>
-                <a href="/about">About Us</a>
+                <Link href="/about">About Us</Link>
               </li>
               <li>
-                <a href="/contact">Contact Us</a>
+                <Link href="/contact-us">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -63,7 +64,7 @@ const MenuWidget = () => {
               <ul className="link-list ps-0">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a href={link.href}>{link.label}</a>
+                    <Link href={link.href}>{link.label}</Link>
                   </li>
                 ))}
               </ul>
@@ -72,7 +73,6 @@ const MenuWidget = () => {
         ))}
       </div>
 
-      
       {/* End .col */}
     </>
   );

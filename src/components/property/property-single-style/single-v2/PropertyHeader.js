@@ -1,32 +1,34 @@
-import listings from "@/data/listings";
-import React from "react";
-import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
 
-const PropertyHeader = ({headerdata}) => {
- // const data = listings.filter((elm) => elm.id == id)[0] || listings[0];
- const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "AED",
-});
+const PropertyHeader = ({ headerdata }) => {
+  // const data = listings.filter((elm) => elm.id == id)[0] || listings[0];
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "AED",
+  });
   return (
     <>
       <div className="col-lg-8">
         <div className="single-property-content mb30-md">
-          <h2 className="sp-lg-title">{headerdata.property_name != undefined? headerdata.property_name :(
-            <Box sx={{ width: 300 }}>
-            <Skeleton animation="wave" />
-          </Box>
-
-          )}</h2>
+          <h2 className="sp-lg-title green-title-theme">
+            {headerdata.property_name != undefined ? (
+              headerdata.property_name
+            ) : (
+              <Box sx={{ width: 300 }}>
+                <Skeleton animation="wave" />
+              </Box>
+            )}
+          </h2>
           <div className="pd-meta mb15 d-md-flex align-items-center">
-            <p className="text fz15 mb-0 bdrr1 pr10 bdrrn-sm">
-            {headerdata.address != undefined? headerdata.address :(
-            <Box sx={{ width: 300 }}>
-            <Skeleton animation="wave" />
-          </Box>
-
-          )}
+            <p className="text fz15 mb-0 bdrr1 pr10 bdrrn-sm dark-title-theme">
+              {headerdata.address != undefined ? (
+                headerdata.address
+              ) : (
+                <Box sx={{ width: 300 }}>
+                  <Skeleton animation="wave" />
+                </Box>
+              )}
             </p>
           </div>
           <div className="property-meta d-flex align-items-center">
@@ -35,12 +37,14 @@ const PropertyHeader = ({headerdata}) => {
               href="#"
             >
               <i className="fas fa-circle fz10 pe-2" />
-              For {headerdata.property_status!= undefined? headerdata.property_status :(
-            <Box sx={{ width: 300 }}>
-            <Skeleton animation="wave" />
-          </Box>
-
-          )}
+              For{" "}
+              {headerdata.property_status != undefined ? (
+                headerdata.property_status
+              ) : (
+                <Box sx={{ width: 300 }}>
+                  <Skeleton animation="wave" />
+                </Box>
+              )}
             </a>
             {/* <a
               className="ff-heading bdrr1 fz15 pr10 ml10 ml0-sm bdrrn-sm"
@@ -74,8 +78,10 @@ const PropertyHeader = ({headerdata}) => {
                 <span className="flaticon-printer" />
               </a>
             </div>
-            <h3 className="price mb-0">{formatter.format(headerdata.price).replace('.00', '')}</h3>
-            <p className="text space fz15">{headerdata.area}/sq ft</p>
+            <h3 className="price mb-0 dark-title-theme">
+              {formatter.format(headerdata.price).replace(".00", "")}
+            </h3>
+            <p className="text space fz15 green-title-theme">{headerdata.area}/sq ft</p>
           </div>
         </div>
       </div>

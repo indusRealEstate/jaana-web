@@ -2,7 +2,7 @@ const Features = () => {
   // Define an array of feature objects
   const features = [
     {
-      icon: "flaticon-house-price",
+      icon: "flaticon-security",
       title: "Full conveyance for buyers and sellers",
       description:
       "Full conveyance for buyers and sellers involves the legal transfer of property ownership.",
@@ -21,19 +21,19 @@ const Features = () => {
     }
   ];
 
-  return (
-    <>
-      {features.map((feature, index) => (
-        <div className="list-one d-flex align-items-start mb30" key={index}>
-          <span className={`list-icon flex-shrink-0 ${feature.icon}`} />
-          <div className="list-content flex-grow-1 ml20">
-            <h6 className="mb-1">{feature.title}</h6>
-            <p className="text mb-0 fz15">{feature.description}</p>
-          </div>
-        </div>
-      ))}
-    </>
-  );
-};
+	return (
+		<>
+			{features.map((feature, index) => (
+				<div className='list-one d-flex align-items-start mb30' key={index}>
+					<span className={`list-icon flex-shrink-0 ${feature.icon}`} />
+					<div className='list-content flex-grow-1 ml20'>
+						<h6 className='mb-1 title-theme'>{feature.title}</h6>
+						<p className='text mb-0 fz15 paragraph-theme'>{feature.description}</p>
+					</div>
+				</div>
+			))}
+		</>
+	)
+}
 
-export default Features;
+export default Features

@@ -8,7 +8,7 @@ import "swiper/swiper-bundle.min.css";
 
 const NearbyinputData = ({ inputData, prop_id }) => {
   // const images = JSON.parse(inputData.images);
-  console.log(inputData);
+  // console.log(inputData);
 
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -113,14 +113,14 @@ const NearbyinputData = ({ inputData, prop_id }) => {
                         For {listing.property_status}
                       </span>
                       <div className="icons d-flex align-items-center">
-                        <a href="#">
-                          <span className="flaticon-fullscreen" />
+                        <a href="#" className="bg-theme">
+                          <span className="flaticon-fullscreen paragraph-theme" />
                         </a>
-                        <a href="#">
-                          <span className="flaticon-new-tab" />
+                        <a href="#" className="bg-theme">
+                          <span className="flaticon-new-tab paragraph-theme" />
                         </a>
-                        <a href="#">
-                          <span className="flaticon-like" />
+                        <a href="#" className="bg-theme">
+                          <span className="flaticon-like paragraph-theme" />
                         </a>
                       </div>
                     </div>

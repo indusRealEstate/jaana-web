@@ -1,16 +1,26 @@
+"use client";
 
-'use client'
+import React, { useEffect } from "react";
 
-import React from "react";
+const SearchBox = ({ filterFunctions }) => {
+  useEffect(() => {
+    if (filterFunctions?.searchData != undefined) {
+      filterFunctions?.setSearchQuery(filterFunctions?.searchData.searchText);
+    }
+  }, [filterFunctions?.searchData]);
 
-const SearchBox = ({filterFunctions}) => {
   return (
     <div className="search_area">
       <input
         type="text"
         className="form-control"
         placeholder="What are you looking for?"
-        onChange={(e)=>filterFunctions?.setSearchQuery(e.target.value)}
+        defaultValue={
+          filterFunctions?.searchData != undefined
+            ? filterFunctions?.searchData.searchText
+            : ""
+        }
+        onChange={(e) => filterFunctions?.setSearchQuery(e.target.value)}
       />
       <label>
         <span className="flaticon-search" />
