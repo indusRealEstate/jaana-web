@@ -10,10 +10,6 @@ import { getAllProperties } from "@/api/properties"
 import { Box, CircularProgress } from "@mui/material"
 import { useRouter, useSearchParams } from "next/navigation"
 
-export const metadata = {
-	title: "All Properties",
-}
-
 const AllProperties = () => {
 	const searchParams = useSearchParams()
 	const categoryRow = searchParams.get("categories")

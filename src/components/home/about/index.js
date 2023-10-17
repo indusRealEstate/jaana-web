@@ -72,7 +72,7 @@ const About = () => {
                 <br className="d-none d-xl-block" /> eiusmod tempor incididunt.
               </p> */}
 							<SellingList />
-							<Link href='/contact' className='ud-btn btn-dark'>
+							<Link href='/contact-us' className='ud-btn btn-dark'>
 								Contact Us
 								<i className='fal fa-arrow-right-long' />
 							</Link>

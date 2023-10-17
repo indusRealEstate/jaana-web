@@ -102,9 +102,8 @@ const ApartmentTypes = () => {
 						.length,
 				)
 				setHouse(
-					props.filter(
-						(prop) => prop.property_type.toLowerCase() == "house",
-					).length,
+					props.filter((prop) => prop.property_type.toLowerCase() == "house")
+						.length,
 				)
 				setApartment(
 					props.filter(
@@ -137,7 +136,7 @@ const ApartmentTypes = () => {
 			imageSrc: "/images/listings/apartment.jpg",
 			properties: apartment,
 		},
-		
+
 		{
 			title: "Villa",
 			imageSrc: "/images/listings/villa.jpg",
@@ -184,33 +183,36 @@ const ApartmentTypes = () => {
 				}}>
 				{property_types.map((apartment, index) => (
 					<SwiperSlide key={index}>
-						{apartment.properties != 0 ? <div className='item'>
-							<Link href='#'>
-								<div className='apartment-style1'>
-									<div className='apartment-img'>
-										<Image
-											width={217}
-											height={150}
-											className=''
-											style={{
-												height: "",
-												objectFit: "cover",
-												objectPosition: "center",
-											}}
-											src={apartment.imageSrc}
-											alt='apartment city'
-										/>
+						{apartment.properties != 0 ? (
+							<div className='item'>
+								<Link href='#'>
+									<div className='apartment-style1'>
+										<div className='apartment-img'>
+											<Image
+												width={217}
+												height={223}
+												className='w-100 cover'
+												style={{
+													maxHeight: "9rem",
+													objectFit: "cover",
+													objectPosition: "center",
+												}}
+												src={apartment.imageSrc}
+												alt='apartment city'
+											/>
+										</div>
+										<div className='apartment-content'>
+											<h6 className='title mb-0'>{apartment.title}</h6>
+											<p className='text mb-0'>
+												{apartment.properties} Properties
+											</p>
+										</div>
 									</div>
-									<div className='apartment-content'>
-										<h6 className='title mb-0'>{apartment.title}</h6>
-										<p className='text mb-0'>
-											{apartment.properties} Properties
-										</p>
-									</div>
-								</div>
-							</Link>
-						</div>:""}
-						
+								</Link>
+							</div>
+						) : (
+							""
+						)}
 					</SwiperSlide>
 				))}
 			</Swiper>

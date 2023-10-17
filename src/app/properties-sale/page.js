@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import DefaultHeader from "@/components/common/DefaultHeader";
 
 import Footer from "@/components/common/default-footer";
@@ -9,10 +9,6 @@ import { useEffect, useState } from "react";
 import { getAllSaleProperties } from "@/api/properties";
 import { Box, CircularProgress } from "@mui/material";
 import React from "react";
-
-export const metadata = {
-  title: "Properties For Sale",
-};
 
 const PropertiesSale = () => {
   const [saleProperties, setSaleProperties] = useState([]);
@@ -26,7 +22,6 @@ const PropertiesSale = () => {
   //console.log(saleProperties);
   return (
     <>
-     
       {/* Main Header Nav */}
       <DefaultHeader />
       {/* End Main Header Nav */}
@@ -36,7 +31,7 @@ const PropertiesSale = () => {
       {/* End Mobile Nav  */}
 
       {/* Breadcumb Sections */}
-     
+
       <section className="breadcumb-section bgc-f7">
         <div className="container">
           <div className="row">
@@ -61,11 +56,11 @@ const PropertiesSale = () => {
           </div>
         </div>
       </section>
-     
+
       {/* End Breadcumb Sections */}
 
       {/* Property Filtering */}
-      
+
       {saleProperties == "" ? (
         <>
           <Box
@@ -74,23 +69,23 @@ const PropertiesSale = () => {
               height: "50vh",
               width: "100%",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <CircularProgress size={50}></CircularProgress>
           </Box>
         </>
-      ) : ( 
-      <ProperteyFiltering listings = {saleProperties}/>
+      ) : (
+        <ProperteyFiltering listings={saleProperties} />
       )}
-    
+
       {/* Property Filtering */}
 
       {/* Start Our Footer */}
       <section className="footer-style1 pt60 pb-0">
         <Footer />
       </section>
-      
+
       {/* End Our Footer */}
     </>
   );

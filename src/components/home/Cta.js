@@ -49,7 +49,7 @@ const Cta = () => {
 									During this time, we have successfully assisted hundreds
 									clients and we will be happy to guide you.
 								</p>
-								<Link href='/contact' className='ud-btn btn-dark mt10'>
+								<Link href='/contact-us' className='ud-btn btn-dark mt10'>
 									Learn More
 									<i className='fal fa-arrow-right-long' />
 								</Link>

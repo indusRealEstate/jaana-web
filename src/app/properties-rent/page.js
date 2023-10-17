@@ -11,10 +11,6 @@ import { Box, CircularProgress } from "@mui/material";
 
 import React from "react";
 
-export const metadata = {
-  title: "Properties For Rent",
-};
-
 const PropertiesRent = () => {
   const [rentProperties, setRentProperties] = useState([]);
 

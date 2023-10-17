@@ -40,7 +40,7 @@ const CallToActions = () => {
             <div className="col-lg-5 col-xl-6 " data-aos="fade-left">
               <div className="cta-btns-style1 d-block d-sm-flex align-items-center justify-content-lg-end">
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="ud-btn btn-transparent mr30 mr0-xs"
                 >
                   Contact Us

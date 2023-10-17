@@ -22,7 +22,7 @@ export const AboutUs = [
 ];
 
 export const ContactUs = [
-  { href: "/contact", label: "ContactUs" },
+  { href: "/contact-us", label: "ContactUs" },
 ];
 // export const listingItems = [
 //   {

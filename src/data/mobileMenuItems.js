@@ -25,7 +25,7 @@ module.exports = [
   },
   {
     label: "Contact Us",
-    path: "/contact",
+    path: "/contact-us",
   },
   
   // {

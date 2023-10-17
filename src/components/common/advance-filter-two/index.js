@@ -62,11 +62,11 @@ const AdvanceFilterModal = ({ filterFunctions }) => {
 			return {
 				...styles,
 				backgroundColor: isSelected
-					? "#eb6753"
+					? "#004d42"
 					: isHovered
-					? "#eb675312"
+					? "#004d4254"
 					: isFocused
-					? "#eb675312"
+					? "#004d4254"
 					: undefined,
 			}
 		},

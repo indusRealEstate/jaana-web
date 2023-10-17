@@ -154,7 +154,7 @@ const MainMenu = ({ scroll }) => {
         <Link
           className="list-item"
           href={{
-            pathname: "/contact",
+            pathname: "/contact-us",
           }}
         >
           <span
