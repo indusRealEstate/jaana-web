@@ -182,9 +182,9 @@ const FeaturedListings = ({
                     <a href="#" className="bg-theme">
                       <span className="flaticon-new-tab paragraph-theme" />
                     </a>
-                    <a href="#" className="bg-theme">
+                    {/* <a href="#" className="bg-theme">
                       <span className="flaticon-like paragraph-theme" />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
