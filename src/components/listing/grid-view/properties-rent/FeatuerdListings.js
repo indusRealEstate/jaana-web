@@ -33,6 +33,9 @@ const FeaturedListings = ({
     if (data.length === filterFunctions.loaded.length) {
       filterFunctions?.handleImageLoading(filterFunctions.loaded);
     }
+    if (data.length === 0) {
+      filterFunctions?.setLoaded([]);
+    }
   }, [data, filterFunctions.loaded]);
 
   return (

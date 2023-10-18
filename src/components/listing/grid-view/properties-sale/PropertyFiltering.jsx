@@ -33,7 +33,7 @@ export default function PropertyFiltering({ listings }) {
 		])
 	}, [pageNumber, sortedFilteredData])
 
-	const [listingStatus, setListingStatus] = useState("All")
+	const [listingStatus, setListingStatus] = useState("all")
 	const [propertyTypes, setPropertyTypes] = useState([])
 	const [priceRange, setPriceRange] = useState([0, 100000000])
 	const [bedrooms, setBedrooms] = useState(0)
@@ -43,7 +43,7 @@ export default function PropertyFiltering({ listings }) {
 	const [yearBuild, setyearBuild] = useState([])
 	const [categories, setCategories] = useState([])
 	const [propertyId, setPropertyId] = useState([])
-	
+
 	const resetFilter = () => {
 		setListingStatus("All")
 		setPropertyTypes([])
@@ -131,15 +131,15 @@ export default function PropertyFiltering({ listings }) {
 
 	useEffect(() => {
 		const refItems = listings.filter((elm) => {
-			if (listingStatus == "All") {
+			if (listingStatus.toLowerCase() == "all") {
 				return true
-			} else if (listingStatus == "Buy") {
+			} else if (listingStatus.toLowerCase() == "buy") {
 				return elm.property_status.toLowerCase() == "sale"
-			} else if (listingStatus == "Rent") {
+			} else if (listingStatus.toLowerCase() == "rent") {
 				return elm.property_status.toLowerCase() == "rent"
 			}
 		})
-//console.log(refItems);
+		//console.log(refItems);
 		let filteredArrays = []
 
 		if (propertyTypes.length > 0 && propertyTypes[0] !== "all") {
@@ -179,7 +179,9 @@ export default function PropertyFiltering({ listings }) {
 		if (location != "All Cities") {
 			filteredArrays = [
 				...filteredArrays,
-				refItems.filter((el) => el.city.toLowerCase() == location.toLowerCase()),
+				refItems.filter(
+					(el) => el.city.toLowerCase() == location.toLowerCase(),
+				),
 			]
 		}
 
@@ -220,7 +222,7 @@ export default function PropertyFiltering({ listings }) {
 		squirefeet,
 		yearBuild,
 		categories,
-		propertyId
+		propertyId,
 	])
 
 	useEffect(() => {
@@ -231,18 +233,10 @@ export default function PropertyFiltering({ listings }) {
 			)
 			setSortedFilteredData(sorted)
 		} else if (currentSortingOption.trim() == "Price Low") {
-			const sorted = [...filteredData].sort(
-				(a, b) =>
-					a.price -
-					b.price,
-			)
+			const sorted = [...filteredData].sort((a, b) => a.price - b.price)
 			setSortedFilteredData(sorted)
 		} else if (currentSortingOption.trim() == "Price High") {
-			const sorted = [...filteredData].sort(
-				(a, b) =>
-					b.price -
-					a.price,
-			)
+			const sorted = [...filteredData].sort((a, b) => b.price - a.price)
 			setSortedFilteredData(sorted)
 		} else {
 			setSortedFilteredData(filteredData)
@@ -298,11 +292,7 @@ export default function PropertyFiltering({ listings }) {
 				{/* End TopFilterBar */}
 
 				<div className='row'>
-					<FeaturedListings
-						colstyle={colstyle}
-						data={pageItems}
-						
-					/>
+					<FeaturedListings colstyle={colstyle} data={pageItems} />
 				</div>
 				{/* End .row */}
 
