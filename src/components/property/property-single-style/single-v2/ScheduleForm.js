@@ -219,13 +219,13 @@ const ScheduleForm = ({ contactform }) => {
           </div>
           {/* End .col-12 */}
 
-          <div className="checkbox-style1 d-block d-sm-flex align-items-center justify-content-between mb10">
+          {/* <div className="checkbox-style1 d-block d-sm-flex align-items-center justify-content-between mb10">
             <label className="custom_checkbox fz14 ff-heading paragraph-theme">
               By submitting form I agree to Terms of Use
               <input type="checkbox" />
               <span className="checkmark" />
             </label>
-          </div>
+          </div> */}
           {/* End .col-12 */}
 
           <div className="col-md-12">
