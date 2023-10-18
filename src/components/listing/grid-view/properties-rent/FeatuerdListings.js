@@ -33,6 +33,9 @@ const FeaturedListings = ({
 		if (data.length === filterFunctions.loaded.length) {
 			filterFunctions?.handleImageLoading(filterFunctions.loaded)
 		}
+		if (data.length === 0) {
+			filterFunctions?.setLoaded([])
+		}
 	}, [data, filterFunctions.loaded])
 
 	return (
@@ -167,13 +170,13 @@ const FeaturedListings = ({
 								<div className='list-meta2 d-flex justify-content-between align-items-center'>
 									<span className='for-what'>For Rent</span>
 									<div className='icons d-flex align-items-center'>
-										<a href='#' className="bg-theme">
+										<a href='#' className='bg-theme'>
 											<span className='flaticon-fullscreen paragraph-theme' />
 										</a>
-										<a href='#' className="bg-theme">
+										<a href='#' className='bg-theme'>
 											<span className='flaticon-new-tab paragraph-theme' />
 										</a>
-										<a href='#' className="bg-theme">
+										<a href='#' className='bg-theme'>
 											<span className='flaticon-like paragraph-theme' />
 										</a>
 									</div>

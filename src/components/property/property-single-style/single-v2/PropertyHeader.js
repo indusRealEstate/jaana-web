@@ -7,6 +7,8 @@ const PropertyHeader = ({ headerdata }) => {
 		style: "currency",
 		currency: "AED",
 	})
+
+	// console.log
 	return (
 		<>
 			<div className='col-lg-8'>
