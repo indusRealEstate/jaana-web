@@ -5,27 +5,27 @@ module.exports = [
   },
   {
     label: "All Properties",
-    path: "/all-properties",
+    path: "/all-properties/",
   },
   {
     label: "Rent",
-    path: "/properties-rent",
+    path: "/properties-rent/",
   },
   {
     label: "Sale",
-    path: "/properties-sale",
+    path: "/properties-sale/",
   },
   {
     label: "About Agent",
-    path: "/agent-details",
+    path: "/agent-details/",
   },
   {
     label: "About Us",
-    path: "/about",
+    path: "/about/",
   },
   {
     label: "Contact Us",
-    path: "/contact-us",
+    path: "/contact-us/",
   },
   
   // {
