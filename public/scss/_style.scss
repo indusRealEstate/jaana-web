@@ -91,6 +91,12 @@ body {
 	//   background-color: var(--bg-color) !important;
 }
 
+@media (max-width: 768px) {
+	.copiedText {
+		width:300px !important
+	}
+}
+
 body {
 	background-color: #ffffff;
 	// font-family: var(--body-font-family);
@@ -3840,15 +3846,15 @@ li {
 
 /*Home 6 Banner*/
 .home-banner-style6 {
-  background-image: url(../images/home/bg-image-transparent.png);
-  width: 100%;
-  height: 100%;
-  background-color: var(--bg-color);
-  background-position: center center;
-  background-repeat: no-repeat;
-  position: relative;
-  background-size: cover;
-  border-bottom: 1px solid rgb(214 173 96 / 23%);
+	background-image: url(../images/home/bg-image-transparent.png);
+	width: 100%;
+	height: 100%;
+	background-color: var(--bg-color);
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: relative;
+	background-size: cover;
+	border-bottom: 1px solid rgb(214 173 96 / 23%);
 }
 .home-banner-style6 .home-style1 {
 	-webkit-box-align: center;
@@ -6660,16 +6666,16 @@ textarea:focus {
 }
 .advance-feature-modal .btn-close,
 .signup-modal .btn-close {
-  background-color: #f7f7f7;
-  border-radius: 50%;
-  height: 40px;
-  opacity: 1;
-  padding: 0;
-  text-align: center;
-  width: 40px;
-  &:hover {
-    background-color: var(--light-cream-color);
-  }
+	background-color: #f7f7f7;
+	border-radius: 50%;
+	height: 40px;
+	opacity: 1;
+	padding: 0;
+	text-align: center;
+	width: 40px;
+	&:hover {
+		background-color: var(--light-cream-color);
+	}
 }
 .advance-feature-modal .btn-close:focus,
 .signup-modal .btn-close:focus {
@@ -6911,7 +6917,7 @@ textarea:focus {
 }
 .btn-light-gray:hover,
 .btn-transparent:hover {
-  border: 1px solid var(--tan-color);
+	border: 1px solid var(--tan-color);
 }
 
 .btn-transparent,
@@ -7730,9 +7736,9 @@ li.mm-listitem:focus {
 	position: relative;
 }
 .rightside-hidden-bar .hsidebar-header .title {
-  color: var(--gold-color);
-  font-family: var(--title-font-family);
-  font-weight: 600;
+	color: var(--gold-color);
+	font-family: var(--title-font-family);
+	font-weight: 600;
 }
 .rightside-hidden-bar .hsidebar-header .sidebar-close-icon {
 	background-color: #f7f7f7;

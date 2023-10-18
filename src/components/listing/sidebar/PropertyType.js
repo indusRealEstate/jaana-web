@@ -4,10 +4,12 @@ import React, { useEffect } from "react"
 
 const PropertyType = ({ filterFunctions }) => {
 	const options = [
+		{ label: "Apartment" },
+		{ label: "Bungalow" },
 		{ label: "House" },
-
-		{ label: "Apartment", defaultChecked: true },
+		{ label: "Loft" },
 		{ label: "Office" },
+		{ label: "Townhome" },
 		{ label: "Villa" },
 	]
 

@@ -12,8 +12,10 @@ import { useRouter, useSearchParams } from "next/navigation"
 
 const AllProperties = () => {
 	const searchParams = useSearchParams()
-	const categoryRow = searchParams.get("categories")
 	const searchRaw = searchParams.get("search")
+
+	const categoryRow = searchParams.get("categories")
+	const status = searchParams.get("status")
 
 	const base64UrlDecode = (base64) => {
 		// ['+', '/', '='],
@@ -40,6 +42,7 @@ const AllProperties = () => {
 				console.log("error" + error)
 			})
 	}, [allProperties])
+
 	return (
 		<>
 			{/* Main Header Nav */}
@@ -95,6 +98,7 @@ const AllProperties = () => {
 					allProperties={allProperties}
 					prop_for={"All"}
 					categoryRow={categoryRow}
+					status={status}
 					search={searchData}
 				/>
 			)}
