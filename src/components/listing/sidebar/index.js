@@ -146,10 +146,10 @@ const ListingSidebar = ({ filterFunctions, dataReset }) => {
 					<span className='flaticon-turn-back' />
 					<u>Reset all filters</u>
 				</div>
-				<a className='reset-button' href='#'>
+				{/* <a className='reset-button' href='#'>
 					<span className='flaticon-favourite' />
 					<u>Save Search</u>
-				</a>
+				</a> */}
 			</div>
 		</div>
 	)

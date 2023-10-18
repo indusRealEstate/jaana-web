@@ -27,17 +27,19 @@ const PropertyDetailsPage = () => {
 	const [data, setData] = useState("")
 	const [inputData, setInputData] = useState("")
 
-	useEffect(() => {
-		getPropertyDetails(prop_id).then((response) => {
-			setData(response)
-			getSimilarProperties(response.property_type).then((props) => {
-				setInputData(props)
-			})
+	getPropertyDetails(prop_id).then((response) => {
+		setData(response)
+		getSimilarProperties(response.property_type).then((props) => {
+			setInputData(props)
 		})
-		// if (data != "") {
+	})
 
-		// }
-	}, [data, inputData, prop_id])
+	// useEffect(() => {
+
+	// 	// if (data != "") {
+
+	// 	// }
+	// }, [data, inputData, prop_id])
 
 	return (
 		<>

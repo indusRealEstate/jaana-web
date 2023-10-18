@@ -6479,6 +6479,7 @@ textarea:focus {
 }
 .accordion-style1 .accordion-item.active .accordion-button:before {
 	content: "";
+	margin-left: 10px;
 }
 .accordion-style1 .accordion-header {
 	border: none;
@@ -6500,6 +6501,7 @@ textarea:focus {
 	font-size: 8px;
 	font-weight: bold;
 	left: 0px;
+	margin-left: 10px;
 	position: absolute;
 }
 .accordion-style1 .accordion-button:after {
