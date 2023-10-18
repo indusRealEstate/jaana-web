@@ -38,7 +38,7 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
                 <Image
                   width={382}
                   height={248}
-                  style={{ height: "170px" }}
+                  style={{ height: "200px" }}
                   className="w-100 cover"
                   src={`https://toprealtorsdubai.com/api/upload/properties/${
                     JSON.parse(listing.images)[0]
@@ -75,13 +75,13 @@ const FeaturedListings = ({ data, colstyle, listings }) => {
               <p className="list-text">{listing.address}</p>
               <div className="list-meta d-flex align-items-center">
                 <a href="#">
-                  <span className="flaticon-bed" /> {listing.bed} beds
+                  <span className="flaticon-bed" /> {listing.bed} 
                 </a>
                 <a href="#">
-                  <span className="flaticon-shower" /> {listing.bath} bath
+                  <span className="flaticon-shower" /> {listing.bath} 
                 </a>
                 <a href="#">
-                  <span className="flaticon-expand" /> {listing.area} sqft
+                  <span className="flaticon-expand" /> {listing.area} 
                 </a>
               </div>
               <hr className="mt-2 mb-2" />
