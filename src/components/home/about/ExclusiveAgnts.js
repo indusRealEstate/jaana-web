@@ -38,7 +38,7 @@ const ExclusiveAgnts = () => {
 					objectFit: "cover",
 					objectPosition: "center",
 				}}
-				src='/images/team/jaana.jpeg'
+				src='/images/agent/jaana.webp'
 				alt='team'
 			/>
 		</div>
