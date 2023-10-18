@@ -9,6 +9,9 @@ import {
 	DialogContentText,
 	DialogTitle,
 	Slide,
+	Snackbar,
+	MuiAlert,
+	Stack,
 } from "@mui/material"
 import { useState } from "react"
 import { TransitionProps } from "@mui/material/transitions"
@@ -24,6 +27,8 @@ const PropertyHeader = ({ headerdata }) => {
 		style: "currency",
 		currency: "AED",
 	})
+
+	const [textCopied, setCopied] = useState(false)
 
 	const printPage = (event) => {
 		if (event.type === "click") {
@@ -174,6 +179,7 @@ const PropertyHeader = ({ headerdata }) => {
 					<DialogContent>
 						<DialogContentText id='alert-dialog-slide-description'>
 							<Button
+								className='copiedText'
 								style={{
 									padding: 0,
 									border: "none",
@@ -182,7 +188,11 @@ const PropertyHeader = ({ headerdata }) => {
 								}}
 								onClick={(event) => {
 									if (event.type === "click") {
-										navigator.clipboard.writeText(URL)
+										const copyText = navigator.clipboard.writeText(URL)
+
+										if (copyText) {
+											console.log(copyText)
+										}
 									}
 								}}>
 								<div className='input-group'>

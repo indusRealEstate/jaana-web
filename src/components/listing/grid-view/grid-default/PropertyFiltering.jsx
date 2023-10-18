@@ -13,6 +13,7 @@ export default function PropertyFiltering({
 	allProperties,
 	prop_for,
 	search,
+	status,
 	categoryRow,
 }) {
 	const [filteredData, setFilteredData] = useState([])
@@ -39,8 +40,10 @@ export default function PropertyFiltering({
 	}, [pageNumber, sortedFilteredData])
 
 	const [listingStatus, setListingStatus] = useState(
-		searchData != undefined ? search.tab : prop_for,
+		status != null ? status : searchData != undefined ? search.tab : prop_for,
 	)
+
+	// console.log(listingStatus)
 	// const [listingStatus, setListingStatus] = useState(prop_for)
 	const [propertyTypes, setPropertyTypes] = useState(
 		categoryRow != null
