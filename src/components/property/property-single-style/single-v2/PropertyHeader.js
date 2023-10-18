@@ -94,7 +94,7 @@ const PropertyHeader = ({ headerdata }) => {
 									/>
 								</Button>
 							</li>
-							<li>
+							{/* <li>
 								<Button
 									style={{
 										padding: 0,
@@ -168,7 +168,7 @@ const PropertyHeader = ({ headerdata }) => {
 										alt='WhatsApp'
 									/>
 								</Button>
-							</li>
+							</li> */}
 						</ul>
 					</DialogTitle>
 					<DialogContent>
