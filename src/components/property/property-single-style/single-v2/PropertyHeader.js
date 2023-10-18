@@ -19,6 +19,7 @@ const PropertyHeader = ({ headerdata }) => {
 	// const data = listings.filter((elm) => elm.id == id)[0] || listings[0];
 	const [share, setShare] = useState(false)
 	const [open, setOpen] = useState(false)
+	const URL = window.location.href
 	const formatter = new Intl.NumberFormat("en-US", {
 		style: "currency",
 		currency: "AED",
@@ -59,37 +60,156 @@ const PropertyHeader = ({ headerdata }) => {
 				<Dialog
 					open={open}
 					// TransitionComponent={Transition}
+					width={1000}
 					keepMounted
 					onClose={handleClose}
 					aria-describedby='alert-dialog-slide-description'>
 					<DialogTitle>
-						<div className='row'>
-							<div className='col-3'>
-								<Link
+						<ul
+							style={{
+								listStyle: "none",
+								display: "flex",
+								flexWrap: "wrap",
+								padding: 0,
+							}}>
+							<li>
+								<Button
 									style={{
 										padding: 0,
 										border: "none",
 										background: "none",
 									}}
-									href={`whatsapp://send?text=${window.location.href}" data-action="share/whatsapp/share" target="_blank"`}>
+									onClick={(event) => {
+										if (event.type === "click") {
+											window.open(
+												`whatsapp://send?text=${window.location.href}"`,
+											)
+										}
+									}}>
 									<Image
-										width={50}
-										height={50}
+										width={40}
+										height={40}
 										src='/images/socialMedia/whatsapp.svg'
+										alt='WhatsApp'
 									/>
-								</Link>
-							</div>
-						</div>
+								</Button>
+							</li>
+							<li>
+								<Button
+									style={{
+										padding: 0,
+										border: "none",
+										background: "none",
+									}}
+									onClick={(event) => {
+										if (event.type === "click") {
+											window.open(
+												`whatsapp://send?text=${window.location.href}"`,
+											)
+										}
+									}}>
+									<Image
+										width={40}
+										height={40}
+										style={{
+											borderRadius: 5,
+										}}
+										src='/images/socialMedia/linkedin.svg'
+										alt='WhatsApp'
+									/>
+								</Button>
+							</li>
+							<li>
+								<Button
+									style={{
+										padding: 0,
+										border: "none",
+										background: "none",
+									}}
+									onClick={(event) => {
+										if (event.type === "click") {
+											window.open(
+												`whatsapp://send?text=${window.location.href}"`,
+											)
+										}
+									}}>
+									<Image
+										width={40}
+										height={40}
+										style={{
+											borderRadius: 5,
+										}}
+										src='https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg'
+										alt='WhatsApp'
+									/>
+								</Button>
+							</li>
+							<li>
+								<Button
+									style={{
+										padding: 0,
+										border: "none",
+										background: "none",
+									}}
+									onClick={(event) => {
+										if (event.type === "click") {
+											window.open(
+												`whatsapp://send?text=${window.location.href}"`,
+											)
+										}
+									}}>
+									<Image
+										width={40}
+										height={40}
+										style={{
+											borderRadius: 5,
+										}}
+										src='/images/socialMedia/telegram.svg'
+										alt='WhatsApp'
+									/>
+								</Button>
+							</li>
+						</ul>
 					</DialogTitle>
 					<DialogContent>
 						<DialogContentText id='alert-dialog-slide-description'>
-							Let Google help apps determine location. This means sending
-							anonymous location data to Google, even when no apps are running.
+							<Button
+								style={{
+									padding: 0,
+									border: "none",
+									background: "none",
+									width: 500,
+								}}
+								onClick={(event) => {
+									if (event.type === "click") {
+										navigator.clipboard.writeText(URL)
+									}
+								}}>
+								<div className='input-group'>
+									<input
+										className='form-control'
+										value={window.location.href}
+										disabled
+										style={{
+											color: "#5f5f5f",
+										}}
+									/>
+									<div className='input-group-text'>
+										<span>
+											<Image
+												width={20}
+												height={20}
+												src={`/images/commonIcons/copy.svg`}
+												alt='Copy'
+											/>
+										</span>
+									</div>
+								</div>
+							</Button>
 						</DialogContentText>
 					</DialogContent>
 					<DialogActions>
-						<Button onClick={handleClose}>Disagree</Button>
-						<Button onClick={handleClose}>Agree</Button>
+						<Button onClick={handleClose}>Close</Button>
 					</DialogActions>
 				</Dialog>
 			) : (
