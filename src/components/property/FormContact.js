@@ -1,6 +1,7 @@
 "use client"
 import React from "react";
-import { submitContactForm } from "@/api/properties";
+import { DetailPageContactForm1 } from "@/api/properties";
+// submitContactForm
 import {
   Button,
   Dialog,
@@ -24,6 +25,7 @@ const FormContact = () => {
 	const [ValidName, setValidName] = useState(true)
 	const [ValidEmail, setValidEmail] = useState(true)
 	const [ValidPhone, setValidPhone] = useState(true)
+  const [ValidMsg, setValidMsg] = useState(true)
 	const [alertMsg, setAlertMsg] = useState([])
 	const [alertTitle, setAlertTitle] = useState([])
 	const [alertSeverity, setAlertSeverity] = useState([])
@@ -85,16 +87,22 @@ const FormContact = () => {
           throw new Error("Fill the correct email");
         } 
          else if (formData.message == "") {
-          setValidEmail(true);
+          setValidMsg(true);
           setError(true);
-          setMessageEmpty(true);
+          // setMessageEmpty(true);
           throw new Error("Fill the message");
+        }
+        else if (!formData.message.match(onlyText)) {
+          setValidMsg(true);
+          setError(true);
+          // setMessageEmpty(true);
+          throw new Error("Fill the currect message");
         } else {
           setMessageEmpty(false);
           setError(false);
           console.log("no error");
           console.log(formData);
-          submitContactForm(formData).then((res) => {
+          DetailPageContactForm1(formData).then((res) => {
             console.log(res.data);
 
             if (res.data === true) {

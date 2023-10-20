@@ -2,7 +2,7 @@
 import Select from "react-select";
 import SingleAgentInfo from "./SingleAgentInfo";
 import { useState } from "react";
-import { submitContactForm } from "@/api/properties";
+// import { submitContactForm } from "@/api/properties";
 import {
   Button,
   Dialog,
@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
-import { DetailPageContactForm } from "@/api/properties";
+import { DetailPageContactForm2 } from "@/api/properties";
 
 const InfoWithForm = (agentsDetails) => {
   const onlyEmail = /^((\w+\.)*\w+)@(\w+\.)+(\w)/
@@ -25,6 +25,7 @@ const InfoWithForm = (agentsDetails) => {
   const [ValidLastName, setValidLastName] = useState(true)
 	const [ValidEmail, setValidEmail] = useState(true)
 	const [ValidPhone, setValidPhone] = useState(true)
+  const [ValidMsg, setValidMsg] = useState(true)
 	const [alertMsg, setAlertMsg] = useState([])
 	const [alertTitle, setAlertTitle] = useState([])
 	const [alertSeverity, setAlertSeverity] = useState([])
@@ -37,7 +38,6 @@ const InfoWithForm = (agentsDetails) => {
 	const [open, setOpen] = useState(false)
 	const [formData, setFormData] = useState({
 	  first_name: "",
-    last_name: "",
 		email: "",
 		phone: "",
 		message: "",
@@ -62,24 +62,24 @@ const InfoWithForm = (agentsDetails) => {
           // check the first name empty
           setError(true);
           setValidFirstName(false);
-          throw new Error("Fill the first name");
+          throw new Error("Fill the name");
         } else if (!formData.first_name.match(onlyText)) {
           // check the first
           setValidFirstName(false);
           setError(true);
-          throw new Error("Fill the correct first name");
+          throw new Error("Fill the correct name");
         }
-        else if (formData.last_name == "") {
-          // check the first name empty
-          setError(true);
-          setValidLastName(false);
-          throw new Error("Fill the last name");
-        } else if (!formData.last_name.match(onlyText)) {
-          // check the first
-          setValidLastName(false);
-          setError(true);
-          throw new Error("Fill the correct last name");
-        }
+        // else if (formData.last_name == "") {
+          
+        //   setError(true);
+        //   setValidLastName(false);
+        //   throw new Error("Fill the last name");
+        // } else if (!formData.last_name.match(onlyText)) {
+        
+        //   setValidLastName(false);
+        //   setError(true);
+        //   throw new Error("Fill the correct last name");
+        // }
         else if (formData.phone == "") {
           setError(true);
           setValidPhone(false);
@@ -98,23 +98,29 @@ const InfoWithForm = (agentsDetails) => {
           setValidEmail(false);
           throw new Error("Fill the correct email");
         } else if (formData.message == "") {
-          setValidEmail(true);
+          setValidMsg(true);
           setError(true);
           setMessageEmpty(true);
           throw new Error("Fill the message");
+        } 
+         else if (!formData.message.match(onlyText)) {
+          setError(true);
+          setValidMsg(false);
+          setMessageEmpty(true);
+          throw new Error("Fill the correct message");
         } else {
+          setValidMsg(false);
           setMessageEmpty(false);
           setError(false);
           console.log("no error");
           console.log(formData);
-          DetailPageContactForm(formData).then((res) => {
+          DetailPageContactForm2(formData).then((res) => {
             console.log(res.data);
 
             if (res.data === true) {
               setRespons(true);
               setFormData({
                 first_name: "",
-                last_name:"",
                 email: "",
                 phone: "",
                 message: "",
