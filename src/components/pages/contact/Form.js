@@ -19,6 +19,7 @@ const Form = () => {
   const [ValidFirstName, setValidFirstName] = useState(true);
   const [ValidLastName, setValidLastName] = useState(true);
   const [ValidEmail, setValidEmail] = useState(true);
+  const [ValidMsg, setValidMsg] = useState(true);
   const [alertMsg, setAlertMsg] = useState([]);
   const [alertTitle, setAlertTitle] = useState([]);
   const [alertSeverity, setAlertSeverity] = useState([]);
@@ -78,11 +79,18 @@ const Form = () => {
           setValidEmail(false);
           throw new Error("Fill the correct email");
         } else if (formData.message == "") {
-          setValidEmail(true);
+          setValidMsg(true);
           setError(true);
           setMessageEmpty(true);
           throw new Error("Fill the message");
-        } else {
+        }
+        else if (!formData.message.match(onlyText)) {
+          setValidMsg(true);
+          setError(true);
+          setMessageEmpty(true);
+          throw new Error("Fill the correct message");
+        }
+         else {
           setMessageEmpty(false);
           setError(false);
           console.log("no error");
@@ -212,7 +220,7 @@ const Form = () => {
           <div className="col-md-12">
             <div className="mb10">
               <label className="heading-color ff-heading fw600 mb10 paragraph-theme">
-                Textarea
+                Message
               </label>
               <textarea
                 cols={30}

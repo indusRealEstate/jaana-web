@@ -1,5 +1,5 @@
-
-import { submitContactForm } from "@/api/properties";
+"use client"
+import { DetailPageContactForm1 } from "@/api/properties";
 import {
   Button,
   Dialog,
@@ -23,6 +23,7 @@ const ScheduleForm = ({ contactform }) => {
 	const [ValidName, setValidName] = useState(true)
 	const [ValidEmail, setValidEmail] = useState(true)
 	const [ValidPhone, setValidPhone] = useState(true)
+  const [ValidMsg, setValidMsg] = useState(true)
 	const [alertMsg, setAlertMsg] = useState([])
 	const [alertTitle, setAlertTitle] = useState([])
 	const [alertSeverity, setAlertSeverity] = useState([])
@@ -84,14 +85,21 @@ const ScheduleForm = ({ contactform }) => {
         } else if (formData.message == "") {
           setValidEmail(true);
           setError(true);
-          setMessageEmpty(true);
+          // setMessageEmpty(true);
           throw new Error("Fill the message");
-        } else {
+        }
+        else if (!formData.message.match(onlyText)) {
+          setError(true);
+          setValidMsg(false);
           setMessageEmpty(false);
+          throw new Error("Fill the correct Message");
+        } else {
+           setMessageEmpty(false);
+          setValidMsg(false)
           setError(false);
           console.log("no error");
           console.log(formData);
-          submitContactForm(formData).then((res) => {
+          DetailPageContactForm1(formData).then((res) => {
             console.log(res.data);
 
             if (res.data === true) {
