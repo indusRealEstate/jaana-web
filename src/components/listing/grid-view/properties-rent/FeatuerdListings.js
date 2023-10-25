@@ -1,5 +1,13 @@
 "use client";
-
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Tooltip,
+} from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -38,8 +46,129 @@ const FeaturedListings = ({
     }
   }, [data, filterFunctions.loaded]);
 
+  const [share, setShare] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [sharingUrl, setSharingUrl] = useState("");
+
+  const openSharBtn = (event, url) => {
+    if (event.type == "click") {
+      setShare(true);
+      handleClickOpen();
+      setSharingUrl(url);
+    }
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const openNewWindow = (event, url) => {
+    // window.open(window.location.href)
+    window.open(
+      url,
+      "_blank",
+      "location=yes,height=800,width=1400,scrollbars=yes,status=yes",
+      url
+    );
+  };
+
   return (
     <>
+      {share ? (
+        <Dialog
+          open={open}
+          // TransitionComponent={Transition}
+          width={1000}
+          keepMounted
+          onClose={handleClose}
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle>
+            <ul
+              style={{
+                listStyle: "none",
+                display: "flex",
+                flexWrap: "wrap",
+                padding: 0,
+              }}
+            >
+              <li>
+                <Button
+                  style={{
+                    padding: 0,
+                    border: "none",
+                    background: "none",
+                  }}
+                  onClick={(event) => {
+                    if (event.type === "click") {
+                      window.open(`whatsapp://send?text=${sharingUrl}`);
+                    }
+                  }}
+                >
+                  <Image
+                    width={40}
+                    height={40}
+                    src="/images/socialMedia/whatsapp.svg"
+                    alt="WhatsApp"
+                  />
+                </Button>
+              </li>
+            </ul>
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              <Button
+                className="copiedText"
+                style={{
+                  padding: 0,
+                  border: "none",
+                  background: "none",
+                  width: 500,
+                }}
+                onClick={(event) => {
+                  if (event.type === "click") {
+                    const copyText = navigator.clipboard.writeText(sharingUrl);
+
+                    if (copyText) {
+                      console.log(copyText);
+                    }
+                  }
+                }}
+              >
+                <div className="input-group">
+                  <input
+                    className="form-control"
+                    value={sharingUrl}
+                    disabled
+                    style={{
+                      color: "#5f5f5f",
+                    }}
+                  />
+                  <div className="input-group-text">
+                    <span>
+                      <Image
+                        width={20}
+                        height={20}
+                        src={`/images/commonIcons/copy.svg`}
+                        alt="Copy"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </Button>
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Close</Button>
+          </DialogActions>
+        </Dialog>
+      ) : (
+        <></>
+      )}
       {data == undefined ? (
         <Box
           sx={{
@@ -176,12 +305,36 @@ const FeaturedListings = ({
                 <div className="list-meta2 d-flex justify-content-between align-items-center">
                   <span className="for-what">For Rent</span>
                   <div className="icons d-flex align-items-center">
-                    <a href="#" className="bg-theme">
-                      <span className="flaticon-fullscreen paragraph-theme" />
-                    </a>
-                    <a href="#" className="bg-theme">
-                      <span className="flaticon-new-tab paragraph-theme" />
-                    </a>
+                    <Tooltip title="Share">
+                      <a
+                        href="#"
+                        className="bg-theme"
+                        onClick={(event) =>
+                          openSharBtn(
+                            event,
+                            "https://toprealtorsdubai.com/property-details/?prop_id=" +
+                              listing.prop_id
+                          )
+                        }
+                      >
+                        <span className="flaticon-share-1 paragraph-theme" />
+                      </a>
+                    </Tooltip>
+                    <Tooltip title="Open In New Tab">
+                      <a
+                        href="#"
+                        className="bg-theme"
+                        onClick={(event) =>
+                          openNewWindow(
+                            event,
+                            "https://toprealtorsdubai.com/property-details/?prop_id=" +
+                              listing.prop_id
+                          )
+                        }
+                      >
+                        <span className="flaticon-new-tab paragraph-theme" />
+                      </a>
+                    </Tooltip>
                     {/* <a href="#" className="bg-theme">
                       <span className="flaticon-like paragraph-theme" />
                     </a> */}
