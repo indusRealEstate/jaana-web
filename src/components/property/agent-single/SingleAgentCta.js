@@ -44,7 +44,7 @@ const SingleAgentCta = () => {
 							<i className='flaticon-call pe-1' />
 							{agentDetails.mobile_no}
 						</a>
-						<a className='text fz15 pe-2 ps-2 bdrr1 paragraph-theme' href=''>
+						<a className='text fz15 pe-2 ps-2 bdrr1 paragraph-theme' href='mailto:jaana.markkanen@indusre.ae&body=Hello!'>
 							<i className='flaticon-email pe-1' />
 							{agentDetails.email}
 						</a>
