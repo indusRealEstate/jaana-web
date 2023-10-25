@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { DetailPageContactForm1 } from "@/api/properties";
 import {
   Button,
@@ -17,29 +17,29 @@ import { useState } from "react";
 const ScheduleForm = ({ contactform }) => {
   //console.log(contactform.prop_id);
 
-  const onlyEmail = /^((\w+\.)*\w+)@(\w+\.)+(\w)/
-	const onlyText = /^[a-zA-Z ]*$/
-	const onlyContactNumber = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g
-	const [ValidName, setValidName] = useState(true)
-	const [ValidEmail, setValidEmail] = useState(true)
-	const [ValidPhone, setValidPhone] = useState(true)
-  const [ValidMsg, setValidMsg] = useState(true)
-	const [alertMsg, setAlertMsg] = useState([])
-	const [alertTitle, setAlertTitle] = useState([])
-	const [alertSeverity, setAlertSeverity] = useState([])
-	const [error, setError] = useState(false)
-	const [formSubmit, setFormSubmit] = useState(false)
-	const [messageEmpty, setMessageEmpty] = useState(false)
-	const [responsData, setRespons] = useState(false)
-	const theme = useTheme()
-	const fullScreen = useMediaQuery(theme.breakpoints.down("md"))
-	const [open, setOpen] = useState(false)
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		phone: "",
-		message: "",
-	})
+  const onlyEmail = /^((\w+\.)*\w+)@(\w+\.)+(\w)/;
+  const onlyText = /^[a-zA-Z ]*$/;
+  const onlyContactNumber = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
+  const [ValidName, setValidName] = useState(true);
+  const [ValidEmail, setValidEmail] = useState(true);
+  const [ValidPhone, setValidPhone] = useState(true);
+  const [ValidMsg, setValidMsg] = useState(true);
+  const [alertMsg, setAlertMsg] = useState([]);
+  const [alertTitle, setAlertTitle] = useState([]);
+  const [alertSeverity, setAlertSeverity] = useState([]);
+  const [error, setError] = useState(false);
+  const [formSubmit, setFormSubmit] = useState(false);
+  const [messageEmpty, setMessageEmpty] = useState(false);
+  const [responsData, setRespons] = useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const [open, setOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -87,34 +87,26 @@ const ScheduleForm = ({ contactform }) => {
           setError(true);
           // setMessageEmpty(true);
           throw new Error("Fill the message");
-        }
-        else if (!formData.message.match(onlyText)) {
+        } else if (!formData.message.match(onlyText)) {
           setError(true);
           setValidMsg(false);
           setMessageEmpty(false);
           throw new Error("Fill the correct Message");
         } else {
-           setMessageEmpty(false);
-          setValidMsg(false)
+          setMessageEmpty(false);
+          setValidMsg(false);
           setError(false);
-          console.log("no error");
-          console.log(formData);
-          DetailPageContactForm1(formData).then((res) => {
-            console.log(res.data);
-
-            if (res.data === true) {
-              setRespons(true);
-              setFormData({
-                name: "",
-                email: "",
-                phone: "",
-                message: "",
-              });
-              setFormSubmit(false);
-              document.getElementById("form").reset();
-              handleClickOpen();
-            }
+          setRespons(true);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
           });
+          setFormSubmit(false);
+          document.getElementById("form").reset();
+          handleClickOpen();
+          await DetailPageContactForm1(formData);
         }
       } catch (error) {
         console.log("Error occur " + error.message);
@@ -172,7 +164,7 @@ const ScheduleForm = ({ contactform }) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Name"
+                placeholder="Your Name"
                 required
                 onChange={(event) => {
                   setFormData({ ...formData, name: event.target.value });
@@ -187,7 +179,7 @@ const ScheduleForm = ({ contactform }) => {
               <input
                 type="email"
                 className="form-control"
-                placeholder="ibthemes21@gmail.com"
+                placeholder="Your Mail"
                 required
                 onChange={(event) => {
                   setFormData({ ...formData, email: event.target.value });
@@ -202,7 +194,7 @@ const ScheduleForm = ({ contactform }) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter your phone"
+                placeholder="Your phone"
                 required
                 onChange={(event) => {
                   setFormData({ ...formData, phone: event.target.value });
@@ -217,7 +209,7 @@ const ScheduleForm = ({ contactform }) => {
               <textarea
                 cols={30}
                 rows={4}
-                placeholder="Hello, I am interested in [Renovated apartment at last floor]"
+                placeholder="Your Message"
                 defaultValue={""}
                 onChange={(event) => {
                   setFormData({ ...formData, message: event.target.value });

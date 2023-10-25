@@ -83,34 +83,25 @@ const Form = () => {
           setError(true);
           setMessageEmpty(true);
           throw new Error("Fill the message");
-        }
-        else if (!formData.message.match(onlyText)) {
+        } else if (!formData.message.match(onlyText)) {
           setValidMsg(true);
           setError(true);
           setMessageEmpty(true);
           throw new Error("Fill the correct message");
-        }
-         else {
+        } else {
           setMessageEmpty(false);
           setError(false);
-          console.log("no error");
-          console.log(formData);
-          submitForm(formData).then((res) => {
-            console.log(res.data);
-
-            if (res.data === true) {
-              setRespons(true);
-              setFormData({
-                first_name: "",
-                last_name: "",
-                email: "",
-                message: "",
-              });
-              setFormSubmit(false);
-              document.getElementById("form").reset();
-              handleClickOpen();
-            }
+          setRespons(true);
+          setFormData({
+            first_name: "",
+            last_name: "",
+            email: "",
+            message: "",
           });
+          setFormSubmit(false);
+          document.getElementById("form").reset();
+          handleClickOpen();
+          await submitForm(formData);
         }
       } catch (error) {
         console.log("Error occur " + error.message);

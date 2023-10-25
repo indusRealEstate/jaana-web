@@ -147,9 +147,9 @@ const AgentDetails = () => {
                 </h4>
                 <FormContact />
               </div>
-              <div className="agen-personal-info position-relative bgc-white default-box-shadow1 bdrs12 p30 mt30 bg-theme2">
+              {/* <div className="agen-personal-info position-relative bgc-white default-box-shadow1 bdrs12 p30 mt30 bg-theme2">
                 <ProfessionalInfo />
-              </div>
+              </div> */}
             </div>
             {/* End .col-lg-4 */}
           </div>
