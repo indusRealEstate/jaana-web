@@ -137,24 +137,37 @@ const PropertyDetailsPage = () => {
                   </div> */}
                   {/* End .ps-widget */}
 
-                  <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-                    <h4 className="title fz17 mb30 title-theme">Floor Plans</h4>
-                    <div className="row">
-                      <div className="col-md-12">
-                        <div className="accordion-style1 style2">
-                          <FloorPlans floorplanImage={data.floorplan} />
+                  {/* End .ps-widget */}
+                  {data.floorplan != "" ? (
+                    <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+                      <h4 className="title fz17 mb30 title-theme">
+                        Floor Plans
+                      </h4>
+                      <div className="row">
+                        <div className="col-md-12">
+                          <div className="accordion-style1 style2">
+                            <FloorPlans floorplanImage={data.floorplan} />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  {/* End .ps-widget */}
-
-                  <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 ">
-                    <h4 className="title fz17 mb30 title-theme">Video</h4>
-                    <div className="row">
-                      <PropertyVideo />
+                  ) : (
+                    <></>
+                  )}
+                  {data.video != "" ? (
+                    <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 ">
+                      <h4 className="title fz17 mb30 title-theme">Video</h4>
+                      <div className="row">
+                        <PropertyVideo
+                          videoId={data.video}
+                          imgs={data.images}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <></>
+                  )}
+
                   {/* End .ps-widget */}
 
                   {/* <div className="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
